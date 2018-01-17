@@ -3,6 +3,7 @@
 }
 body{
 	background-color: #E1EFF6;
+  letter-spacing: .25px;
 
 
 }
@@ -15,23 +16,62 @@ body{
 }
 
 h1 {
+  font-size: 30px;
 
+
+}
+h2 {
+  font-size: 25px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+#logo {
+  background-color: #558B6E;
+  font-size: 35px;
 }
 #hostConfigLink {
 	background-color: #19647E;
+  font-size: 35px;
 
 }
 #guestConfigLink {
 	background-color: #F49E4C;
+  font-size: 35px;
 
 }
 #menuLink {
 	background-color: #AB3428;
+  font-size: 35px;
 
 }
 nav{
 	margin:auto; 
 }
+#theme {
+  word-spacing: .25px;
+}
+
+#addressForm {
+  margin: 0;
+  font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #919aa1;
+  text-align: left;
+  background-color: transparent;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  font-family: inherit;
+
+}
+.form-group {
+  word-spacing: .25px;
+}
+
 /*!
  * Bootswatch v4.0.0-beta.3
  * Homepage: https://bootswatch.com
@@ -91,6 +131,11 @@ html {
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: transparent;
+
+  /*  !!!!!!!!!!!!!!!!!!!!!!!!!!  Start Local CSS  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  */
+
+  
+    /* !!!!!!!!!!!!!!!!!!!!!!!!!!!! End Local CSS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 }
 
 @-ms-viewport {
