@@ -1,11 +1,4 @@
-$(document).on('click', '.trigger', function(event) {
-    event.preventDefault();
-    // $('#modal').iziModal('setZindex', 99999);
-    // $('#modal').iziModal('open', { zindex: 99999 });
-    $('#modal').iziModal('open');
-});
-
-//temp Initialize database until Joe's is ready to launch.
+//Initialize Firebase
 var config = {
     apiKey: "AIzaSyDzdxqnOhqs4axrlP42yaKilGnI4wNq_Zs",
     authDomain: "mytempdba.firebaseapp.com",
