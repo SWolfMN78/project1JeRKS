@@ -1,3 +1,10 @@
+$(document).on('click', '.trigger', function(event) {
+    event.preventDefault();
+    // $('#modal').iziModal('setZindex', 99999);
+    // $('#modal').iziModal('open', { zindex: 99999 });
+    $('#modal').iziModal('open');
+});
+
 //temp Initialize database until Joe's is ready to launch.
 var config = {
     apiKey: "AIzaSyDzdxqnOhqs4axrlP42yaKilGnI4wNq_Zs",
@@ -25,4 +32,29 @@ $("#iSubmitBtn").on("click", function(event) {
     var hAddLine2 = $("#address-line2").val().trim();
     var hCity = $("#city").val().trim();
     var hRegion = $("#city").val().trim();
+    var hzip = $().val().trim();
+    // NOTE: Dropdown variables will be needed.
+
+    //information to be pressed into the database.
+    var newEntry = {
+        name: hFullName,
+        addy1: hAddLine1,
+        addy2: hAddLine2,
+        city: hCity,
+        zip: hzip,
+    };
+
+    //push the information up to the database.
+    database.ref().push(newEntry);
+
+    //push the information to the console for verification.
+    console.log(newEntry.name);
+    console.log(newEntry.addy1);
+    console.log(newEntry.addy2);
+    console.log(newEntry.hCity);
+    console.log(newEntry.city);
+    console.log(newEntry.zip);
+
+    //Clear the information from the screen
+
 });
