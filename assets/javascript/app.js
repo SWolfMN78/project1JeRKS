@@ -1,4 +1,4 @@
-//Initialize Firebase
+//Initialize Firebase - group databse.
 var config = {
     apiKey: "AIzaSyDzdxqnOhqs4axrlP42yaKilGnI4wNq_Zs",
     authDomain: "mytempdba.firebaseapp.com",
@@ -24,8 +24,8 @@ $("#iSubmitBtn").on("click", function(event) {
     var hAddLine1 = $("#address-line1").val().trim();
     var hAddLine2 = $("#address-line2").val().trim();
     var hCity = $("#city").val().trim();
-    var hRegion = $("#city").val().trim();
-    var hzip = $().val().trim();
+    var hRegion = $("#region").val().trim();
+    var hzip = $("#postal-code").val().trim();
     // NOTE: Dropdown variables will be needed.
 
     //information to be pressed into the database.
@@ -34,7 +34,8 @@ $("#iSubmitBtn").on("click", function(event) {
         addy1: hAddLine1,
         addy2: hAddLine2,
         city: hCity,
-        zip: hzip,
+        region: hRegion,
+        zip: hzip
     };
 
     //push the information up to the database.
@@ -49,5 +50,8 @@ $("#iSubmitBtn").on("click", function(event) {
     console.log(newEntry.zip);
 
     //Clear the information from the screen
+    alert("Added!");
 
+    //clear the info
+    $("#full-name").val("");
 });
