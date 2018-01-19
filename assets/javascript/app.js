@@ -54,4 +54,10 @@ $("#iSubmitBtn").on("click", function(event) {
 
     //clear the info
     $("#full-name").val("");
+    $("#address-line1").val("");
+    $("#address-line2").val("");
+    $("#city").val("");
+    $("#region").val("");
+    $("#postal-code").val("");
+
 });
