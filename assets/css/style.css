@@ -1,13 +1,49 @@
+
+
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,600");
+:root {
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #d9534f;
+  --orange: #fd7e14;
+  --yellow: #f0ad4e;
+  --green: #4BBF73;
+  --teal: #20c997;
+  --cyan: #1F9BCF;
+  --white: #fff;
+  --gray: #919aa1;
+  --gray-dark: #343a40;
+  --primary: #1a1a1a;
+  --secondary: #fff;
+  --success: #4BBF73;
+  --info: #1F9BCF;
+  --warning: #f0ad4e;
+  --danger: #d9534f;
+  --light: #fff;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
 * {
 	box-sizing: border-box;
 }
 body{
-	background-color: #E1EFF6;
+	background-color: #cfd2d6;
   letter-spacing: .25px;
+  font-family:"Nunito Sans"; 
 
 
 }
 .container {
+
 
 }
 
@@ -30,28 +66,28 @@ h3 {
 
 #logo {
   background-color: #558B6E;
-  font-size: 35px;
+  font-size: 45px;
 }
 #hostConfigLink {
 	background-color: #19647E;
-  font-size: 35px;
+  font-size: 45px;
 
 }
 #guestConfigLink {
 	background-color: #F49E4C;
-  font-size: 35px;
+  font-size: 45px;
 
 }
 #menuLink {
 	background-color: #AB3428;
-  font-size: 35px;
+  font-size: 45px;
 
 }
 nav{
 	margin:auto; 
 }
 #theme {
-  word-spacing: .25px;
+
 }
 
 #addressForm {
@@ -71,6 +107,13 @@ nav{
 .form-group {
   word-spacing: .25px;
 }
+.container page-header {
+
+  font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+#welcomeTitle {
+  letter-spacing: .5px;
+}
 
 /*!
  * Bootswatch v4.0.0-beta.3
@@ -84,7 +127,7 @@ nav{
  * Copyright 2011-2017 The Bootstrap Authors
  * Copyright 2011-2017 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+ 
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,600");
 :root {
   --blue: #007bff;
@@ -132,11 +175,7 @@ html {
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: transparent;
 
-  /*  !!!!!!!!!!!!!!!!!!!!!!!!!!  Start Local CSS  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  */
-
   
-    /* !!!!!!!!!!!!!!!!!!!!!!!!!!!! End Local CSS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-}
 
 @-ms-viewport {
   width: device-width;
@@ -9144,3 +9183,4 @@ th {
 .card-title, .card-header {
   color: inherit;
 }
+*/
