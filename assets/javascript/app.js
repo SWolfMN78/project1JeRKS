@@ -39,7 +39,7 @@ $("#iSubmitBtn").on("click", function(event) {
     };
 
     //push the information up to the database.
-    database.ref().push(newEntry);
+    database.ref("Events").push(newEntry);
 
     //push the information to the console for verification.
     console.log(newEntry.name);
@@ -60,4 +60,69 @@ $("#iSubmitBtn").on("click", function(event) {
     $("#region").val("");
     $("#postal-code").val("");
 
+    $("#initial-form").hide()
+    $("#guests-email-form").show();
 });
+
+
+function getLastFromList(ref, cb) {
+  ref.limitToLast(1).once("child_added", function (snapshot) {
+    cb(snapshot.val());
+  });
+}
+
+
+$("#add-guest").on('click', function(event) {
+    event.preventDefault();
+    let email = $("#new-guest-email").val().trim()
+    if (email.match("[a-zA-Z]+.*@.*[a-zA-Z]+.*[.][a-zA-Z]+")) {
+        $("#added-guests ul").append($("<li>").text(email).val(email))
+        $("#new-guest-email").val("");
+
+    }
+
+    else {
+        // should display an error. However, right now, just console.log
+        console.log("email address does not appear to be valid.")
+    }
+})
+
+$("#iSubmitGuests").on("click", function(event) {
+    event.preventDefault();
+    //get all email adddresses submitted.
+    let emails = [];
+    $("#added-guests ul li").each(function(index) {
+        console.log($(this).text())
+        let email = $(this).text();
+
+        emails.push($(this).text())
+    })
+    console.log(emails)
+    database.ref("Events").limitToLast(1).once("child_added", function(snapshot) {
+        let key = snapshot.key;
+        database.ref("Events").child(key).update({
+            guestEmails: emails
+        });
+        let emailInfo = {
+            sender: "seml0021@umn.edu",
+            to: emails,
+            messageType: "invite"
+
+        }
+        let email = new Email(emailInfo);
+        email.send(function(data) {
+            console.log("success sending emails!");
+            $("#guests-email-form").hide();
+            $("#guests-email-result").show()
+            $("guests-email-result h1").text("Invitiations sent successfully!")
+        }, function(error) {
+            console.log("error sending emails")
+            $("#guests-email-form").hide();
+            $("#guests-email-result").show()
+            $("guests-email-result h1").text("Error while trying to send emails!")
+
+        });
+    })
+})
+
+$("#guests-email-form").hide();
