@@ -10,15 +10,17 @@
         <!--Bootswatch-->
         <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.3/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-XI0PIujkSZEzZ5m8WTEm+krRuIpfO+vHrEznaIrhTAkbrbIvfs11kzCqUarPR7yn" crossorigin="anonymous"/>
         <!-- Link to my jQuery information -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- Firebase database script below -->
         <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
         <!-- Popper.js -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min.js"></script>
         <!-- Bootstrap JS file -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Moment link for time use **NOT IN USE YET **-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.js"></script>
+    <!--google fonts -->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nunito+Sans">
     </head>
     <body>
         <div class="container page-header">
@@ -62,94 +64,62 @@
                 </div>
             </div>
         </div>
-        <div class="main-container" id="initial-form">
-            <h3 id="theme">
-                Choose your party theme.
-            </h3>
+<div class="container">
+    <h3 id="theme">Choose your party theme.</h3>
             <div class="input-group mb-3" id="themeDropdown">
                 <div class="input-group-prepend dropdown">
                     <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Theme
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">
-                            Italian
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            Cajun
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            Game Day
-                        </a>
-                        <div role="separator" class="dropdown-divider">
-                        </div>
-                        <a class="dropdown-item" href="#">
-                            Separated link
-                        </a>
-                    </div>
-                </div>
-                <input type="text" class="form-control" aria-label="Text input with dropdown button"/>
+                <a class="dropdown-item" href="#">Italian</a>
+                <a class="dropdown-item" href="#">Cajun</a>
+                <a class="dropdown-item" href="#">Game Day</a>
+                <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+        </div>
+        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Courses
                         </button>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">
-                                Appetizer
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                Cocktails
-                            </a>
-                            <a class="dropdown-item" href="#">
-                            </a>
-                            <div role="separator" class="dropdown-divider">
-                            </div>
-                            <a class="dropdown-item" href="#">
-                                Separated link
-                            </a>
-                        </div>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Text input with dropdown button"/>
+                    <a class="dropdown-item" href="#">Appetizer</a>
+                    <a class="dropdown-item" href="#">Cocktails</a>
+                    <a class="dropdown-item" href="#"></a>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                </div>
+            </div>
+            <input type="text" class="form-control" aria-label="Text input with dropdown button">
+
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Number of Courses
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">
-                                    Italian
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    Cajun
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    Game Day
-                                </a>
-                                <div role="separator" class="dropdown-divider">
-                                </div>
-                                <a class="dropdown-item" href="#">
-                                    Separated link
-                                </a>
-                            </div>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Text input with dropdown button"/>
+
+                        <a class="dropdown-item" href="#">Italian</a>
+                        <a class="dropdown-item" href="#">Cajun</a>
+                        <a class="dropdown-item" href="#">Game Day</a>
+                        <a class="dropdown-item" href="#">Separated link</a>
+                    </div>
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Dress
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">
-                                        Casual
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        Formal
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        Game Day
-                                    </a>
-                                    <div role="separator" class="dropdown-divider">
+
+                            <a class="dropdown-item" href="#">Casual</a>
+                            <a class="dropdown-item" href="#">Formal</a>
+                            <a class="dropdown-item" href="#">Game Day</a>
+                            <a class="dropdown-item" href="#">Separated link</a>
                                     </div>
                                     <a class="dropdown-item" href="#">
                                         Separated link
@@ -256,11 +226,10 @@
                     </div>
                 </div>
             </div>
-        </div>
 
 
         <div class="main-container" id="guests-email-form">
-            <div class="input-group mb-3" id="themeDropdown">
+            <div class="input-group mb-3" id="themeDropdown1">
                 <div class="input-group mb-3">
                     <div class="input-group mb-3">
                         <div class="main-container">
@@ -272,7 +241,7 @@
                                 </div>
                             </div>
                             <!--Address Form -->
-                            <div class="container" id="addressForm">
+                            <div class="container" id="guestsForm">
                                 <div class="row">
                                     <form class="form-horizontal">
                                         <fieldset>
@@ -313,14 +282,13 @@
 
 
         <div class="main-container" id="guests-email-result">
-            <div class="input-group mb-3" id="themeDropdown">
+            <div class="input-group mb-3" id="themeDropdown2">
                 <div class="input-group mb-3">
                     <div class="input-group mb-3">
                         <div class="main-container">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <h1 >
-
+                                    <h1>&nbsp;
                                     </h1>
                                 </div>
                             </div>
@@ -331,9 +299,9 @@
         </div>
         <!-- Link access the reset.css flie -->
         <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
-        <!-- Link for Javascripting information - This is also where my jQuery info is stored-->
-        <script type="text/javascript" src="assets/javascript/app.js"></script>
-        <script type="text/javascript" src="assets/javascript/email.js"></script>
+        <script src="assets/javascript/app.js"></script>
+        <script src="assets/javascript/email.js"></script>
+
         <!-- Link access to the style.css file - if any would be applied. -->
         <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
     </body>
