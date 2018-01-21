@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -219,6 +220,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 <div class="main-container" id="guests-email-form">
@@ -264,6 +266,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 <div class="main-container" id="guests-email-result">
@@ -276,18 +279,35 @@
                             <h1>
                                 &nbsp;
                             </h1>
+
+
+        <div id="guests-email-result" class="iziModal-header iziModal-noSubtitle" style="background: rgb(0, 175, 102); padding-right: 40px; top: none">
+            <i class="iziModal-header-icon icon-check">
+            </i>
+            <div class="iziModal-progressbar">
+                <div style="background-color: rgba(255, 255, 255, 0.5); width: 0%;">
+
                         </div>
                     </div>
+            <div class="iziModal-header-title" style="font-size: 1; line-height: 4; margin-left: 1em">
+                Your messages have been sent successfully!
                 </div>
+            <p class="iziModal-header-subtitle">
+            </p>
+            <div class="iziModal-header-buttons">
+                <a href="javascript:void(0)" class="iziModal-button iziModal-button-close" data-izimodal-close="">
+                </a>
             </div>
         </div>
-    </div>
-</div>
-<!-- Link access the reset.css flie -->
-<link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
-<script src="assets/javascript/app.js"></script>
-<script src="assets/javascript/email.js"></script>
-<!-- Link access to the style.css file - if any would be applied. -->
-<link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
-</body>
+
+        <!-- Link access the reset.css file -->
+        <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
+
+        <!-- Our Email class library for interacting with smtp2g.com api (email.js) and main app (app.js) -->
+        <script  src="assets/javascript/email.js"></script>
+        <script  src="assets/javascript/app.js"></script>
+        <!-- Link access to the style.css file - if any would be applied. -->
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+    </body>
+
 </html>
