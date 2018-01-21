@@ -17,8 +17,16 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Moment link for time use **NOT IN USE YET **-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.js"></script>
+
         <!--google fonts -->
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nunito+Sans"/>
+
+
+        <!-- our modal library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css" integrity="sha384-twsqDCMYZktKK4KMv8cXDnLhBCVchPMuxLKKh1azoa3vn5nKRF/8PK4GmIgD0JaW" crossorigin="anonymous"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js" integrity="sha384-OCBM5wbr9X4XRMO0UcgNtJrfDZz4bo4c6PDZrxVN8zLSn6/B0CKZ/RUBRDDVqgt4" crossorigin="anonymous"></script>
+
+
     </head>
     <body>
         <div class="container page-header">
@@ -182,7 +190,9 @@
                 </div>
             </div>
         </div>
-        <div class="main-container" id="guests-email-form">
+
+
+        <div class="main-container" id="guests-email-form" data-iziModal-title="Add Guests">
             <div class="input-group mb-3" id="themeDropdown1">
                 <div class="input-group mb-3">
                     <div class="input-group mb-3">
@@ -207,7 +217,9 @@
                                                 <label class="control-label">Guest</label>
                                                 <div class="controls">
                                                     <input id="new-guest-email" type="email" placeholder="name@example.com" value="" class="input-xlarge"/>
-                                                    <span class="btn btn-info btn-sm" id="add-guest">Add</span>
+                                                    <span class="btn btn-info btn-sm" id="add-guest">
+                                                        Add
+                                                    </span>
                                                 </div>
                                             </div>
                                         </fieldset>
@@ -227,27 +239,30 @@
                 </div>
             </div>
         </div>
-        <div class="main-container" id="guests-email-result">
-            <div class="input-group mb-3" id="themeDropdown2">
-                <div class="input-group mb-3">
-                    <div class="input-group mb-3">
-                        <div class="main-container">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <h1>
-                                        &nbsp;
-                                    </h1>
-                                </div>
-                            </div>
+
+        <div id="guests-email-result" class="iziModal-header iziModal-noSubtitle" style="background: rgb(0, 175, 102); padding-right: 40px; top: none">
+            <i class="iziModal-header-icon icon-check">
+            </i>
+            <div class="iziModal-progressbar">
+                <div style="background-color: rgba(255, 255, 255, 0.5); width: 0%;">
                         </div>
                     </div>
+            <div class="iziModal-header-title" style="font-size: 1; line-height: 4; margin-left: 1em">
+                Your messages have been sent successfully!
                 </div>
+            <p class="iziModal-header-subtitle">
+            </p>
+            <div class="iziModal-header-buttons">
+                <a href="javascript:void(0)" class="iziModal-button iziModal-button-close" data-izimodal-close="">
+                </a>
             </div>
         </div>
-        <!-- Link access the reset.css flie -->
+        <!-- Link access the reset.css file -->
         <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
-        <script src="assets/javascript/app.js"></script>
-        <script src="assets/javascript/email.js"></script>
+
+        <!-- Our Email class library for interacting with smtp2g.com api (email.js) and main app (app.js) -->
+        <script  src="assets/javascript/email.js"></script>
+        <script  src="assets/javascript/app.js"></script>
         <!-- Link access to the style.css file - if any would be applied. -->
         <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
     </body>
