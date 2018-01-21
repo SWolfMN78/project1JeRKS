@@ -10,15 +10,17 @@
     <!--Bootswatch-->
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.3/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-XI0PIujkSZEzZ5m8WTEm+krRuIpfO+vHrEznaIrhTAkbrbIvfs11kzCqUarPR7yn" crossorigin="anonymous">
     <!-- Link to my jQuery information -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Firebase database script below -->
     <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
     <!-- Popper.js -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min.js"></script>
     <!-- Bootstrap JS file -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- Moment link for time use **NOT IN USE YET **-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.js"></script>
+    <!--google fonts -->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nunito+Sans">
 
 </head>
 
@@ -44,44 +46,35 @@
     </div>
 
    
-
 <div class="container">
- <table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">Course</th>
-      <th scope="col">Dish</th>
-      <th scope="col">Guest Contributing</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-     <!-- <th scope="row">1</th> -->
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <!-- <th scope="row">2</th> -->
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <!-- <th scope="row">3</th> -->
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+  <div class="card card-primary">
+      <div class="card-primary-heading">
+        <h3 class="card-title"><strong>Menu</strong></h3>
+      </div>
+      <div class="card-body">
+        <table class="table table-hover" id='train-table'>
+          <thead>
+             <tbody>
+              <tr>
+                <td>Course</td>
+                <td>Dish</td>
+                <td>Guest Sharing</td>
+              </tr>
+            </tbody>
+          </thead>  
+        </table>
+      </div>
+  </div>
+</div>
+
+
 
 
 </div>
  <!-- Link access the reset.css flie -->
             <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
             <!-- Link for Javascripting information - This is also where my jQuery info is stored-->
-            <script type="text/javascript" src="assets/javascript/app.js"></script>
+            <script src="assets/javascript/app.js"></script>
             <!-- Link access to the style.css file - if any would be applied. -->
             <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </body>
