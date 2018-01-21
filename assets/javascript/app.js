@@ -85,7 +85,6 @@ $(document).ready(function() {
 
     $("#add-guest").on('click', function(event) {
         event.preventDefault();
-        console.log("detected click");
         var email = $("#new-guest-email").val().trim()
         if (email.match("[a-zA-Z]+.*@.*[a-zA-Z]+.*[.][a-zA-Z]+")) {
             $("#added-guests ul").append($("<li>").text(email).val(email))
@@ -104,12 +103,10 @@ $(document).ready(function() {
         //get all email adddresses submitted.
         var emails = [];
         $("#added-guests ul li").each(function(index) {
-            console.log($(this).text())
+            // get email address from each list item and append to emails array (push onto array)
             var email = $(this).text();
-
-            emails.push($(this).text())
+            emails.push(email)
         })
-        console.log(emails)
         eventData.guestEmails = emails;
         console.log(eventData);
         console.log(eventData.eventID)
@@ -123,7 +120,6 @@ $(document).ready(function() {
             messageType: "invite"
 
         }
-        var email = new Email(emailInfo);
         var successCallback = function(data) {
             console.log("success sending emails!");
             $("#guests-email-result .iziModal-header-title").text("Invitiations sent successfully!")
@@ -133,14 +129,19 @@ $(document).ready(function() {
         }
         var errorCallback = function(error) {
             console.log("error sending emails")
-            $("#guests-email-result p").text("Error while trying to send emails!")
             $("#guests-email-result .iziModal-header-title").text("There was a problem sending your invitations.")
             $("#guests-email-result").iziModal('setBackground', "#bd5b5b");
             $("#guests-email-result").iziModal("open");
             // trigger-alert
 
         }
-        email.send(successCallback, errorCallback)
+        try {
+            var email = new Email(emailInfo);
+            email.send(successCallback, errorCallback)
+        }
+        catch(error) {
+            errorCallback(error);
+        }
     })
 
 
