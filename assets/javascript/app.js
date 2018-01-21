@@ -81,8 +81,6 @@ $(document).ready(function() {
 
     });
 
-
-
     $("#add-guest").on('click', function(event) {
         event.preventDefault();
         var email = $("#new-guest-email").val().trim()
@@ -108,8 +106,6 @@ $(document).ready(function() {
             emails.push(email)
         })
         eventData.guestEmails = emails;
-        console.log(eventData);
-        console.log(eventData.eventID)
         database.ref("Events").child(eventData.eventID).update({
             guestEmails: eventData.guestEmails
         });
@@ -120,6 +116,7 @@ $(document).ready(function() {
             messageType: "invite"
 
         }
+
         var successCallback = function(data) {
             console.log("success sending emails!");
             $("#guests-email-result .iziModal-header-title").text("Invitiations sent successfully!")
@@ -129,6 +126,7 @@ $(document).ready(function() {
         }
         var errorCallback = function(error) {
             console.log("error sending emails")
+            // $("#guests-email-result p").text("Error while trying to send emails!")
             $("#guests-email-result .iziModal-header-title").text("There was a problem sending your invitations.")
             $("#guests-email-result").iziModal('setBackground', "#bd5b5b");
             $("#guests-email-result").iziModal("open");
