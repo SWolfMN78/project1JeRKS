@@ -3,24 +3,22 @@
     <head>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <title>
-            MyShinDig
-        </title>
+        <title>MyShinDig</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <!--Bootswatch-->
         <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.3/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-XI0PIujkSZEzZ5m8WTEm+krRuIpfO+vHrEznaIrhTAkbrbIvfs11kzCqUarPR7yn" crossorigin="anonymous"/>
         <!-- Link to my jQuery information -->
-    <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- Firebase database script below -->
         <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
         <!-- Popper.js -->
-    <script  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min.js"></script>
+        <script  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min.js"></script>
         <!-- Bootstrap JS file -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Moment link for time use **NOT IN USE YET **-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.js"></script>
-    <!--google fonts -->
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nunito+Sans">
+        <!--google fonts -->
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nunito+Sans"/>
     </head>
     <body>
         <div class="container page-header">
@@ -28,21 +26,13 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-8">
-                            <a href="index.html" id="logo">
-                                MyShinDig
-                            </a>
+                            <a href="index.html" id="logo">MyShinDig</a>
                         </div>
                         <div class="col-md-4">
                             <nav>
-                                <a href="hostConfig.html" id="hostConfigLink">
-                                    Host
-                                </a>
-                                <a href="guestConfig.html" id="guestConfigLink">
-                                    Guest
-                                </a>
-                                <a href="menu.html" id="menuLink">
-                                    Menu
-                                </a>
+                                <a href="hostConfig.html" id="hostConfigLink">Host</a>
+                                <a href="guestConfig.html" id="guestConfigLink">Guest</a>
+                                <a href="menu.html" id="menuLink">Menu</a>
                                 <a href="host">
                                 </a>
                             </nav>
@@ -64,170 +54,134 @@
                 </div>
             </div>
         </div>
-<div class="container">
-    <h3 id="theme">Choose your party theme.</h3>
+        <div class="container">
+            <h3 id="theme">Choose your party theme.</h3>
             <div class="input-group mb-3" id="themeDropdown">
                 <div class="input-group-prepend dropdown">
-                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Theme
-                    </button>
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Theme</button>
                     <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Italian</a>
-                <a class="dropdown-item" href="#">Cajun</a>
-                <a class="dropdown-item" href="#">Game Day</a>
-                <a class="dropdown-item" href="#">Separated link</a>
-            </div>
-        </div>
-        <input type="text" class="form-control" aria-label="Text input with dropdown button">
-
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Courses
-                        </button>
-                        <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Appetizer</a>
-                    <a class="dropdown-item" href="#">Cocktails</a>
-                    <a class="dropdown-item" href="#"></a>
-                    <a class="dropdown-item" href="#">Separated link</a>
-                </div>
-            </div>
-            <input type="text" class="form-control" aria-label="Text input with dropdown button">
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Number of Courses
-                            </button>
-                            <div class="dropdown-menu">
-
                         <a class="dropdown-item" href="#">Italian</a>
                         <a class="dropdown-item" href="#">Cajun</a>
                         <a class="dropdown-item" href="#">Game Day</a>
                         <a class="dropdown-item" href="#">Separated link</a>
                     </div>
                 </div>
-                <input type="text" class="form-control" aria-label="Text input with dropdown button">
-
+                <input type="text" class="form-control" aria-label="Text input with dropdown button"/>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Courses</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Appetizer</a>
+                            <a class="dropdown-item" href="#">Cocktails</a>
+                            <a class="dropdown-item" href="#">
+                            </a>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Text input with dropdown button"/>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Number of Courses</button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Italian</a>
+                                <a class="dropdown-item" href="#">Cajun</a>
+                                <a class="dropdown-item" href="#">Game Day</a>
+                                <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Text input with dropdown button"/>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dress
-                                </button>
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dress</button>
                                 <div class="dropdown-menu">
-
-                            <a class="dropdown-item" href="#">Casual</a>
-                            <a class="dropdown-item" href="#">Formal</a>
-                            <a class="dropdown-item" href="#">Game Day</a>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                                    </div>
-                                    <a class="dropdown-item" href="#">
-                                        Separated link
-                                    </a>
+                                    <a class="dropdown-item" href="#">Casual</a>
+                                    <a class="dropdown-item" href="#">Formal</a>
+                                    <a class="dropdown-item" href="#">Game Day</a>
+                                    <a class="dropdown-item" href="#">Separated link</a>
                                 </div>
+                                <a class="dropdown-item" href="#">Separated link</a>
                             </div>
-                            <input type="text" class="form-control" aria-label="Text input with dropdown button"/>
                         </div>
-                        <div class="main-container">
+                        <input type="text" class="form-control" aria-label="Text input with dropdown button"/>
+                    </div>
+                    <div class="main-container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h1>Where's The Party At?</h1>
+                            </div>
+                        </div>
+                        <!--Address Form -->
+                        <div class="container" id="addressForm">
                             <div class="row">
-                                <div class="col-sm-12">
-                                    <h1>
-                                        Where's The Party At?
-                                    </h1>
-                                </div>
+                                <form class="form-horizontal">
+                                    <fieldset>
+                                        <br/>
+                                        <!-- full-name input-->
+                                        <div class="form-group">
+                                            <label class="control-label">Full Name</label>
+                                            <div class="controls">
+                                                <input id="full-name" type="text" placeholder="full name" class="input-xlarge"/>
+                                            </div>
+                                        </div>
+                                        <!-- address-line1 input-->
+                                        <div class="form-group">
+                                            <label class="control-label">Address Line 1</label>
+                                            <div class="controls">
+                                                <input id="address-line1" name="address-line1" type="text" placeholder="address line 1" class="input-xlarge"/>
+                                                <p class="help-block">Street address, P.O. box, company name, c/o</p>
+                                            </div>
+                                        </div>
+                                        <!-- address-line2 input-->
+                                        <div class="form-group">
+                                            <label class="control-label">Address Line 2</label>
+                                            <div class="controls">
+                                                <input id="address-line2" name="address-line2" type="text" placeholder="address line 2" class="input-xlarge"/>
+                                                <p class="help-block">Apartment, suite , unit, building, floor, etc.</p>
+                                            </div>
+                                        </div>
+                                        <!-- city input-->
+                                        <div class="form-group">
+                                            <label class="control-label">City / Town</label>
+                                            <div class="controls">
+                                                <input id="city" name="city" type="text" placeholder="city" class="input-xlarge"/>
+                                                <p class="help-block">
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!-- region input-->
+                                        <div class="form-group">
+                                            <label class="control-label">State / Province / Region</label>
+                                            <div class="controls">
+                                                <input id="region" name="region" type="text" placeholder="state / province / region" class="input-xlarge"/>
+                                                <p class="help-block">
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!-- postal-code input-->
+                                        <div class="form-group">
+                                            <label class="control-label">Zip / Postal Code</label>
+                                            <div class="controls">
+                                                <input id="postal-code" name="postal-code" type="text" placeholder="zip or postal code" class="input-xlarge"/>
+                                                <p class="help-block">
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
                             </div>
-                            <!--Address Form -->
-                            <div class="container" id="addressForm">
-                                <div class="row">
-                                    <form class="form-horizontal">
-                                        <fieldset>
-                                            <br/>
-                                            <!-- full-name input-->
-                                            <div class="form-group">
-                                                <label class="control-label">
-                                                    Full Name
-                                                </label>
-                                                <div class="controls">
-                                                    <input id="full-name" type="text" placeholder="full name" class="input-xlarge"/>
-                                                </div>
-                                            </div>
-                                            <!-- address-line1 input-->
-                                            <div class="form-group">
-                                                <label class="control-label">
-                                                    Address Line 1
-                                                </label>
-                                                <div class="controls">
-                                                    <input id="address-line1" name="address-line1" type="text" placeholder="address line 1" class="input-xlarge"/>
-                                                    <p class="help-block">
-                                                        Street address, P.O. box, company name, c/o
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <!-- address-line2 input-->
-                                            <div class="form-group">
-                                                <label class="control-label">
-                                                    Address Line 2
-                                                </label>
-                                                <div class="controls">
-                                                    <input id="address-line2" name="address-line2" type="text" placeholder="address line 2" class="input-xlarge"/>
-                                                    <p class="help-block">
-                                                        Apartment, suite , unit, building, floor, etc.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <!-- city input-->
-                                            <div class="form-group">
-                                                <label class="control-label">
-                                                    City / Town
-                                                </label>
-                                                <div class="controls">
-                                                    <input id="city" name="city" type="text" placeholder="city" class="input-xlarge"/>
-                                                    <p class="help-block">
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <!-- region input-->
-                                            <div class="form-group">
-                                                <label class="control-label">
-                                                    State / Province / Region
-                                                </label>
-                                                <div class="controls">
-                                                    <input id="region" name="region" type="text" placeholder="state / province / region" class="input-xlarge"/>
-                                                    <p class="help-block">
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <!-- postal-code input-->
-                                            <div class="form-group">
-                                                <label class="control-label">
-                                                    Zip / Postal Code
-                                                </label>
-                                                <div class="controls">
-                                                    <input id="postal-code" name="postal-code" type="text" placeholder="zip or postal code" class="input-xlarge"/>
-                                                    <p class="help-block">
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                    </form>
-                                </div>
-                            </div>
-                            <!--Button to submit invites-->
-                            <div class="container">
-                                <div class="row text-center">
-                                    <div class="col-sm">
-                                        <a class="btn btn-primary" role="button" id="iSubmitBtn">
-                                            Invite Guests
-                                        </a>
-                                    </div>
+                        </div>
+                        <!--Button to submit invites-->
+                        <div class="container">
+                            <div class="row text-center">
+                                <div class="col-sm">
+                                    <a class="btn btn-primary" role="button" id="iSubmitBtn">Invite Guests</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
+        </div>
         <div class="main-container" id="guests-email-form">
             <div class="input-group mb-3" id="themeDropdown1">
                 <div class="input-group mb-3">
@@ -235,9 +189,7 @@
                         <div class="main-container">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <h1>
-                                        Add Guests
-                                    </h1>
+                                    <h1>Add Guests</h1>
                                 </div>
                             </div>
                             <!--Address Form -->
@@ -252,9 +204,7 @@
                                                 </ul>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label">
-                                                    Guest
-                                                </label>
+                                                <label class="control-label">Guest</label>
                                                 <div class="controls">
                                                     <input id="new-guest-email" type="email" placeholder="name@example.com" value="" class="input-xlarge"/>
                                                     <span class="btn btn-info btn-sm" id="add-guest">Add</span>
@@ -268,9 +218,7 @@
                             <div class="container">
                                 <div class="row text-center">
                                     <div class="col-sm">
-                                        <a class="btn btn-primary" role="button" id="iSubmitGuests">
-                                            Submit Guest Emails
-                                        </a>
+                                        <a class="btn btn-primary" role="button" id="iSubmitGuests">Submit Guest Emails</a>
                                     </div>
                                 </div>
                             </div>
@@ -279,8 +227,6 @@
                 </div>
             </div>
         </div>
-
-
         <div class="main-container" id="guests-email-result">
             <div class="input-group mb-3" id="themeDropdown2">
                 <div class="input-group mb-3">
@@ -288,7 +234,8 @@
                         <div class="main-container">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <h1>&nbsp;
+                                    <h1>
+                                        &nbsp;
                                     </h1>
                                 </div>
                             </div>
@@ -301,7 +248,6 @@
         <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
         <script src="assets/javascript/app.js"></script>
         <script src="assets/javascript/email.js"></script>
-
         <!-- Link access to the style.css file - if any would be applied. -->
         <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
     </body>
