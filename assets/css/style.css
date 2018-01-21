@@ -38,7 +38,7 @@
 body{
 	background-color: #cfd2d6;
   letter-spacing: .25px;
-  font-family:"Nunito Sans"; 
+  font-family:"Nunito Sans";
 
 
 }
@@ -83,8 +83,45 @@ h3 {
   font-size: 40px;
 
 }
+
+#user-login-logoff  {
+  background-color: #558B6E;
+  font-size: 40px;
+}
+
+#modal-authenticate {
+  /*max-width: 1000px!important*/
+}
+
+.nav-tabs {
+    margin-bottom: 15px;
+}
+.sign-with {
+    margin-top: 25px;
+    padding: 20px;
+}
+
+
+div#OR {
+    height: 30px;
+    width: 30px;
+    border: 1px solid #C2C2C2;
+    border-radius: 50%;
+    font-weight: bold;
+    line-height: 28px;
+    text-align: center;
+    font-size: 12px;
+    float: right;
+    position: absolute;
+    right: -16px;
+    top: 40%;
+    z-index: 1;
+    background: #DFDFDF;
+}
+
+}
 nav{
-	margin:auto; 
+	margin:auto;
 }
 #theme {
 
@@ -127,7 +164,7 @@ nav{
  * Copyright 2011-2017 The Bootstrap Authors
  * Copyright 2011-2017 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- 
+
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,600");
 :root {
   --blue: #007bff;
@@ -175,7 +212,7 @@ html {
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: transparent;
 
-  
+
 
 @-ms-viewport {
   width: device-width;

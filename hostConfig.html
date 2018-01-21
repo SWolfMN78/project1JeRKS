@@ -5,6 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <title>MyShinDig</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!-- Link access the reset.css file -->
+        <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
+
         <!--Bootswatch-->
         <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.3/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-XI0PIujkSZEzZ5m8WTEm+krRuIpfO+vHrEznaIrhTAkbrbIvfs11kzCqUarPR7yn" crossorigin="anonymous"/>
         <!-- Link to my jQuery information -->
@@ -29,16 +32,17 @@
             <div class="jumbotron">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-6">
                             <a href="index.html" id="logo">MyShinDig</a>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <nav>
                                 <a href="hostConfig.html" id="hostConfigLink">Host</a>
                                 <a href="guestConfig.html" id="guestConfigLink">Guest</a>
                                 <a href="menu.html" id="menuLink">Menu</a>
-                                <a href="host">
-                                </a>
+                                <a href="#" id="user-login-logoff">Login</a>
+                                <!-- <a href="#" data-izimodal-open="#modal-authenticate" data-izimodal-transitionin="fadeInDown">Modal</a> -->
+                                <!-- <a href="host"></a> -->
                             </nav>
                         </div>
                     </div>
@@ -268,8 +272,104 @@
                 </a>
             </div>
         </div>
-        <!-- Link access the reset.css file -->
-        <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
+        <div id="modal-authenticate">
+            <div class="iziModal-wrap" style="height: auto;">
+                <div class="iziModal-content">
+                    <div class="row">
+                        <div class="col-md-7" style="border-right: 1px dotted #C2C2C2;padding-right: 30px;">
+                            <!-- Nav tabs -->
+                            <!-- modified from https://bootsnipp.com/snippets/VElzQ -->
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-login-tab" data-toggle="tab" href="#nav-login" role="tab" aria-controls="nav-login" aria-selected="true">Login</a>
+                                <a class="nav-item nav-link" id="nav-registration-tab" data-toggle="tab" href="#nav-registration" role="tab" aria-controls="nav-registration" aria-selected="false">Registration</a>
+                            </div>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-login" role="tabpanel" aria-labelledby="nav-login-tab">
+                                    <form role="form" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label for="email" class="col-sm-2 control-label">Email</label>
+                                            <div class="col-sm-12">
+                                                <input type="email" class="form-control" id="email1" placeholder="Email"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1" class="col-sm-2 control-label">Password</label>
+                                            <div class="col-sm-12">
+                                                <input type="password" class="form-control" id="passsword1" placeholder="Password"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                            </div>
+                                            <div class="col-sm-10">
+                                                <div type="submit" class="btn btn-primary btn-sm" id="login-user">Submit</div>
+                                                <a href="javascript:;">Forgot your password?</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade" id="nav-registration" role="tabpanel" aria-labelledby="nav-registration-tab">
+                                    <form role="form" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label for="name" class="col-sm-2 control-label">Name</label>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="name-input" placeholder="Name"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email" class="col-sm-2 control-label">Email</label>
+                                            <div class="col-sm-12">
+                                                <input type="email" class="form-control" id="email" placeholder="Email"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password" class="col-sm-2 control-label">Password</label>
+                                            <div class="col-sm-12">
+                                                <input type="password" class="form-control" id="password" placeholder="Password (6-character minimum)"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password-confirm" class="col-sm-2 control-label">Confirm</label>
+                                            <div class="col-sm-12">
+                                                <input type="password" class="form-control" id="password-confirm" placeholder="Confirm Password"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                            </div>
+                                            <div class="col-sm-10">
+                                                <div type="button" class="btn btn-primary btn-sm" id="register-user">Save & Continue</div>
+                                                <div type="button" class="btn btn-default btn-sm">Cancel</div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div id="OR" class="hidden-xs">OR</div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="row text-center sign-with">
+                                <div class="col-md-12">
+                                    <h3>Sign in with</h3>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="btn-group btn-group-justified">
+                                        <div class="row">
+                                            <a href="#" class="btn btn-primary">Facebook</a>
+                                        </div>
+                                        <div class="row">
+                                            <a href="#" class="btn btn-danger">Google</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <!-- Our Email class library for interacting with smtp2g.com api (email.js) and main app (app.js) -->
         <script  src="assets/javascript/email.js"></script>
         <script  src="assets/javascript/app.js"></script>
