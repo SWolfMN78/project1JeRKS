@@ -144,30 +144,31 @@ var logoutCallback = function() {
     $("#alert-modal").iziModal("open");
 }
 
-function isValid(validChkr) {
-    //controls to insure that information is entered and not blank strings
-    var hFullName = $("#full-name").val().trim();
-    var hAddLine1 = $("#address-line1").val().trim();
-    var hAddLine2 = $("#address-line2").val().trim();
-    var hCity = $("#city").val().trim();
-    var hRegion = $("#region").val().trim();
-    var hzip = $("#postal-code").val().trim();
-    var hTheme = $("#inputGroupSelect01 option:selected").val().trim();
-    var hCourse = $("#inputGroupSelect02 option:selected").val().trim();
-    var hCourseAmounts = $("#inputGroupSelect03 option:selected").val().trim();
-    var hEventAttire = $("#inputGroupSelect04 option:selected").val().trim();
+/* Attempted validator for insuring user fields are filled. */
+// function isValid(validChkr) {
+//     //controls to insure that information is entered and not blank strings
+//     var hFullName = $("#full-name").val().trim();
+//     var hAddLine1 = $("#address-line1").val().trim();
+//     var hAddLine2 = $("#address-line2").val().trim();
+//     var hCity = $("#city").val().trim();
+//     var hRegion = $("#region").val().trim();
+//     var hzip = $("#postal-code").val().trim();
+//     var hTheme = $("#inputGroupSelect01 option:selected").val().trim();
+//     var hCourse = $("#inputGroupSelect02 option:selected").val().trim();
+//     var hCourseAmounts = $("#inputGroupSelect03 option:selected").val().trim();
+//     var hEventAttire = $("#inputGroupSelect04 option:selected").val().trim();
 
-    //return an element of false 
-    if (hFullName === "" || hAddLine1 === "" ||
-        hAddLine2 === "" || hCity === "" || hRegion === "") {
-        return false;
-    }
+//     //return an element of false 
+//     if (hFullName === "" || hAddLine1 === "" ||
+//         hAddLine2 === "" || hCity === "" || hRegion === "") {
+//         return false;
+//     };
 
-    if (hTheme === 0 || hCourse === 0 ||
-        hCourseAmounts === 0 || hEventAttire === 0) {
-        return false;
-    }
-}
+//     if (hTheme === 0 || hCourse === 0 ||
+//         hCourseAmounts === 0 || hEventAttire === 0) {
+//         return false;
+//     };
+// }
 
 $(document).ready(function() {
 
@@ -198,10 +199,11 @@ $(document).ready(function() {
     $("#iSubmitBtn").on("click", function(event) {
         event.preventDefault();
 
-        isValid();
-        if (isValid === false) {
-            alert("Please be sure to fill all fields");
-        }
+        /* Trying to get a validator to insure that the user fields are filled. */
+        // isValid();
+        // if (isValid === false) {
+        //     alert("Please be sure to fill all fields");
+        // }
 
         //pull the information from the host page to be used
         var hFullName = $("#full-name").val().trim();
