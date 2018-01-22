@@ -174,6 +174,10 @@ $(document).ready(function() {
         var hCity = $("#city").val().trim();
         var hRegion = $("#region").val().trim();
         var hzip = $("#postal-code").val().trim();
+        var hTheme = $("#inputGroupSelect01").val().trim();
+        var hCourse = $("#inputGroupSelect02").val().trim();
+        var hCourseAmounts = Number.parseInt($("#inputGroupSelect03").val().trim());
+        var hEventAttire = $("#inputGroupSelect04").val().trim();
         // NOTE: Dropdown variables will be needed.
 
         //information to be pressed into the database.
@@ -183,8 +187,19 @@ $(document).ready(function() {
             addy2: hAddLine2,
             city: hCity,
             region: hRegion,
-            zip: hzip
+            zip: hzip,
+            theme: hTheme,
+            course: hCourse,
+            courseAmounts: hCourseAmounts,
+            eventAttire: hEventAttire
         };
+        // if user is logged in, add user id, user name
+        var currentUser = firebase.auth().currentUser;
+        if (!currentUser) {
+            newEntry.userName = currentUser.displayName;
+            newEntry.userID = currentUser.uid;
+        }
+
 
         //push the information up to the database.
         var eventSnapshot = database.ref("Events").push(newEntry);
