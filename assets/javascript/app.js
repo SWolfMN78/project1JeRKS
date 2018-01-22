@@ -350,7 +350,7 @@ $(document).ready(function() {
         event.preventDefault();
         // var displayName = $("#name-input").val().trim();
         var email = $("#email1").val().trim();
-        var password = $("#passsword1").val().trim();
+        var password = $("#password1").val().trim();
 
         // check that displayname has characters, email address
         // note that the email regular expression is not really very thorough.
