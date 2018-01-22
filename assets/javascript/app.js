@@ -13,12 +13,62 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 
+function fillInMenuTable(user) {
+    // right now, user data is not added to event data. For now, if event does not have user assigned, assume it is our user's event. But check for assigned user.
+
+    database.ref("Events").once("value", function(snapshot) {
+        var events = snapshot.val();
+        console.log("events", events)
+        for (var eventID in events) {
+            var event = events[eventID];
+            if (!event.hostUser || event.hostUser === user.uid) {
+                console.log("event", event);
+                // add data for each guest from this event
+                if (!event.guestEmails || event.guestEmails.length < 1) {
+                    var row = $("<tr>").html("<td>No guest data for event " + event.uid + "</td>")
+                    $("#menu-table tbody").append(row)
+
+
+                }
+                else {
+                    event.guestEmails.forEach(function(guest) {
+                        // create row in table for each guest with what they're bringing.
+                        // We haven't clearly defined a data setup for this yet.
+                        var course = "sample course"   // get course
+                        var dish = "sample dish"       // get dish
+                        var guestName = ""
+                        var displayName = guestName || guest
+                        var row = $("<tr>").html("<td>" + course +" </td><td>" + dish +" </td><td>" + displayName +" </td>")
+                        $("#menu-table tbody").append(row)
+
+                    })
+                }
+
+            }
+        }
+    })
+
+}
+
+function getEventDataOfUser(user) {
+
+}
+
+
+
 // authentication functions
 function authChangeCallback(user) {
     if (user) {
         console.log("detected change in auth user state. User is signed in.")
         // User is signed in.
         $("#user-login-logoff").text("Logoff")
+        // if on the menu page (menu-table exists),  populate table for user's event firebasse listener
+        if ($("#menu-table").length > 0) {
+            console.log("trying to fill menu-table")
+            var userID  = user.uid;
+            fillInMenuTable(user)
+        }
+
     }
     else {
         console.log("detected change in auth user state. User is signed out.")
@@ -309,6 +359,7 @@ $(document).ready(function() {
 
         }
     });
+
 
 
 
