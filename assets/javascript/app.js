@@ -12,6 +12,8 @@ firebase.initializeApp(config);
 // global control variables
 var database = firebase.database();
 
+//if this returns false then throw an error and don't allow info input
+var validChkr = true;
 
 // $("#menu-table tbody course-item").
 
@@ -24,8 +26,8 @@ function fillInMenuTable(user) {
         console.log("events", events)
         for (var eventID in events) {
             var event = events[eventID];
-            console.log("user uid" , user.uid, "event userID", event.userID, "email", user.email)
-            if ( event.userID  === user.uid || (event.guestEmails && event.guestEmails.indexOf(user.email) >= 0)) {
+            console.log("user uid", user.uid, "event userID", event.userID, "email", user.email)
+            if (event.userID === user.uid || (event.guestEmails && event.guestEmails.indexOf(user.email) >= 0)) {
                 console.log("event", event);
                 // add data for each guest from this event
                 if (!event.guestEmails || event.guestEmails.length < 1) {
@@ -33,21 +35,20 @@ function fillInMenuTable(user) {
                     $("#menu-table tbody").append(row)
 
 
-                }
-                else {
+                } else {
                     event.guestEmails.forEach(function(guest) {
                         // create row in table for each guest with what they're bringing.
                         // We haven't clearly defined a data setup for this yet.
-                        var course = "sample course"   // get course
-                        var dish = "sample dish"       // get dish
+                        var course = "sample course" // get course
+                        var dish = "sample dish" // get dish
                         var guestName = ""
                         var displayName = guestName || guest
-                        var courseTD = $("<td>").append($("<select>").addClass("custom-select course-item").attr('id',  "couse-item-" + guest).html('<option selected>Choose...</option> <option value="1">Appetizer</option> <option value="2">Main Course</option> <option value="3">Salad</option> <option value="4">Breads</option> <option value="5">Soup</option> <option value="6">Beverages</option> <option value="7">Cocktails</option> <option value="8">Desert</option> <option value="9">Apertifs</option>'))
-                        // courseTD.val(4);
+                        var courseTD = $("<td>").append($("<select>").addClass("custom-select course-item").attr('id', "couse-item-" + guest).html('<option selected>Choose...</option> <option value="1">Appetizer</option> <option value="2">Main Course</option> <option value="3">Salad</option> <option value="4">Breads</option> <option value="5">Soup</option> <option value="6">Beverages</option> <option value="7">Cocktails</option> <option value="8">Desert</option> <option value="9">Apertifs</option>'))
+                            // courseTD.val(4);
                         var dishTD = $("<td>").html("no dish yet")
 
                         var nameTD = $('<td>').text(displayName)
-                        // var row = $("<tr>").html("<td class='course-item'>" + course +" </td><td class='dish-item'>" + dish +" </td><td>" + displayName +" </td>")
+                            // var row = $("<tr>").html("<td class='course-item'>" + course +" </td><td class='dish-item'>" + dish +" </td><td>" + displayName +" </td>")
                         var row = $("<tr>").append(courseTD, dishTD, nameTD)
                         $("#menu-table tbody").append(row)
 
@@ -57,10 +58,7 @@ function fillInMenuTable(user) {
             }
         }
 
-
     })
-
-
 
 }
 
@@ -68,31 +66,27 @@ function getEventDataOfUser(user) {
 
 }
 
-
-
 // authentication functions
 function authChangeCallback(user) {
     if (user) {
         console.log("detected change in auth user state. User is signed in.")
-        // User is signed in.
+            // User is signed in.
         $("#user-login-logoff").text("Logoff")
-        // if on the menu page (menu-table exists),  populate table for user's event firebasse listener
+            // if on the menu page (menu-table exists),  populate table for user's event firebasse listener
         if ($("#menu-table").length > 0) {
             console.log("trying to fill menu-table")
-            var userID  = user.uid;
+            var userID = user.uid;
             fillInMenuTable(user)
         }
 
-    }
-    else {
+    } else {
         console.log("detected change in auth user state. User is signed out.")
-        // No user is signed in.
+            // No user is signed in.
 
         $("#user-login-logoff").text("Login");
         $("#modal-authenticate").iziModal("close");
     }
 }
-
 
 var createNewUser = function(displayName, email, password, successCallback, errorCallback) {
     firebase.auth().createUserWithEmailAndPassword(email, password).then(function(data) {
@@ -101,11 +95,11 @@ var createNewUser = function(displayName, email, password, successCallback, erro
         user.updateProfile({
             displayName: displayName
         }).then(function(user) {
-            if (typeof successCallback !== "null" ) successCallback(user)
+            if (typeof successCallback !== "null") successCallback(user)
         });
 
     }).then(function(user) {
-            if (typeof successCallback !== "null" ) successCallback(user)
+        if (typeof successCallback !== "null") successCallback(user)
     }).catch(function(error) {
         // Handle Errors here.
         console.log("had error with firebase.auth()", error)
@@ -113,43 +107,66 @@ var createNewUser = function(displayName, email, password, successCallback, erro
     });
 }
 
-
 var loginUser = function(email, password, successCallback, errorCallback) {
     firebase.auth().signInWithEmailAndPassword(email, password).then(function(data) {
         // app.createFirebaseListeners();
         var user = firebase.auth().currentUser;
-        if (typeof successCallback !== "null" ) successCallback(user)
+        if (typeof successCallback !== "null") successCallback(user)
 
     }).catch(function(error) {
         // Handle Errors here.
         console.log("had error with firebase.auth()", error)
-        // if (typeof errorCallback !== "null") errorCallback(error);
-        // errorCallback(error);
-        // ...
+            // if (typeof errorCallback !== "null") errorCallback(error);
+            // errorCallback(error);
+            // ...
     });
 }
 
 var loginCallback = function() {
     // $("#alert-modal .iziModal-header-title").text("User " + firebase.auth().currentUser.displayName + " is logged in.")
-    $("#alert-modal").iziModal({"overlay": false});
+    $("#alert-modal").iziModal({ "overlay": false });
     $("#alert-modal").iziModal('setBackground', "#19647E");
     $("#alert-modal").iziModal("open");
 }
 
 var registrationCallback = function() {
     $("#alert-modal .iziModal-header-title").text("New User Created!")
-    $("#alert-modal").iziModal({"overlay": false});
+    $("#alert-modal").iziModal({ "overlay": false });
     $("#alert-modal").iziModal('setBackground', "#19647E");
     $("#alert-modal").iziModal("open");
 }
 
 var logoutCallback = function() {
     // $("#alert-modal").iziModal('setBackground', "#bd5b5b");
-    $("#alert-modal").iziModal({"overlay": false});
+    $("#alert-modal").iziModal({ "overlay": false });
     $("#alert-modal .iziModal-header-title").text("User logged off")
     $("#alert-modal").iziModal('setBackground', "#bd5b5b");
     $("#alert-modal").iziModal("open");
+}
 
+function isValid(validChkr) {
+    //controls to insure that information is entered and not blank strings
+    var hFullName = $("#full-name").val().trim();
+    var hAddLine1 = $("#address-line1").val().trim();
+    var hAddLine2 = $("#address-line2").val().trim();
+    var hCity = $("#city").val().trim();
+    var hRegion = $("#region").val().trim();
+    var hzip = $("#postal-code").val().trim();
+    var hTheme = $("#inputGroupSelect01 option:selected").val().trim();
+    var hCourse = $("#inputGroupSelect02 option:selected").val().trim();
+    var hCourseAmounts = $("#inputGroupSelect03 option:selected").val().trim();
+    var hEventAttire = $("#inputGroupSelect04 option:selected").val().trim();
+
+    //return an element of false 
+    if (hFullName === "" || hAddLine1 === "" ||
+        hAddLine2 === "" || hCity === "" || hRegion === "") {
+        return false;
+    }
+
+    if (hTheme === 0 || hCourse === 0 ||
+        hCourseAmounts === 0 || hEventAttire === 0) {
+        return false;
+    }
 }
 
 $(document).ready(function() {
@@ -158,10 +175,10 @@ $(document).ready(function() {
 
     // initialize modals
     if ($("#guests-email-form").length > 0) {
-        $("#guests-email-form").iziModal({headerColor: "#1a1a1a", "overlay": false, "overlayClose": false});
+        $("#guests-email-form").iziModal({ headerColor: "#1a1a1a", "overlay": false, "overlayClose": false });
     }
-    $("#alert-modal").iziModal({ top: null, bottom: 0, background: "#19647E"});
-    $("#alert-modal").iziModal({ background: "#19647E"});
+    $("#alert-modal").iziModal({ top: null, bottom: 0, background: "#19647E" });
+    $("#alert-modal").iziModal({ background: "#19647E" });
     $("#modal-authenticate").iziModal();
     // $("#modal-authenticate").iziModal('close');
     // $('#user-login-logoff').on("click", function(event) {
@@ -181,6 +198,11 @@ $(document).ready(function() {
     $("#iSubmitBtn").on("click", function(event) {
         event.preventDefault();
 
+        isValid();
+        if (isValid === false) {
+            alert("Please be sure to fill all fields");
+        }
+
         //pull the information from the host page to be used
         var hFullName = $("#full-name").val().trim();
         var hAddLine1 = $("#address-line1").val().trim();
@@ -192,7 +214,6 @@ $(document).ready(function() {
         var hCourse = $("#inputGroupSelect02").val().trim();
         var hCourseAmounts = Number.parseInt($("#inputGroupSelect03").val().trim());
         var hEventAttire = $("#inputGroupSelect04").val().trim();
-        // NOTE: Dropdown variables will be needed.
 
         //information to be pressed into the database.
         var newEntry = {
@@ -222,14 +243,6 @@ $(document).ready(function() {
         eventData = Object.assign({}, newEntry);
         eventData.eventID = eventSnapshot.key;
 
-        //push the information to the console for verification.
-        // console.log(newEntry.name);
-        // console.log(newEntry.addy1);
-        // console.log(newEntry.addy2);
-        // console.log(newEntry.hCity);
-        // console.log(newEntry.city);
-        // console.log(newEntry.zip);
-
         //Clear the information from the screen
         // alert("Added!");
 
@@ -255,9 +268,7 @@ $(document).ready(function() {
             $("#added-guests ul").append($("<li>").text(email).val(email))
             $("#new-guest-email").val("");
 
-        }
-
-        else {
+        } else {
             // should display an error. However, right now, just console.log
             console.log("email address does not appear to be valid.")
         }
@@ -293,7 +304,7 @@ $(document).ready(function() {
         }
         var errorCallback = function(error) {
             console.log("error sending emails")
-            // $("#alert-modal p").text("Error while trying to send emails!")
+                // $("#alert-modal p").text("Error while trying to send emails!")
             $("#alert-modal .iziModal-header-title").text("There was a problem sending your invitations.")
             $("#alert-modal").iziModal('setBackground', "#bd5b5b");
             $("#alert-modal").iziModal("open");
@@ -303,8 +314,7 @@ $(document).ready(function() {
         try {
             var email = new Email(emailInfo);
             email.send(successCallback, errorCallback)
-        }
-        catch(error) {
+        } catch (error) {
             errorCallback(error);
         }
     })
@@ -337,8 +347,7 @@ $(document).ready(function() {
             $("#email").val("");
             $("#password").val("");
             $("#password-confirm").val("");
-        }
-        else {
+        } else {
             console.log("Form data is invalid. Display message");
         }
 
@@ -358,8 +367,7 @@ $(document).ready(function() {
             loginUser(email, password, loginCallback);
             $("#email1").val("");
             $("#passsword1").val("");
-        }
-        else {
+        } else {
             console.log("User login data is invalid. Display message");
         }
 
@@ -370,21 +378,20 @@ $(document).ready(function() {
             // no user is logged in. Show login/registration modal
             $("#modal-authenticate").iziModal("open");
 
-        }
-        else {
+        } else {
             // there is a user logged in. Log them off.
             firebase.auth().signOut().then(function() {
                 // app.removeFirebaseListeners()
                 // Sign-out successful.
-            logoutCallback();
-            $("#modal-authenticate").iziModal("close")
+                logoutCallback();
+                $("#modal-authenticate").iziModal("close")
 
-            // $("#alert-modal").iziModal("open");
+                // $("#alert-modal").iziModal("open");
                 console.log("Sign-out successful")
 
             }).catch(function(error) {
                 console.log(error)
-                // An error happened.
+                    // An error happened.
             });
 
         }
