@@ -1,34 +1,31 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>MyShinDig</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--Bootswatch-->
-    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.3/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-XI0PIujkSZEzZ5m8WTEm+krRuIpfO+vHrEznaIrhTAkbrbIvfs11kzCqUarPR7yn" crossorigin="anonymous">
-    <!-- Link to my jQuery information -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Firebase database script below -->
-    <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
-    <!-- Popper.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min.js"></script>
-    <!-- Bootstrap JS file -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <!-- Moment link for time use **NOT IN USE YET **-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.js"></script>
-    <!--google fonts -->
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nunito+Sans">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css" integrity="sha384-twsqDCMYZktKK4KMv8cXDnLhBCVchPMuxLKKh1azoa3vn5nKRF/8PK4GmIgD0JaW" crossorigin="anonymous"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js" integrity="sha384-OCBM5wbr9X4XRMO0UcgNtJrfDZz4bo4c6PDZrxVN8zLSn6/B0CKZ/RUBRDDVqgt4" crossorigin="anonymous"></script>
-
-</head>
-
-<body>
-
-    <!-- Navigation -->
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>MyShinDig</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <!-- Link access the reset.css flie -->
+        <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
+        <!--Bootswatch-->
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.3/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-XI0PIujkSZEzZ5m8WTEm+krRuIpfO+vHrEznaIrhTAkbrbIvfs11kzCqUarPR7yn" crossorigin="anonymous"/>
+        <!-- Link to my jQuery information -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Firebase database script below -->
+        <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+        <!-- Popper.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min.js"></script>
+        <!-- Bootstrap JS file -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- Moment link for time use **NOT IN USE YET **-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.js"></script>
+        <!--google fonts -->
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nunito+Sans"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css" integrity="sha384-twsqDCMYZktKK4KMv8cXDnLhBCVchPMuxLKKh1azoa3vn5nKRF/8PK4GmIgD0JaW" crossorigin="anonymous"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js" integrity="sha384-OCBM5wbr9X4XRMO0UcgNtJrfDZz4bo4c6PDZrxVN8zLSn6/B0CKZ/RUBRDDVqgt4" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="index.html">MyShindig</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,28 +51,28 @@
                 </ul>
             </div>
         </nav>
-
-<div class="container">
-  <div class="card card-primary">
-      <div class="card-primary-heading">
-        <h3 class="card-title"><strong>Menu</strong></h3>
-      </div>
-      <div class="card-body">
-        <table class="table table-hover" id='menu-table'>
-          <thead>
-              <tr>
-                <td>Course</td>
-                <td>Dish</td>
-                <td>Guest Sharing</td>
-              </tr>
-          </thead>
-         <tbody>
-        </tbody>
-        </table>
-      </div>
-  </div>
-</div>
-
+        <div class="container">
+            <div class="card card-primary">
+                <div class="card-primary-heading">
+                    <h3 class="card-title">
+                        <strong>Menu</strong>
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover" id='menu-table'>
+                        <thead>
+                            <tr>
+                                <td>Course</td>
+                                <td>Dish</td>
+                                <td>Guest Sharing</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
         <div id="alert-modal" class="iziModal-header iziModal-noSubtitle" style="background: rgb(0, 175, 102); padding-right: 40px; top: none">
             <i class="iziModal-header-icon icon-check">
             </i>
@@ -183,19 +180,20 @@
                 </div>
             </div>
         </div>
-</div>
+    </div>
     <!-- Footer -->
     <div class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="card-body" id="footer">
-        <p class="card-text">First project for University of Minnesota coding bootcamp.</p>
-        <p class="card-text">© 2018 MyShindig. All rights reserved.</p>
-      </div>
+        <div class="card-body" id="footer">
+            <p class="card-text">First project for University of Minnesota coding bootcamp.</p>
+            <p class="card-text">
+                © 2018 MyShindig. All rights reserved.
+            </p>
+        </div>
     </div>
- <!-- Link access the reset.css flie -->
-            <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-            <!-- Link for Javascripting information - This is also where my jQuery info is stored-->
-            <script src="assets/javascript/app.js"></script>
-            <!-- Link access to the style.css file - if any would be applied. -->
-            <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Link for Javascripting information -->
+    <script  src="assets/javascript/email.js"></script>
+    <script src="assets/javascript/app.js"></script>
+    <!-- Link access to the style.css file - if any would be applied. -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
 </body>
 </html>
