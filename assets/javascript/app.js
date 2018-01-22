@@ -66,25 +66,25 @@ var loginUser = function(email, password, successCallback, errorCallback) {
 }
 
 var loginCallback = function() {
-    // $("#guests-email-result .iziModal-header-title").text("User " + firebase.auth().currentUser.displayName + " is logged in.")
-    $("#guests-email-result").iziModal({"overlay": false});
-    $("#guests-email-result").iziModal('setBackground', "#19647E");
-    $("#guests-email-result").iziModal("open");
+    // $("#alert-modal .iziModal-header-title").text("User " + firebase.auth().currentUser.displayName + " is logged in.")
+    $("#alert-modal").iziModal({"overlay": false});
+    $("#alert-modal").iziModal('setBackground', "#19647E");
+    $("#alert-modal").iziModal("open");
 }
 
 var registrationCallback = function() {
-    $("#guests-email-result .iziModal-header-title").text("New User Created!")
-    $("#guests-email-result").iziModal({"overlay": false});
-    $("#guests-email-result").iziModal('setBackground', "#19647E");
-    $("#guests-email-result").iziModal("open");
+    $("#alert-modal .iziModal-header-title").text("New User Created!")
+    $("#alert-modal").iziModal({"overlay": false});
+    $("#alert-modal").iziModal('setBackground', "#19647E");
+    $("#alert-modal").iziModal("open");
 }
 
 var logoutCallback = function() {
-    // $("#guests-email-result").iziModal('setBackground', "#bd5b5b");
-    $("#guests-email-result").iziModal({"overlay": false});
-    $("#guests-email-result .iziModal-header-title").text("User logged off")
-    $("#guests-email-result").iziModal('setBackground', "#bd5b5b");
-    $("#guests-email-result").iziModal("open");
+    // $("#alert-modal").iziModal('setBackground', "#bd5b5b");
+    $("#alert-modal").iziModal({"overlay": false});
+    $("#alert-modal .iziModal-header-title").text("User logged off")
+    $("#alert-modal").iziModal('setBackground', "#bd5b5b");
+    $("#alert-modal").iziModal("open");
 
 }
 
@@ -93,9 +93,11 @@ $(document).ready(function() {
     var eventData = {}
 
     // initialize modals
-    $("#guests-email-form").iziModal({headerColor: "#1a1a1a", "overlay": false, "overlayClose": false});
-    $("#guests-email-result").iziModal({ top: null, bottom: 0, background: "#19647E"});
-    $("#guests-email-result").iziModal({ background: "#19647E"});
+    if ($("#guests-email-form").length > 0) {
+        $("#guests-email-form").iziModal({headerColor: "#1a1a1a", "overlay": false, "overlayClose": false});
+    }
+    $("#alert-modal").iziModal({ top: null, bottom: 0, background: "#19647E"});
+    $("#alert-modal").iziModal({ background: "#19647E"});
     $("#modal-authenticate").iziModal();
     // $("#modal-authenticate").iziModal('close');
     // $('#user-login-logoff').on("click", function(event) {
@@ -103,7 +105,7 @@ $(document).ready(function() {
     //     console.log("detected click");
     //     $("#modal-authenticate").iziModal('open')
     // });
-    // $("#guests-email-result").iziModal('setBackground', "#19647E");
+    // $("#alert-modal").iziModal('setBackground', "#19647E");
 
 
     /* Host Controls:
@@ -204,17 +206,17 @@ $(document).ready(function() {
 
         var successCallback = function(data) {
             console.log("success sending emails!");
-            $("#guests-email-result .iziModal-header-title").text("Invitiations sent successfully!")
-            $("#guests-email-result").iziModal('setBackground', "#19647E");
-            $("#guests-email-result").iziModal("open");
+            $("#alert-modal .iziModal-header-title").text("Invitiations sent successfully!")
+            $("#alert-modal").iziModal('setBackground', "#19647E");
+            $("#alert-modal").iziModal("open");
 
         }
         var errorCallback = function(error) {
             console.log("error sending emails")
-            // $("#guests-email-result p").text("Error while trying to send emails!")
-            $("#guests-email-result .iziModal-header-title").text("There was a problem sending your invitations.")
-            $("#guests-email-result").iziModal('setBackground', "#bd5b5b");
-            $("#guests-email-result").iziModal("open");
+            // $("#alert-modal p").text("Error while trying to send emails!")
+            $("#alert-modal .iziModal-header-title").text("There was a problem sending your invitations.")
+            $("#alert-modal").iziModal('setBackground', "#bd5b5b");
+            $("#alert-modal").iziModal("open");
             // trigger-alert
 
         }
@@ -297,7 +299,7 @@ $(document).ready(function() {
             logoutCallback();
             $("#modal-authenticate").iziModal("close")
 
-            // $("#guests-email-result").iziModal("open");
+            // $("#alert-modal").iziModal("open");
                 console.log("Sign-out successful")
 
             }).catch(function(error) {
