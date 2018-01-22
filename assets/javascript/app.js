@@ -14,14 +14,16 @@ var database = firebase.database();
 
 
 function fillInMenuTable(user) {
-    // right now, user data is not added to event data. For now, if event does not have user assigned, assume it is our user's event. But check for assigned user.
+    // right now, we are just gettting all the events, and for each event, if it belongs to the user, or, the it is an event where the user guest, display data.
 
-    database.ref("Events").once("value", function(snapshot) {
+    database.ref("Events").on("value", function(snapshot) {
+        $("#menu-table tbody").empty();
         var events = snapshot.val();
         console.log("events", events)
         for (var eventID in events) {
             var event = events[eventID];
-            if (!event.hostUser || event.hostUser === user.uid) {
+            console.log("user uid" , user.uid, "event userID", event.userID, "email", user.email)
+            if ( event.userID  === user.uid || (event.guestEmails && event.guestEmails.indexOf(user.email) >= 0)) {
                 console.log("event", event);
                 // add data for each guest from this event
                 if (!event.guestEmails || event.guestEmails.length < 1) {
@@ -195,12 +197,13 @@ $(document).ready(function() {
         };
         // if user is logged in, add user id, user name
         var currentUser = firebase.auth().currentUser;
-        if (!currentUser) {
+        if (currentUser) {
             newEntry.userName = currentUser.displayName;
             newEntry.userID = currentUser.uid;
         }
 
 
+        console.log("newEntry", newEntry);
         //push the information up to the database.
         var eventSnapshot = database.ref("Events").push(newEntry);
 
