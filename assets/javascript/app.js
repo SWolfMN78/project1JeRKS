@@ -13,6 +13,8 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 
+// $("#menu-table tbody course-item").
+
 function fillInMenuTable(user) {
     // right now, we are just gettting all the events, and for each event, if it belongs to the user, or, the it is an event where the user guest, display data.
 
@@ -40,7 +42,13 @@ function fillInMenuTable(user) {
                         var dish = "sample dish"       // get dish
                         var guestName = ""
                         var displayName = guestName || guest
-                        var row = $("<tr>").html("<td>" + course +" </td><td>" + dish +" </td><td>" + displayName +" </td>")
+                        var courseTD = $("<td>").append($("<select>").addClass("custom-select course-item").attr('id',  "couse-item-" + guest).html('<option selected>Choose...</option> <option value="1">Appetizer</option> <option value="2">Main Course</option> <option value="3">Salad</option> <option value="4">Breads</option> <option value="5">Soup</option> <option value="6">Beverages</option> <option value="7">Cocktails</option> <option value="8">Desert</option> <option value="9">Apertifs</option>'))
+                        // courseTD.val(4);
+                        var dishTD = $("<td>").html("no dish yet")
+
+                        var nameTD = $('<td>').text(displayName)
+                        // var row = $("<tr>").html("<td class='course-item'>" + course +" </td><td class='dish-item'>" + dish +" </td><td>" + displayName +" </td>")
+                        var row = $("<tr>").append(courseTD, dishTD, nameTD)
                         $("#menu-table tbody").append(row)
 
                     })
@@ -48,7 +56,11 @@ function fillInMenuTable(user) {
 
             }
         }
+
+
     })
+
+
 
 }
 
