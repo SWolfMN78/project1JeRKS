@@ -90,6 +90,10 @@ nav{
   border-top:solid lightgrey 5px;
 }
 
+#theme{
+  padding-top:30px;
+}
+
 .navbar-brand{
   margin-left:100px;
 }
@@ -114,9 +118,9 @@ h3{
   margin:auto;
 }
 
-h1{
+#party-banner{
   padding:100px;
-  margin:30px 0px 30px 0px;
+  margin:30px -115px 30px -115px;
   background-image:url("../images/tweed.png");
   color:white;
 }
@@ -143,7 +147,6 @@ iframe{
   float:right;
 }
 
-
 #modal-authenticate {
   max-width: 800px!important
 }
@@ -155,7 +158,6 @@ iframe{
     margin-top: 25px;
     padding: 20px;
 }
-
 
 div#OR {
     height: 30px;
