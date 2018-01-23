@@ -81,7 +81,7 @@ nav{
 }
 
 .input-group-text {
-  width:250px;
+  width:230px;
 }
 
 #welcomeTitle {
@@ -181,4 +181,9 @@ div#OR {
   padding-top: 10px;
   padding-bottom: 10px;
  
+}
+#whensParty {
+  padding-top: 10px;
+  padding-bottom: 10px;
+
 }
