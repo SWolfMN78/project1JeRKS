@@ -13,7 +13,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 //if this returns false then throw an error and don't allow info input
-var validChkr = true;
+// var validChkr = true;
 
 // $("#menu-table tbody course-item").
 
@@ -159,13 +159,15 @@ var logoutCallback = function() {
 //     var hEventAttire = $("#inputGroupSelect04 option:selected").val().trim();
 
 //     //return an element of false 
-//     if (hFullName === "" || hAddLine1 === "" ||
-//         hAddLine2 === "" || hCity === "" || hRegion === "") {
+//     if (hFullName === "" || hAddLine1 === "" || hAddLine2 === "" ||
+//         hCity === "" || hRegion === "" || hzip === "") {
+//         alert("Bad bad");
 //         return false;
 //     };
 
 //     if (hTheme === 0 || hCourse === 0 ||
 //         hCourseAmounts === 0 || hEventAttire === 0) {
+//         alert("bad bad");
 //         return false;
 //     };
 // }
@@ -202,7 +204,8 @@ $(document).ready(function() {
         /* Trying to get a validator to insure that the user fields are filled. */
         // isValid();
         // if (isValid === false) {
-        //     alert("Please be sure to fill all fields");
+        //     //if isValid comes back as false then stop what is happening and wait for correct info.
+        //     return;
         // }
 
         //pull the information from the host page to be used
