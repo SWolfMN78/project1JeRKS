@@ -322,11 +322,6 @@ $(document).ready(function() {
     })
 
 
-
-
-
-
-
     // authentication listeners
 
     // fire when user-login, registration, or user-log off occurs
@@ -399,7 +394,15 @@ $(document).ready(function() {
         }
     });
 
+    //get the information from the database and apply it back to the menu.
+    database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
+        //push the information into variables.
+        var atdCourse = childSnapshot.val();
+        var atdDish = childSnapshot.val();
+        var atdGuestEml = childSnapshot.val();
+        var atdLogInfo = childSnapshot.val();
+    });
 
 
 })
