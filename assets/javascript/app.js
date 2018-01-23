@@ -402,6 +402,10 @@ $(document).ready(function() {
         var atdDish = childSnapshot.val();
         var atdGuestEml = childSnapshot.val();
         var atdLogInfo = childSnapshot.val();
+
+        //push the information into the table.
+
+
     });
 
 
