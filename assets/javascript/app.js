@@ -1,3 +1,4 @@
+
 //Initialize Firebase - group databse.
 var config = {
     apiKey: "AIzaSyDzdxqnOhqs4axrlP42yaKilGnI4wNq_Zs",

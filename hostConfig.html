@@ -88,8 +88,8 @@
             <div class="carousel-item">
                 <img class="d-block w-100" src="assets/images/summer-charcuterie-760x242.png" alt="Third slide" />
             </div>
-
         </div>
+      </div>
 
         <!-- Beginning of host Input-->
         <!-- Choose Theme Option Select -->
@@ -97,7 +97,7 @@
             <h3 id="theme">Choose your party theme.</h3>
             <div class="input-group mb-1">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01" style="width:250px;">Theme</label>   
+                    <label class="input-group-text" for="inputGroupSelect01">Theme</label>   
                 </div>
                     <select class="custom-select" id="inputGroupSelect01">
                         <option selected>Choose...</option>
@@ -120,7 +120,7 @@
             <!-- Choose Which courses you want at your party Option Select -->
             <div class="input-group mb-1">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect02" style="width:250px;">Courses</label>
+                    <label class="input-group-text" for="inputGroupSelect02">Courses</label>
                 </div>
                 <select class="custom-select" id="inputGroupSelect02">
 
@@ -145,10 +145,9 @@
             <!-- Choose How Many of each course Option Select -->
             <div class="input-group mb-1">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect03" style="width:250px;">How Many of Each Course?</label>
+                    <label class="input-group-text" for="inputGroupSelect03">How Many of Each Course?</label>
                 </div>
                 <select class="custom-select" id="inputGroupSelect03">
-
                     <option selected>Choose...</option>
                     <option value="2">1</option>
                     <option value="3">2</option>
@@ -164,7 +163,7 @@
 
             <div class="input-group mb-1">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect04" style="width:250px;">Suggested Attire</label>
+                    <label class="input-group-text" for="inputGroupSelect04">Suggested Attire</label>
                 </div>
                 <select class="custom-select" id="inputGroupSelect04">
 
@@ -185,6 +184,60 @@
                 <h1 id="wheresParty">Where's The Party At?</h1>
             </div>
         </div>
+
+
+        <!-- What date and time is the party?-->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 id="whensParty">When's The Party?</h1>
+        </div>
+    </div>
+<!-- Time Input-->
+
+<div class="bootstrap-iso">
+ <div class="container-fluid">
+  <div class="row">
+   <div class="col-md-6 col-sm-6 col-xs-12">
+    <form method="post">
+      <div class="form-group">
+        <label class="control-label" for="time">Time</label>
+        <input class="form-control" id="time" name="time" placeholder="HH:mm" type="text"/>
+      </div>
+    </form>
+    </div>
+  </div>    
+ </div>
+</div>
+
+        <!-- Date of party Input -->
+
+<div class="bootstrap-iso">
+ <div class="container-fluid">
+  <div class="row">
+   <div class="col-md-6 col-sm-6 col-xs-12">
+    <form method="post">
+      <div class="form-group"> <!-- Date input -->
+        <label class="control-label" for="date">Date</label>
+        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+      </div>
+     </form>
+    </div>
+  </div>    
+ </div>
+</div>
+
+<!-- Date Time Picker-->
+
+
+<!-- Place for the host to give the location of the party-->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+        <h1 id="wheresParty">Where's The Party At?</h1>
+        </div>
+    </div>
+
         <!--Address Form -->
         <div class="container" id="addressForm">
             <div class="row">
@@ -264,9 +317,58 @@
                 <div class="col-sm">
                     <a class="btn btn-primary" role="button" id="iSubmitBtn">Invite Guests</a>
                 </div>
+                <!-- address-line2 input-->
+                <div class="form-group">
+                    <label class="control-label">Address Line 2</label>
+                    <div class="controls">
+                        <input id="address-line2" name="address-line2" type="text" placeholder="address line 2" class="input-xlarge"/>
+                        <p class="help-block">Apartment, suite , unit, building, floor, etc.</p>
+                    </div>
+                </div>
+                <!-- city input-->
+                <div class="form-group">
+                    <label class="control-label">City / Town</label>
+                    <div class="controls">
+                        <input id="city" name="city" type="text" placeholder="city" class="input-xlarge"/>
+                        <p class="help-block">
+                        </p>
+                    </div>
+                </div>
+                <!-- region input-->
+                <div class="form-group">
+                    <label class="control-label">State / Province / Region</label>
+                    <div class="controls">
+                        <input id="region" name="region" type="text" placeholder="state / province / region" class="input-xlarge"/>
+                        <p class="help-block">
+                        </p>
+                    </div>
+                </div>
+                <!-- postal-code input-->
+                <div class="form-group">
+                    <label class="control-label">Zip / Postal Code</label>
+                    <div class="controls">
+                        <input id="postal-code" name="postal-code" type="text" placeholder="zip or postal code" class="input-xlarge"/>
+                        <p class="help-block">
+                        </p>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+                    <!-- Map that will someday allow the host to send an image of the location as well -->
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11275.275624271115!2d-92.83609165!3d45.04889665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1516574242134" width="600" height="450" style="border:0; frameborder: 0" allowfullscreen></iframe>
+
+    </div>
+</div>
+    <!--Button to submit invites-->
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-sm">
+                <a class="btn btn-primary" role="button" id="iSubmitBtn">Invite Guests</a>
             </div>
         </div>
     </div>
+</div>
+          
     <div class="main-container" id="guests-email-form">
         <div class="input-group mb-3" id="themeDropdown1">
             <div class="input-group mb-3">
@@ -312,6 +414,7 @@
             </div>
         </div>
     </div>
+
     <div id="alert-modal" class="iziModal-header iziModal-noSubtitle" style="background: rgb(0, 175, 102); padding-right: 40px; top: none">
         <i class="iziModal-header-icon icon-check">
             </i>
@@ -435,4 +538,14 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 </body>
 
+
+        <!-- Our Email class library for interacting with smtp2g.com api (email.js) and main app (app.js) -->
+        <script  src="assets/javascript/email.js"></script>
+        <script  src="assets/javascript/app.js"></script>
+        <!-- Bootstrap Date/Time Picker -->
+        <script rel="stylesheet" type="text/css" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"></script>
+        <!-- Link access to the style.css file - if any would be applied. -->
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+    </body>
 </html>
+
