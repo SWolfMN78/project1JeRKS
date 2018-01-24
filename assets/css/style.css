@@ -127,7 +127,17 @@ nav{
 =======
 >>>>>>> 5e5ef701f10ac57a4319fd9c85c35c1d61267820
 .input-group-prepend{
-  background-color: black;
+  background-color: #eceeef;
+  }
+  
+#courseSelect {
+  padding-top: 0px
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-bottom: 0px
+  border-top: 0px;
+
 }
 
 body{
