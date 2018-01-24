@@ -146,6 +146,7 @@ h3{
   margin:auto;
 }
 
+/*Host Page*/
 #wheresParty {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -188,6 +189,7 @@ iframe{
   background-color:black;
 }
 
+/*Menu Page*/
 #menu-body{
   background-image: url("../images/tweed.png")
 }
