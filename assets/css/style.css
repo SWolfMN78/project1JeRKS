@@ -1,5 +1,3 @@
-
-
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,600");
 :root {
   --blue: #007bff;
@@ -33,11 +31,11 @@
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body{
-	background-color: #cfd2d6;
+  background-color: #cfd2d6;
   letter-spacing: .25px;
   font-family:"Nunito Sans";
 }
@@ -55,7 +53,7 @@ h3 {
 }
 
 nav{
-	margin:auto;
+  margin:auto;
 }
 
 #addressForm {
@@ -72,7 +70,7 @@ nav{
   font-family: inherit;
 }
 
-.form-group {
+.form-group{
   word-spacing: .25px;
 }
 
@@ -89,15 +87,45 @@ nav{
 }
 
 /*Kate Styling*/
+/*All pages*/
+.navbar-brand{
+  margin-left:100px;
+}
+
 #carouselExampleSlidesOnly{
   padding-bottom:30px;
   border-top:solid lightgrey 5px;
+}
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
+=======
+>>>>>>> 18defde0cbb3b8af01905774f7edebe32d36a275
+=======
+>>>>>>> 5e5ef701f10ac57a4319fd9c85c35c1d61267820
+#theme{
+  padding-top:30px;
 }
 
 .navbar-brand{
   margin-left:100px;
 }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7a237d033f214b39578960e6f501b8eafb2963e4
+=======
+>>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
+=======
+>>>>>>> 18defde0cbb3b8af01905774f7edebe32d36a275
+=======
+>>>>>>> 5e5ef701f10ac57a4319fd9c85c35c1d61267820
 .input-group-prepend{
   background-color: #eceeef;
   }
@@ -116,48 +144,133 @@ body{
   background-color: white;
 }
 
+#footer{
+  margin:-30px 0px -25px 0px;
+  color:darkgrey;
+  text-align: center;
+  font-size: 10px;
+}
+
 h3{
   padding-bottom: 30px;
 }
 
-#iSubmitBtn{
-  margin:30px;
+/*Main Page*/
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 100px;
+    color:white;
+    border-top:2px solid white;
+    border-bottom:2px solid white;
+    text-align: center;
+}
+
+#party-button{
+  margin: 30px 0px 30px 0px;
+}
+
+#mainpage-text{
+  text-align: center;
+  margin:auto;
+}
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+#party-banner{
+=======
+/*Host Page*/
+=======
+>>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
+=======
+>>>>>>> 18defde0cbb3b8af01905774f7edebe32d36a275
+=======
+/*Host Page*/
+>>>>>>> 5e5ef701f10ac57a4319fd9c85c35c1d61267820
+#wheresParty {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#whensParty {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+h1{
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 7a237d033f214b39578960e6f501b8eafb2963e4
+=======
+>>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
+=======
+>>>>>>> 18defde0cbb3b8af01905774f7edebe32d36a275
+=======
+>>>>>>> 5e5ef701f10ac57a4319fd9c85c35c1d61267820
+  padding:100px;
+  margin:30px -115px 30px -115px;
+  background-image:url("../images/tweed.png");
+  color:white;
+}
+
+iframe{
+  box-shadow: 10px 10px 5px grey;
 }
 
 #addressForm{
   margin:auto;
 }
 
-h1{
-  padding:100px;
-  margin:30px 0px 30px 0px;
-  background-image:url("../images/tweed.png");
-  color:white;
+#iSubmitBtn{
+  margin:30px;
 }
 
-iframe{
-  padding-left:100px;
-}
-
-#footer{
-  margin:-10px 0px -10px 30px;
-  color:darkgrey;
-  text-align: center;
-}
-
+/*Guest Page*/
 #user-recipe{
   color:white;
   padding:30px;
-  width:350px;
   background-image: url("../images/tweed.png");
-  margin-top:30px;
+  margin:30px 0px 30px 0px;
 }
 
 #recipeSuggestions{
-  float:right;
+  margin:30px 0px 30px 0px;
+  background-color:black;
 }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
+/*Menu Page*/
+=======
+>>>>>>> 18defde0cbb3b8af01905774f7edebe32d36a275
+=======
+/*Menu Page*/
+>>>>>>> 5e5ef701f10ac57a4319fd9c85c35c1d61267820
+#menu-body{
+  background-image: url("../images/tweed.png")
+}
 
+/*Modal Styling*/
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 7a237d033f214b39578960e6f501b8eafb2963e4
+=======
+>>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
+=======
+>>>>>>> 18defde0cbb3b8af01905774f7edebe32d36a275
+=======
+>>>>>>> 5e5ef701f10ac57a4319fd9c85c35c1d61267820
 #modal-authenticate {
   max-width: 800px!important
 }
@@ -165,11 +278,11 @@ iframe{
 .nav-tabs {
     margin-bottom: 15px;
 }
+
 .sign-with {
     margin-top: 25px;
     padding: 20px;
 }
-
 
 div#OR {
     height: 30px;
@@ -186,14 +299,4 @@ div#OR {
     top: 40%;
     z-index: 1;
     background: #DFDFDF;
-}
-#wheresParty {
-  padding-top: 10px;
-  padding-bottom: 10px;
- 
-}
-#whensParty {
-  padding-top: 10px;
-  padding-bottom: 10px;
-
 }
