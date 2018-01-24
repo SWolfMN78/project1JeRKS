@@ -1,5 +1,3 @@
-
-
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,600");
 :root {
   --blue: #007bff;
@@ -33,11 +31,11 @@
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body{
-	background-color: #cfd2d6;
+  background-color: #cfd2d6;
   letter-spacing: .25px;
   font-family:"Nunito Sans";
 }
@@ -55,7 +53,7 @@ h3 {
 }
 
 nav{
-	margin:auto;
+  margin:auto;
 }
 
 #addressForm {
@@ -72,7 +70,7 @@ nav{
   font-family: inherit;
 }
 
-.form-group {
+.form-group{
   word-spacing: .25px;
 }
 
@@ -89,6 +87,11 @@ nav{
 }
 
 /*Kate Styling*/
+/*All pages*/
+.navbar-brand{
+  margin-left:100px;
+}
+
 #carouselExampleSlidesOnly{
   padding-bottom:30px;
   border-top:solid lightgrey 5px;
@@ -110,19 +113,45 @@ body{
   background-color: white;
 }
 
+#footer{
+  margin:-30px 0px -25px 0px;
+  color:darkgrey;
+  text-align: center;
+  font-size: 10px;
+}
+
 h3{
   padding-bottom: 30px;
 }
 
-#iSubmitBtn{
-  margin:30px;
+/*Main Page*/
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 100px;
+    color:white;
+    border-top:2px solid white;
+    border-bottom:2px solid white;
+    text-align: center;
 }
 
-#addressForm{
+#party-button{
+  margin: 30px 0px 30px 0px;
+}
+
+#mainpage-text{
+  text-align: center;
   margin:auto;
 }
 
-#party-banner{
+#wheresParty {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+h1{
   padding:100px;
   margin:30px -115px 30px -115px;
   background-image:url("../images/tweed.png");
@@ -130,27 +159,36 @@ h3{
 }
 
 iframe{
-  padding-left:100px;
+  box-shadow: 10px 10px 5px grey;
 }
 
-#footer{
-  margin:-10px 0px -10px 30px;
-  color:darkgrey;
-  text-align: center;
+#addressForm{
+  margin:auto;
 }
 
+#iSubmitBtn{
+  margin:30px;
+}
+
+/*Guest Page*/
 #user-recipe{
   color:white;
   padding:30px;
-  width:350px;
   background-image: url("../images/tweed.png");
-  margin-top:30px;
+  margin:30px 0px 30px 0px;
 }
 
 #recipeSuggestions{
-  float:right;
+  margin:30px 0px 30px 0px;
+  background-color:black;
 }
 
+/*Menu Page*/
+#menu-body{
+  background-image: url("../images/tweed.png")
+}
+
+/*Modal Styling*/
 #modal-authenticate {
   max-width: 800px!important
 }
@@ -158,6 +196,7 @@ iframe{
 .nav-tabs {
     margin-bottom: 15px;
 }
+
 .sign-with {
     margin-top: 25px;
     padding: 20px;
@@ -179,13 +218,13 @@ div#OR {
     z-index: 1;
     background: #DFDFDF;
 }
+
 #wheresParty {
   padding-top: 10px;
-  padding-bottom: 10px;
- 
+  padding-bottom: 10px; 
 }
+
 #whensParty {
   padding-top: 10px;
   padding-bottom: 10px;
-
 }
