@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -27,12 +26,12 @@
 </head>
 
 <body>
+<!-- Main Title Bar-->
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">MyShindig</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon">
-                </span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
         <div class="collapse navbar-collapse" id="navbarColor03">
             <ul class="navbar-nav mr-auto">
@@ -53,6 +52,8 @@
             </ul>
         </div>
     </nav>
+
+    <!-- Menu Content -->
     <div class="container">
         <div class="card card-primary">
             <div class="card-primary-heading">
@@ -76,21 +77,22 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal for Email Invites -->
     <div id="alert-modal" class="iziModal-header iziModal-noSubtitle" style="background: rgb(0, 175, 102); padding-right: 40px; top: none">
-        <i class="iziModal-header-icon icon-check">
-            </i>
-        <div class="iziModal-progressbar">
-            <div style="background-color: rgba(255, 255, 255, 0.5); width: 0%;">
+        <i class="iziModal-header-icon icon-check"></i>
+            <div class="iziModal-progressbar">
+                <div style="background-color: rgba(255, 255, 255, 0.5); width: 0%;">
+                </div>
             </div>
-        </div>
-        <div class="iziModal-header-title" style="font-size: 1; line-height: 4; margin-left: 1em">Your messages have been sent successfully!</div>
-        <p class="iziModal-header-subtitle">
-        </p>
-        <div class="iziModal-header-buttons">
-            <a href="javascript:void(0)" class="iziModal-button iziModal-button-close" data-izimodal-close="">
-            </a>
-        </div>
+            <div class="iziModal-header-title" style="font-size: 1; line-height: 4; margin-left: 1em">Your messages have been sent successfully!</div>
+                <p class="iziModal-header-subtitle"></p>
+            <div class="iziModal-header-buttons">
+                <a href="javascript:void(0)" class="iziModal-button iziModal-button-close" data-izimodal-close=""></a>
+            </div>
     </div>
+
+    <!-- Modal for Login -->
     <div id="modal-authenticate">
         <div class="iziModal-wrap" style="height: auto;">
             <div class="iziModal-content">
@@ -103,67 +105,69 @@
                             <a class="nav-item nav-link" id="nav-registration-tab" data-toggle="tab" href="#nav-registration" role="tab" aria-controls="nav-registration" aria-selected="false">Registration</a>
                         </div>
                         <div class="tab-content" id="nav-tabContent">
+                            <!-- Login Panel -->
                             <div class="tab-pane fade show active" id="nav-login" role="tabpanel" aria-labelledby="nav-login-tab">
-                                <form class="form-horizontal">
+                                <form class="form-horizontal" id="modal-login-form">
                                     <div class="form-group">
                                         <label for="email" class="col-sm-2 control-label">Email</label>
-                                        <div class="col-sm-12">
-                                            <input type="email" class="form-control" id="email1" placeholder="Email" />
-                                        </div>
+                                            <div class="col-sm-12">
+                                                <input type="email" class="form-control" id="email1" placeholder="Email" />
+                                            </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password1" class="col-sm-2 control-label">Password</label>
-                                        <div class="col-sm-12">
-                                            <input type="password" class="form-control" id="password1" placeholder="Password" />
-                                        </div>
+                                            <div class="col-sm-12">
+                                                <input type="password" class="form-control" id="password1" placeholder="Password" />
+                                            </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-2">
-                                        </div>
+                                        <div class="col-sm-2"></div>
                                         <div class="col-sm-10">
-                                            <div class="btn btn-primary btn-sm" id="login-user">Submit</div>
-                                            <a href="javascript:;">Forgot your password?</a>
+                                            <div class="btn btn-primary btn-sm" id="login-user-button">Submit</div>
+                                            <a href="javascript:;" id="forgot-password">Forgot your password?</a>
                                         </div>
                                     </div>
                                 </form>
                             </div>
+
+                            <!-- Registration Panel -->
                             <div class="tab-pane fade" id="nav-registration" role="tabpanel" aria-labelledby="nav-registration-tab">
-                                <form class="form-horizontal">
+                                <form class="form-horizontal" id="modal-login-form">
                                     <div class="form-group">
                                         <label for="name-input" class="col-sm-2 control-label">Name</label>
-                                        <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="name-input" placeholder="Name" />
-                                        </div>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="name-input" placeholder="Name" />
+                                            </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="email" class="col-sm-2 control-label">Email</label>
-                                        <div class="col-sm-12">
-                                            <input type="email" class="form-control" id="email" placeholder="Email" />
-                                        </div>
+                                            <div class="col-sm-12">
+                                                <input type="email" class="form-control" id="email" placeholder="Email" />
+                                            </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="col-sm-2 control-label">Password</label>
-                                        <div class="col-sm-12">
-                                            <input type="password" class="form-control" id="password" placeholder="Password (6-character minimum)" />
-                                        </div>
+                                            <div class="col-sm-12">
+                                                <input type="password" class="form-control" id="password" placeholder="Password (6-character minimum)" />
+                                            </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password-confirm" class="col-sm-2 control-label">Confirm</label>
-                                        <div class="col-sm-12">
-                                            <input type="password" class="form-control" id="password-confirm" placeholder="Confirm Password" />
-                                        </div>
+                                            <div class="col-sm-12">
+                                                <input type="password" class="form-control" id="password-confirm" placeholder="Confirm Password" />
+                                            </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-2">
-                                        </div>
+                                        <div class="col-sm-2"></div>
                                         <div class="col-sm-10">
-                                            <div class="btn btn-primary btn-sm" id="register-user">Save & Continue</div>
+                                            <div class="btn btn-primary btn-sm" id="register-user-button">Save & Continue</div>
                                             <div class="btn btn-default btn-sm">Cancel</div>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
+                        <!-- Sign in with Google of Facebook -->
                         <div id="OR" class="hidden-xs">OR</div>
                     </div>
                     <div class="col-md-5">
@@ -183,22 +187,21 @@
             </div>
         </div>
     </div>
-    </div>
+
     <!-- Footer -->
     <div class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="card-body" id="footer">
             <p class="card-text">First project for University of Minnesota coding bootcamp.</p>
-            <p class="card-text">
-                © 2018 MyShindig. All rights reserved.
-            </p>
+            <p class="card-text">© 2018 MyShindig. All rights reserved.</p>
         </div>
     </div>
+
     <!-- Link for Javascripting information -->
     <script src="assets/javascript/email.js"></script>
     <script src="assets/javascript/app.js"></script>
     <script src="assets.javascript/api.js"></script>
     <!-- Link access to the style.css file - if any would be applied. -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-</body>
 
+</body>
 </html>

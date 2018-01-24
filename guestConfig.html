@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -26,17 +25,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js" integrity="sha384-OCBM5wbr9X4XRMO0UcgNtJrfDZz4bo4c6PDZrxVN8zLSn6/B0CKZ/RUBRDDVqgt4" crossorigin="anonymous"></script>
     <!-- responsive meta tag-->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 </head>
 
 <body>
-    <!--  Main Title Bar -->
+<!-- Main Title Bar-->
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">MyShindig</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon">
-                </span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
         <div class="collapse navbar-collapse" id="navbarColor03">
             <ul class="navbar-nav mr-auto">
@@ -57,8 +54,9 @@
             </ul>
         </div>
     </nav>
+
     <!-- Carousel of photos-->
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div id="photo-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img class="d-block w-100" src="assets/images/tuscanPicnic-760x242.jpg" alt="First slide" />
@@ -69,7 +67,6 @@
             <div class="carousel-item">
                 <img class="d-block w-100" src="assets/images/metalachi-760x242.jpg" alt="Third slide" />
             </div>
-
             <div class="carousel-item">
                 <img class="d-block w-100" src="assets/images/cajun-boil2-760x242.jpg" alt="Third slide" />
             </div>
@@ -85,27 +82,28 @@
             <div class="carousel-item">
                 <img class="d-block w-100" src="assets/images/summer-charcuterie-760x242.png" alt="Third slide" />
             </div>
-
         </div>
     </div>
+
+    <!--  Guest Page Main Content -->
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h3>
+                <h3 id="guest-invite-header">
                     You've been invited to a party at + "#hostName" + 's house.
                 </h3>
             </div>
         </div>
     </div>
     <div class="container">
-        <h5 id="chooseCourse">
+        <h5 id="choose-course-header">
             Pick a Course to Share at + "#hostName"+ 's Party.
         </h5>
         <div class="input-group mb-1">
             <div class="input-group-prepend">
                 <label class="input-group-text" for="inputGroupSelect01">Courses</label>
             </div>
-            <select class="custom-select" id="inputGroupSelect01">
+                <select class="custom-select" id="inputGroupSelect01">
                     <option selected>Choose...</option>
                     <option value="1">Appetizer</option>
                     <option value="2">Main Course</option>
@@ -118,54 +116,40 @@
                     <option value="9">Apertifs</option>
                 </select>
         </div>
-  <!-- Form for guests to enter in their own recipe -->
+    </div>
+
+    <!-- Form for guests to enter in their own recipe -->
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                <form id="user-recipe">
-                    Choose a recipe hand selected for the theme, or enter your own classic dish here:<br><br>
-                    <input type="text" id="user-search"><br><br>
-                    <button type="button" class="btn btn-secondary" id="search-button">Search</button>
-                </form>
+                    <form id="user-recipe-form">
+                        Choose a recipe hand selected for the theme, or enter your own classic dish here:<br><br>
+                        <input type="text" id="user-search"><br><br>
+                        <button type="button" class="btn btn-secondary" id="search-button">Search</button>
+                    </form>
                 </div>
-<!--Empty div for recipes from Yummly to populate into-->
-                <div class="col-sm-8" id="recipeSuggestions">
-                        <p>DIV for recipe suggestions</p>
+                <!--Empty div for recipes from Yummly to populate into-->
+                <div class="col-sm-8" id="recipe-suggestions">
+                    <p>DIV for recipe suggestions</p>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="container" id="recipieSuggestions">
-        <div class="row">
-            <div class="col-sm-12">
-                <p>DIV for recipie suggestions</p>
+        </div> 
+ 
+    <!-- Modal for Email Invites -->
+    <div id="alert-modal" class="iziModal-header iziModal-noSubtitle" style="background: rgb(0, 175, 102); padding-right: 40px; top: none">
+        <i class="iziModal-header-icon icon-check"></i>
+            <div class="iziModal-progressbar">
+                <div style="background-color: rgba(255, 255, 255, 0.5); width: 0%;">
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="container">
-        <!-- Form for guests to enter in their own recipe -->
-        <form id="user-recipe">
-            Choose a recipe hand selected for the theme, or enter your own classic dish here:<br><br>
-            <input type="text" id="user-search"><br><br>
-            <button type="button" class="btn btn-secondary" id="search-button">Search</button>
-        </form>
+            <div class="iziModal-header-title" style="font-size: 1; line-height: 4; margin-left: 1em">Your messages have been sent successfully!</div>
+                <p class="iziModal-header-subtitle"></p>
+            <div class="iziModal-header-buttons">
+                <a href="javascript:void(0)" class="iziModal-button iziModal-button-close" data-izimodal-close=""></a>
+            </div>
     </div>
 
-    <div id="alert-modal" class="iziModal-header iziModal-noSubtitle" style="background: rgb(0, 175, 102); padding-right: 40px; top: none">
-        <i class="iziModal-header-icon icon-check">
-            </i>
-        <div class="iziModal-progressbar">
-            <div style="background-color: rgba(255, 255, 255, 0.5); width: 0%;">
-            </div>
-        </div>
-        <div class="iziModal-header-title" style="font-size: 1; line-height: 4; margin-left: 1em">Your messages have been sent successfully!</div>
-        <p class="iziModal-header-subtitle">
-        </p>
-        <div class="iziModal-header-buttons">
-            <a href="javascript:void(0)" class="iziModal-button iziModal-button-close" data-izimodal-close="">
-            </a>
-        </div>
-    </div>
+    <!-- Modal for Login -->
     <div id="modal-authenticate">
         <div class="iziModal-wrap" style="height: auto;">
             <div class="iziModal-content">
@@ -178,67 +162,69 @@
                             <a class="nav-item nav-link" id="nav-registration-tab" data-toggle="tab" href="#nav-registration" role="tab" aria-controls="nav-registration" aria-selected="false">Registration</a>
                         </div>
                         <div class="tab-content" id="nav-tabContent">
+                            <!-- Login Panel -->
                             <div class="tab-pane fade show active" id="nav-login" role="tabpanel" aria-labelledby="nav-login-tab">
-                                <form class="form-horizontal">
+                                <form class="form-horizontal" id="modal-login-form">
                                     <div class="form-group">
                                         <label for="email" class="col-sm-2 control-label">Email</label>
-                                        <div class="col-sm-12">
-                                            <input type="email" class="form-control" id="email1" placeholder="Email" />
-                                        </div>
+                                            <div class="col-sm-12">
+                                                <input type="email" class="form-control" id="email1" placeholder="Email" />
+                                            </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password1" class="col-sm-2 control-label">Password</label>
-                                        <div class="col-sm-12">
-                                            <input type="password" class="form-control" id="password1" placeholder="Password" />
-                                        </div>
+                                            <div class="col-sm-12">
+                                                <input type="password" class="form-control" id="password1" placeholder="Password" />
+                                            </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-2">
-                                        </div>
+                                        <div class="col-sm-2"></div>
                                         <div class="col-sm-10">
-                                            <div class="btn btn-primary btn-sm" id="login-user">Submit</div>
-                                            <a href="javascript:;">Forgot your password?</a>
+                                            <div class="btn btn-primary btn-sm" id="login-user-button">Submit</div>
+                                            <a href="javascript:;" id="forgot-password">Forgot your password?</a>
                                         </div>
                                     </div>
                                 </form>
                             </div>
+
+                            <!-- Registration Panel -->
                             <div class="tab-pane fade" id="nav-registration" role="tabpanel" aria-labelledby="nav-registration-tab">
-                                <form class="form-horizontal">
+                                <form class="form-horizontal" id="modal-login-form">
                                     <div class="form-group">
                                         <label for="name-input" class="col-sm-2 control-label">Name</label>
-                                        <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="name-input" placeholder="Name" />
-                                        </div>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="name-input" placeholder="Name" />
+                                            </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="email" class="col-sm-2 control-label">Email</label>
-                                        <div class="col-sm-12">
-                                            <input type="email" class="form-control" id="email" placeholder="Email" />
-                                        </div>
+                                            <div class="col-sm-12">
+                                                <input type="email" class="form-control" id="email" placeholder="Email" />
+                                            </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="col-sm-2 control-label">Password</label>
-                                        <div class="col-sm-12">
-                                            <input type="password" class="form-control" id="password" placeholder="Password (6-character minimum)" />
-                                        </div>
+                                            <div class="col-sm-12">
+                                                <input type="password" class="form-control" id="password" placeholder="Password (6-character minimum)" />
+                                            </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password-confirm" class="col-sm-2 control-label">Confirm</label>
-                                        <div class="col-sm-12">
-                                            <input type="password" class="form-control" id="password-confirm" placeholder="Confirm Password" />
-                                        </div>
+                                            <div class="col-sm-12">
+                                                <input type="password" class="form-control" id="password-confirm" placeholder="Confirm Password" />
+                                            </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-2">
-                                        </div>
+                                        <div class="col-sm-2"></div>
                                         <div class="col-sm-10">
-                                            <div class="btn btn-primary btn-sm" id="register-user">Save & Continue</div>
+                                            <div class="btn btn-primary btn-sm" id="register-user-button">Save & Continue</div>
                                             <div class="btn btn-default btn-sm">Cancel</div>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
+                        <!-- Sign in with Google of Facebook -->
                         <div id="OR" class="hidden-xs">OR</div>
                     </div>
                     <div class="col-md-5">
@@ -258,26 +244,21 @@
             </div>
         </div>
     </div>
+
     <!-- Footer -->
     <div class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="card-body" id="footer">
             <p class="card-text">First project for University of Minnesota coding bootcamp.</p>
             <p class="card-text">© 2018 MyShindig. All rights reserved.</p>
         </div>
-
-        <!-- Link for Javascripting information -->
-        <script  src="assets/javascript/email.js"></script>
-        <script src="assets/javascript/app.js"></script>
-        <!-- Link access to the style.css file - if any would be applied. -->
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
-    </body>
-
     </div>
+
     <!-- Link for Javascripting information -->
     <script src="assets/javascript/email.js"></script>
     <script src="assets/javascript/app.js"></script>
     <script src="assets.javascript/api.js"></script>
     <!-- Link access to the style.css file - if any would be applied. -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+
 </body>
 </html>

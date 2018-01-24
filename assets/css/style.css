@@ -35,7 +35,7 @@
 }
 
 body{
-  background-color: #cfd2d6;
+  background-color: white;
   letter-spacing: .25px;
   font-family:"Nunito Sans";
 }
@@ -56,7 +56,77 @@ nav{
   margin:auto;
 }
 
-#addressForm {
+.form-group{
+  word-spacing: .25px;
+}
+
+.container page-header {
+  font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.input-group-text {
+  width:230px;
+}
+
+/*All pages*/
+.navbar-brand{
+  margin-left:100px;
+}
+
+#photo-carousel{
+  padding-bottom:30px;
+  border-top:solid lightgrey 5px;
+}
+
+.input-group-prepend{
+  background-color: black;
+}
+
+#footer{
+  margin:-30px 0px -25px 0px;
+  color:darkgrey;
+  text-align: center;
+  font-size: 10px;
+}
+
+/*Landing Page*/
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 100px;
+    color:white;
+    border-top:2px solid white;
+    border-bottom:2px solid white;
+    text-align: center;
+}
+
+#mainpage-text{
+  text-align: center;
+  margin:auto;
+}
+
+#party-button{
+  margin: 10px 0px 30px 0px;
+  background-color: white;
+  border:2px solid darkgrey;
+  color:darkgrey;
+}
+
+/*Host Page*/
+#detail-header{
+  margin-bottom:20px;
+}
+
+.host-page-header{
+  padding:10px;
+  margin:30px 0px 30px 0px;
+  background-image:url("../images/tweed.png");
+  color:white;
+}
+
+#address-form {
   margin: 0;
   font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 0.875rem;
@@ -70,197 +140,42 @@ nav{
   font-family: inherit;
 }
 
-.form-group{
-  word-spacing: .25px;
-}
-
-.container page-header {
-  font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-.input-group-text {
-  width:230px;
-}
-
-#welcomeTitle {
-  letter-spacing: .5px;
-}
-
-/*Kate Styling*/
-/*All pages*/
-.navbar-brand{
-  margin-left:100px;
-}
-
-#carouselExampleSlidesOnly{
-  padding-bottom:30px;
-  border-top:solid lightgrey 5px;
-}
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
-=======
->>>>>>> 18defde0cbb3b8af01905774f7edebe32d36a275
-=======
->>>>>>> 5e5ef701f10ac57a4319fd9c85c35c1d61267820
-#theme{
-  padding-top:30px;
-}
-
-.navbar-brand{
-  margin-left:100px;
-}
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7a237d033f214b39578960e6f501b8eafb2963e4
-=======
->>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
-=======
->>>>>>> 18defde0cbb3b8af01905774f7edebe32d36a275
-=======
->>>>>>> 5e5ef701f10ac57a4319fd9c85c35c1d61267820
-.input-group-prepend{
-  background-color: black;
-}
-
-body{
-  background-color: white;
-}
-
-#footer{
-  margin:-30px 0px -25px 0px;
-  color:darkgrey;
-  text-align: center;
-  font-size: 10px;
-}
-
-h3{
-  padding-bottom: 30px;
-}
-
-/*Main Page*/
-.centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 100px;
-    color:white;
-    border-top:2px solid white;
-    border-bottom:2px solid white;
-    text-align: center;
-}
-
-#party-button{
-  margin: 30px 0px 30px 0px;
-}
-
-#mainpage-text{
-  text-align: center;
-  margin:auto;
-}
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-#party-banner{
-=======
-/*Host Page*/
-=======
->>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
-=======
->>>>>>> 18defde0cbb3b8af01905774f7edebe32d36a275
-=======
-/*Host Page*/
->>>>>>> 5e5ef701f10ac57a4319fd9c85c35c1d61267820
-#wheresParty {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-#whensParty {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-h1{
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 7a237d033f214b39578960e6f501b8eafb2963e4
-=======
->>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
-=======
->>>>>>> 18defde0cbb3b8af01905774f7edebe32d36a275
-=======
->>>>>>> 5e5ef701f10ac57a4319fd9c85c35c1d61267820
-  padding:100px;
-  margin:30px -115px 30px -115px;
-  background-image:url("../images/tweed.png");
-  color:white;
-}
-
-iframe{
+.google-map{
   box-shadow: 10px 10px 5px grey;
+  margin-top:15px;
 }
 
-#addressForm{
-  margin:auto;
-}
-
-#iSubmitBtn{
+#invite-guest-button{
   margin:30px;
 }
 
 /*Guest Page*/
-#user-recipe{
+#guest-invite-header{
+  padding-bottom: 30px;
+}
+
+#user-recipe-form{
   color:white;
   padding:30px;
   background-image: url("../images/tweed.png");
   margin:30px 0px 30px 0px;
 }
 
-#recipeSuggestions{
+#recipe-suggestions{
   margin:30px 0px 30px 0px;
   background-color:black;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
 /*Menu Page*/
-=======
->>>>>>> 18defde0cbb3b8af01905774f7edebe32d36a275
-=======
-/*Menu Page*/
->>>>>>> 5e5ef701f10ac57a4319fd9c85c35c1d61267820
 #menu-body{
   background-image: url("../images/tweed.png")
 }
 
 /*Modal Styling*/
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 7a237d033f214b39578960e6f501b8eafb2963e4
-=======
->>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
-=======
->>>>>>> 18defde0cbb3b8af01905774f7edebe32d36a275
-=======
->>>>>>> 5e5ef701f10ac57a4319fd9c85c35c1d61267820
+#modal-login-form{
+  padding-bottom:20px;
+}
+
 #modal-authenticate {
   max-width: 800px!important
 }
