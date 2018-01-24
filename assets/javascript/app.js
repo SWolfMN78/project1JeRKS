@@ -1,3 +1,9 @@
+//Makes landing page clickable
+$(".landing-page").click(function() {
+  window.location = $(this).find("a").attr("href"); 
+  return false;
+});
+
 //Initialize Firebase - group databse.
 var config = {
     apiKey: "AIzaSyDzdxqnOhqs4axrlP42yaKilGnI4wNq_Zs",
@@ -7,6 +13,7 @@ var config = {
     storageBucket: "mytempdba.appspot.com",
     messagingSenderId: "626306864070"
 };
+
 firebase.initializeApp(config);
 
 // global control variables
@@ -54,12 +61,9 @@ function fillInMenuTable(user) {
 
                     })
                 }
-
             }
         }
-
     })
-
 }
 
 function getEventDataOfUser(user) {
@@ -198,7 +202,7 @@ $(document).ready(function() {
     */
 
 
-    $("#iSubmitBtn").on("click", function(event) {
+    $("#invite-guest-button").on("click", function(event) {
         event.preventDefault();
 
         /* Trying to get a validator to insure that the user fields are filled. */
@@ -283,7 +287,7 @@ $(document).ready(function() {
         }
     })
 
-    $("#iSubmitGuests").on("click", function(event) {
+    $("#submit-email-button").on("click", function(event) {
         event.preventDefault();
         //get all email adddresses submitted.
         var emails = [];
@@ -334,7 +338,7 @@ $(document).ready(function() {
     // fire when user-login, registration, or user-log off occurs
     firebase.auth().onAuthStateChanged(authChangeCallback);
 
-    $("#register-user").on("click", function(event) {
+    $("#register-user-button").on("click", function(event) {
         // Don't refresh the page!
         console.log("detected click");
         event.preventDefault();
@@ -357,7 +361,7 @@ $(document).ready(function() {
 
     });
 
-    $("#login-user").on("click", function(event) {
+    $("#login-user-button").on("click", function(event) {
         // Don't refresh the page!
         console.log("detected click");
         event.preventDefault();
@@ -414,6 +418,4 @@ $(document).ready(function() {
 
 
     });
-
-
 })

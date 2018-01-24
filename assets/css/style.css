@@ -93,13 +93,20 @@ nav{
 }
 
 #footer{
-  margin:-30px 0px -25px 0px;
+  margin:auto;
   color:darkgrey;
   text-align: center;
   font-size: 10px;
+  letter-spacing: .25px;
+  width:315px;
+  margin-top:25px;
 }
 
 /*Landing Page*/
+.landing-page{
+  cursor: pointer;
+}
+
 .text-overlay {
     position: absolute;
     top: 50%;
@@ -110,6 +117,10 @@ nav{
     border-top:2px solid white;
     border-bottom:2px solid white;
     text-align: center;
+}
+
+#index-image {
+ -webkit-filter: grayscale(100%) brightness(50%);
 }
 
 #mainpage-text{
