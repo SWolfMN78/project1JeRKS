@@ -98,6 +98,9 @@ nav{
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
 #theme{
   padding-top:30px;
 }
@@ -106,8 +109,11 @@ nav{
   margin-left:100px;
 }
 
+<<<<<<< HEAD
 =======
 >>>>>>> 7a237d033f214b39578960e6f501b8eafb2963e4
+=======
+>>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
 .input-group-prepend{
   background-color: black;
 }
@@ -150,16 +156,22 @@ h3{
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #party-banner{
 =======
 /*Host Page*/
+=======
+>>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
 #wheresParty {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
 h1{
+<<<<<<< HEAD
 >>>>>>> 7a237d033f214b39578960e6f501b8eafb2963e4
+=======
+>>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
   padding:100px;
   margin:30px -115px 30px -115px;
   background-image:url("../images/tweed.png");
@@ -192,14 +204,20 @@ iframe{
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
 /*Menu Page*/
 #menu-body{
   background-image: url("../images/tweed.png")
 }
 
 /*Modal Styling*/
+<<<<<<< HEAD
 >>>>>>> 7a237d033f214b39578960e6f501b8eafb2963e4
+=======
+>>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
 #modal-authenticate {
   max-width: 800px!important
 }
