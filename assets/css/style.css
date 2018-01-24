@@ -97,6 +97,16 @@ nav{
   border-top:solid lightgrey 5px;
 }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
+=======
+>>>>>>> 18defde0cbb3b8af01905774f7edebe32d36a275
+=======
+>>>>>>> 5e5ef701f10ac57a4319fd9c85c35c1d61267820
 #theme{
   padding-top:30px;
 }
@@ -105,6 +115,17 @@ nav{
   margin-left:100px;
 }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7a237d033f214b39578960e6f501b8eafb2963e4
+=======
+>>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
+=======
+>>>>>>> 18defde0cbb3b8af01905774f7edebe32d36a275
+=======
+>>>>>>> 5e5ef701f10ac57a4319fd9c85c35c1d61267820
 .input-group-prepend{
   background-color: black;
 }
@@ -146,7 +167,20 @@ h3{
   margin:auto;
 }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+#party-banner{
+=======
 /*Host Page*/
+=======
+>>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
+=======
+>>>>>>> 18defde0cbb3b8af01905774f7edebe32d36a275
+=======
+/*Host Page*/
+>>>>>>> 5e5ef701f10ac57a4319fd9c85c35c1d61267820
 #wheresParty {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -158,6 +192,16 @@ h3{
 }
 
 h1{
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 7a237d033f214b39578960e6f501b8eafb2963e4
+=======
+>>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
+=======
+>>>>>>> 18defde0cbb3b8af01905774f7edebe32d36a275
+=======
+>>>>>>> 5e5ef701f10ac57a4319fd9c85c35c1d61267820
   padding:100px;
   margin:30px -115px 30px -115px;
   background-image:url("../images/tweed.png");
@@ -189,12 +233,34 @@ iframe{
   background-color:black;
 }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
 /*Menu Page*/
+=======
+>>>>>>> 18defde0cbb3b8af01905774f7edebe32d36a275
+=======
+/*Menu Page*/
+>>>>>>> 5e5ef701f10ac57a4319fd9c85c35c1d61267820
 #menu-body{
   background-image: url("../images/tweed.png")
 }
 
 /*Modal Styling*/
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 7a237d033f214b39578960e6f501b8eafb2963e4
+=======
+>>>>>>> b154bafce86368ff26c035ff973e43194a8a5da2
+=======
+>>>>>>> 18defde0cbb3b8af01905774f7edebe32d36a275
+=======
+>>>>>>> 5e5ef701f10ac57a4319fd9c85c35c1d61267820
 #modal-authenticate {
   max-width: 800px!important
 }
