@@ -301,7 +301,7 @@ $(document).ready(function() {
         var emailInfo = Object.assign({}, eventData);
         emailInfo.sender = senderInfo;
         emailInfo.messageType = "invite";
-        emailInfo.link = (document.URL + "?eventID="+ firebase.auth().currentUser.uid)
+        emailInfo.link = (document.URL.replace(/[a-zA-Z]{1,}\.html.*/, "") + "guestConfig.html?eventID="+ firebase.auth().currentUser.uid)
         emailInfo.to = emails;
 
         // var emailInfo = {
