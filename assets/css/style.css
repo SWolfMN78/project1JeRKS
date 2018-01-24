@@ -151,6 +151,11 @@ h3{
   padding-bottom: 10px;
 }
 
+#whensParty {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 h1{
   padding:100px;
   margin:30px -115px 30px -115px;
@@ -183,7 +188,6 @@ iframe{
   background-color:black;
 }
 
-/*Menu Page*/
 #menu-body{
   background-image: url("../images/tweed.png")
 }
@@ -217,14 +221,4 @@ div#OR {
     top: 40%;
     z-index: 1;
     background: #DFDFDF;
-}
-
-#wheresParty {
-  padding-top: 10px;
-  padding-bottom: 10px; 
-}
-
-#whensParty {
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
