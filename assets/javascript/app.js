@@ -227,9 +227,6 @@ $(document).ready(function() {
         var hEventTime = $("#time").val().trim();
         var hEventDate = $("#date").val().trim();
 
-
-
-
         //variable to build link between host and guest page
         var eventItemInfo = hFullName + ", " + hEventDate + ", " + hEventTime;
 
