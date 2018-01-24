@@ -25,7 +25,7 @@ var database = firebase.database();
 // $("#menu-table tbody course-item").
 
 
-//Fill in Menu 
+//Fill in Menu
 function fillInMenuTable(user) {
     // right now, we are just gettting all the events, and for each event, if it belongs to the user, or, the it is an event where the user guest, display data.
     database.ref("Events").on("value", function(snapshot) {
@@ -163,7 +163,7 @@ var logoutCallback = function() {
 //     var hCourseAmounts = $("#inputGroupSelect03 option:selected").val().trim();
 //     var hEventAttire = $("#inputGroupSelect04 option:selected").val().trim();
 
-//     //return an element of false 
+//     //return an element of false
 //     if (hFullName === "" || hAddLine1 === "" || hAddLine2 === "" ||
 //         hCity === "" || hRegion === "" || hzip === "") {
 //         alert("Bad bad");
@@ -257,7 +257,8 @@ $(document).ready(function() {
             newEntry.userID = currentUser.uid;
         }
 
-        console.log("newEntry", newEntry);
+
+        // console.log("newEntry", newEntry);
         //push the information up to the database.
         var eventSnapshot = database.ref("Events").push(newEntry);
 
@@ -303,12 +304,15 @@ $(document).ready(function() {
         database.ref("Events").child(eventData.eventID).update({
             guestEmails: eventData.guestEmails
         });
+        var senderInfo = "semlak0021@umn.edu"
 
-        var emailInfo = {
-            sender: "seml0021@umn.edu",
-            to: emails,
-            messageType: "invite"
-        }
+        var emailInfo = Object.assign({}, eventData);
+        emailInfo.sender = senderInfo;
+        emailInfo.messageType = "invite";
+        emailInfo.link = (document.URL + "?eventID="+ evmailInfo.eventID)
+        emailInfo.to = emails;
+
+        console.log("emailInfo: ", emailInfo)
 
         var successCallback = function(data) {
             console.log("success sending emails!");
@@ -330,6 +334,8 @@ $(document).ready(function() {
             var email = new Email(emailInfo);
             email.send(successCallback, errorCallback)
         } catch (error) {
+            console.log("error")
+            console.log(error)
             errorCallback(error);
         }
     })
