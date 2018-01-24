@@ -242,6 +242,7 @@ $(document).ready(function() {
             time: hEventTime,
             date: hEventDate
         };
+
         // if user is logged in, add user id, user name
         var currentUser = firebase.auth().currentUser;
         if (currentUser) {
