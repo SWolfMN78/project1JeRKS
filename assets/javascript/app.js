@@ -16,7 +16,7 @@ var config = {
 
 firebase.initializeApp(config);
 
-// global control variables
+//Global Control Variables
 var database = firebase.database();
 
 //if this returns false then throw an error and don't allow info input
@@ -24,9 +24,10 @@ var database = firebase.database();
 
 // $("#menu-table tbody course-item").
 
+
+//Fill in Menu 
 function fillInMenuTable(user) {
     // right now, we are just gettting all the events, and for each event, if it belongs to the user, or, the it is an event where the user guest, display data.
-
     database.ref("Events").on("value", function(snapshot) {
         $("#menu-table tbody").empty();
         var events = snapshot.val();
@@ -40,7 +41,6 @@ function fillInMenuTable(user) {
                 if (!event.guestEmails || event.guestEmails.length < 1) {
                     var row = $("<tr>").html("<td>No guest data for event " + event.uid + "</td>")
                     $("#menu-table tbody").append(row)
-
 
                 } else {
                     event.guestEmails.forEach(function(guest) {
@@ -70,7 +70,7 @@ function getEventDataOfUser(user) {
 
 }
 
-// authentication functions
+//Authentication Functions
 function authChangeCallback(user) {
     if (user) {
         console.log("detected change in auth user state. User is signed in.")
@@ -86,12 +86,12 @@ function authChangeCallback(user) {
     } else {
         console.log("detected change in auth user state. User is signed out.")
             // No user is signed in.
-
         $("#user-login-logoff").text("Login");
         $("#modal-authenticate").iziModal("close");
     }
 }
 
+//Create a New User
 var createNewUser = function(displayName, email, password, successCallback, errorCallback) {
     firebase.auth().createUserWithEmailAndPassword(email, password).then(function(data) {
         var user = firebase.auth().currentUser;
@@ -111,6 +111,7 @@ var createNewUser = function(displayName, email, password, successCallback, erro
     });
 }
 
+//User Login
 var loginUser = function(email, password, successCallback, errorCallback) {
     firebase.auth().signInWithEmailAndPassword(email, password).then(function(data) {
         // app.createFirebaseListeners();
@@ -122,10 +123,10 @@ var loginUser = function(email, password, successCallback, errorCallback) {
         console.log("had error with firebase.auth()", error)
             // if (typeof errorCallback !== "null") errorCallback(error);
             // errorCallback(error);
-            // ...
     });
 }
 
+//Login Modals
 var loginCallback = function() {
     // $("#alert-modal .iziModal-header-title").text("User " + firebase.auth().currentUser.displayName + " is logged in.")
     $("#alert-modal").iziModal({ "overlay": false });
@@ -180,7 +181,7 @@ $(document).ready(function() {
 
     var eventData = {}
 
-    // initialize modals
+    //Initialize Modals
     if ($("#guests-email-form").length > 0) {
         $("#guests-email-form").iziModal({ headerColor: "#1a1a1a", "overlay": false, "overlayClose": false });
     }
@@ -195,12 +196,10 @@ $(document).ready(function() {
     // });
     // $("#alert-modal").iziModal('setBackground', "#19647E");
 
-
     /* Host Controls:
     set the control to add the information when clicked
     then display the info back for verification.
     */
-
 
     $("#invite-guest-button").on("click", function(event) {
         event.preventDefault();
@@ -220,11 +219,14 @@ $(document).ready(function() {
         var hRegion = $("#region").val().trim();
         var hzip = $("#postal-code").val().trim();
         var hTheme = $("#inputGroupSelect01").val().trim();
-        var hCourse = $("#inputGroupSelect02").val().trim();
-        var hCourseAmounts = Number.parseInt($("#inputGroupSelect03").val().trim());
         var hEventAttire = $("#inputGroupSelect04").val().trim();
+        var hCourse = $("#inputGroupSelect02").val().trim();
         var hEventTime = $("#time").val().trim();
         var hEventDate = $("#date").val().trim();
+
+        //Updates host name on guest page
+        $("#guest-invite-header").text("You've been invited to a party at " + hFullName + "'s house.");
+        $("#choose-course-header").text("Pick a course to share at " + hFullName + "'s party.");
 
         //information to be pressed into the database.
         var newEntry = {
@@ -235,9 +237,8 @@ $(document).ready(function() {
             region: hRegion,
             zip: hzip,
             theme: hTheme,
-            course: hCourse,
-            courseAmounts: hCourseAmounts,
             eventAttire: hEventAttire,
+            course: hCourse,
             time: hEventTime,
             date: hEventDate
         };
@@ -248,7 +249,6 @@ $(document).ready(function() {
             newEntry.userID = currentUser.uid;
         }
 
-
         console.log("newEntry", newEntry);
         //push the information up to the database.
         var eventSnapshot = database.ref("Events").push(newEntry);
@@ -256,10 +256,7 @@ $(document).ready(function() {
         eventData = Object.assign({}, newEntry);
         eventData.eventID = eventSnapshot.key;
 
-        //Clear the information from the screen
-        // alert("Added!");
-
-        //clear the info
+        //Clear the Information
         $("#full-name").val("");
         $("#address-line1").val("");
         $("#address-line2").val("");
@@ -267,11 +264,9 @@ $(document).ready(function() {
         $("#region").val("");
         $("#postal-code").val("");
 
-
         // $("#initial-form").hide()
         // $("#guests-email-form").show();
         $('#guests-email-form').iziModal('open');
-
     });
 
     $("#add-guest").on('click', function(event) {
@@ -305,7 +300,6 @@ $(document).ready(function() {
             sender: "seml0021@umn.edu",
             to: emails,
             messageType: "invite"
-
         }
 
         var successCallback = function(data) {
@@ -313,8 +307,8 @@ $(document).ready(function() {
             $("#alert-modal .iziModal-header-title").text("Invitiations sent successfully!")
             $("#alert-modal").iziModal('setBackground', "#19647E");
             $("#alert-modal").iziModal("open");
-
         }
+
         var errorCallback = function(error) {
             console.log("error sending emails")
                 // $("#alert-modal p").text("Error while trying to send emails!")
@@ -322,8 +316,8 @@ $(document).ready(function() {
             $("#alert-modal").iziModal('setBackground', "#bd5b5b");
             $("#alert-modal").iziModal("open");
             // trigger-alert
-
         }
+
         try {
             var email = new Email(emailInfo);
             email.send(successCallback, errorCallback)
@@ -338,6 +332,7 @@ $(document).ready(function() {
     // fire when user-login, registration, or user-log off occurs
     firebase.auth().onAuthStateChanged(authChangeCallback);
 
+    //Register Users
     $("#register-user-button").on("click", function(event) {
         // Don't refresh the page!
         console.log("detected click");
@@ -378,7 +373,6 @@ $(document).ready(function() {
         } else {
             console.log("User login data is invalid. Display message");
         }
-
     });
 
     $("#user-login-logoff").on("click", function(event) {
@@ -415,7 +409,6 @@ $(document).ready(function() {
         var atdLogInfo = childSnapshot.val();
 
         //push the information into the table.
-
 
     });
 })
