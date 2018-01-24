@@ -5,4 +5,3 @@ var searchCourse = "";
 var searhDish = "";
 
 var callSTring = "http://api.yummly.com/v1/api/recipes?_app_id=" + apiID + "&_app_key=" + apiKey + "&q=onion+soup&allowedCuisine[]=cuisine^cuisine-american"
-

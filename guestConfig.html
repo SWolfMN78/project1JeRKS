@@ -40,6 +40,7 @@
             </button>
         <div class="collapse navbar-collapse" id="navbarColor03">
             <ul class="navbar-nav mr-auto">
+                <!--Guest should not be able to see the host information unless they wish to start their own event -->
                 <li class="nav-item">
                     <a class="nav-link" href="hostConfig.html" id="hostConfigLink">Host</a>
                 </li>
@@ -99,7 +100,7 @@
     </div>
     <div class="container">
         <h5 id="chooseCourse">
-            Pick a Course to Share at + "#hostName"+ 's Party.
+            Pick a Course to Share at + "#hostName"<label id="hostName"></label> + 's Party.
         </h5>
         <div class="input-group mb-1">
             <div class="input-group-prepend">
@@ -254,7 +255,7 @@
     <!-- Link for Javascripting information -->
     <script src="assets/javascript/email.js"></script>
     <script src="assets/javascript/app.js"></script>
-    <script src="assets.javascript/api.js"></script>
+    <!-- <script src="assets.javascript/api.js"></script> -->
     <!-- Link access to the style.css file - if any would be applied. -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 </body>

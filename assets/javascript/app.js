@@ -197,7 +197,7 @@ $(document).ready(function() {
     then display the info back for verification.
     */
 
-
+    //this button is for the main host page to submit the host info.
     $("#iSubmitBtn").on("click", function(event) {
         event.preventDefault();
 
@@ -219,6 +219,8 @@ $(document).ready(function() {
         var hCourse = $("#inputGroupSelect02").val().trim();
         var hCourseAmounts = Number.parseInt($("#inputGroupSelect03").val().trim());
         var hEventAttire = $("#inputGroupSelect04").val().trim();
+        var hEventDate = $("#event-date").val().trim();
+        var hHostEmail = $("#host-email").val().trim();
 
         //information to be pressed into the database.
         var newEntry = {
@@ -231,7 +233,9 @@ $(document).ready(function() {
             theme: hTheme,
             course: hCourse,
             courseAmounts: hCourseAmounts,
-            eventAttire: hEventAttire
+            eventAttire: hEventAttire,
+            date: hEventDate,
+            hEmail: hHostEmail
         };
         // if user is logged in, add user id, user name
         var currentUser = firebase.auth().currentUser;
@@ -239,7 +243,6 @@ $(document).ready(function() {
             newEntry.userName = currentUser.displayName;
             newEntry.userID = currentUser.uid;
         }
-
 
         console.log("newEntry", newEntry);
         //push the information up to the database.
@@ -258,27 +261,40 @@ $(document).ready(function() {
         $("#city").val("");
         $("#region").val("");
         $("#postal-code").val("");
-
+        $("#event-date").val("");
+        $("#host-email").val("");
 
         // $("#initial-form").hide()
         // $("#guests-email-form").show();
         $('#guests-email-form').iziModal('open');
-
     });
 
+    //Email appears to be checked on in a number of places.  This can be eaisly compressed down into a single function...
+    // function isValidEmail(event) {
+    //     if (email.match("[a-zA-Z]+.*@.*[a-zA-Z]+.*[.][a-zA-Z]+")) {
+    //         $("#added-guests ul").append($("<li>").text(email).val(email))
+    //         $("#new-guest-email").val("");
+    //     } else {
+    //         // should display an error. However, right now, just console.log
+    //         console.log("email address does not appear to be valid.")
+    //     }
+    // }
+
+    //When the add guest button is checked it will save the guest email info
     $("#add-guest").on('click', function(event) {
         event.preventDefault();
         var email = $("#new-guest-email").val().trim()
+            //if the user's information lines up for formatting add it
         if (email.match("[a-zA-Z]+.*@.*[a-zA-Z]+.*[.][a-zA-Z]+")) {
             $("#added-guests ul").append($("<li>").text(email).val(email))
             $("#new-guest-email").val("");
-
         } else {
             // should display an error. However, right now, just console.log
             console.log("email address does not appear to be valid.")
         }
-    })
+    });
 
+    //Once finished adding guest emails this button sends out the emails
     $("#iSubmitGuests").on("click", function(event) {
         event.preventDefault();
         //get all email adddresses submitted.
@@ -296,8 +312,8 @@ $(document).ready(function() {
         var emailInfo = {
             sender: "seml0021@umn.edu",
             to: emails,
+            onDate: event.date,
             messageType: "invite"
-
         }
 
         var successCallback = function(data) {
@@ -316,6 +332,9 @@ $(document).ready(function() {
             // trigger-alert
 
         }
+
+        /* Need to know if we can get the date entered into the email 
+        format so that the guest know the date of the event(s) */
         try {
             var email = new Email(emailInfo);
             email.send(successCallback, errorCallback)
@@ -323,7 +342,6 @@ $(document).ready(function() {
             errorCallback(error);
         }
     })
-
 
     // authentication listeners
 
@@ -350,7 +368,6 @@ $(document).ready(function() {
         } else {
             console.log("Form data is invalid. Display message");
         }
-
     });
 
     $("#login-user").on("click", function(event) {
@@ -393,9 +410,9 @@ $(document).ready(function() {
                 console.log(error)
                     // An error happened.
             });
-
         }
     });
+
 
     //get the information from the database and apply it back to the menu.
     database.ref().on("child_added", function(childSnapshot, prevChildKey) {
