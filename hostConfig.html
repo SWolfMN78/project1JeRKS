@@ -51,7 +51,7 @@
     </nav>
 
     <!-- Carousel of photos-->
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div id="photo-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img class="d-block w-100" src="assets/images/tuscanPicnic-760x242.jpg" alt="First slide" />
@@ -82,7 +82,7 @@
 
     <!-- Beginning of Host Input-->
     <div class="container">
-        <h3 id="theme">Choose your party details.</h3>
+        <h3 id="detail-header">Choose your party details.</h3>
         <!-- Theme Selection -->
             <div class="input-group mb-1">
                 <div class="input-group-prepend">
@@ -164,7 +164,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1 id="whensParty">When's The Party?</h1>
+                <h1 class="host-page-header">When's The Party?</h1>
             </div>
         </div>
         <!-- Date and Time Input-->
@@ -198,11 +198,11 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1 id="wheresParty">Where's The Party?</h1>
+                <h1 class="host-page-header">Where's The Party?</h1>
             </div>
         </div>
         <!--Address Form -->
-            <div class="container" id="addressForm">
+            <div class="container" id="address-form">
                 <div class="row">
                     <div class="col-md-5">
                         <form class="form-horizontal">
@@ -263,7 +263,7 @@
                     </div>
                 <!-- Map that will someday allow the host to send an image of the location as well -->
                     <div class="col-md-7">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11275.275624271115!2d-92.83609165!3d45.04889665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1516574242134" width="600" height="450" style="border:0; frameborder: 0" allowfullscreen></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11275.275624271115!2d-92.83609165!3d45.04889665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1516574242134" width="600" height="450" style="border:0; frameborder: 0" allowfullscreen class="google-map"></iframe>
                     </div>
                 </div>
             </div>
@@ -274,7 +274,7 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-sm">
-                <a class="btn btn-primary" role="button" id="iSubmitBtn">Invite Guests</a>
+                <a class="btn btn-primary" role="button" id="invite-guest-button">Invite Guests</a>
             </div>
         </div>
     </div>
@@ -311,11 +311,11 @@
                                 </form>
                             </div>
                         </div>
-                        <!--Button to submit invites-->
+                        <!--Button to submit emails-->
                         <div class="container">
                             <div class="row text-center">
                                 <div class="col-sm">
-                                    <a class="btn btn-primary" role="button" id="iSubmitGuests">Submit Guest Emails</a>
+                                    <a class="btn btn-primary" role="button" id="submit-email-button">Submit Guest Emails</a>
                                 </div>
                             </div>
                         </div>
@@ -325,7 +325,7 @@
         </div>
     </div>
 
-    <!-- Modal for email invites -->
+    <!-- Modal for Email Invites -->
     <div id="alert-modal" class="iziModal-header iziModal-noSubtitle" style="background: rgb(0, 175, 102); padding-right: 40px; top: none">
         <i class="iziModal-header-icon icon-check"></i>
             <div class="iziModal-progressbar">
@@ -338,7 +338,8 @@
                 <a href="javascript:void(0)" class="iziModal-button iziModal-button-close" data-izimodal-close=""></a>
             </div>
     </div>
-    <!-- Modal Authentication -->
+
+    <!-- Modal for Login -->
     <div id="modal-authenticate">
         <div class="iziModal-wrap" style="height: auto;">
             <div class="iziModal-content">
@@ -351,8 +352,9 @@
                             <a class="nav-item nav-link" id="nav-registration-tab" data-toggle="tab" href="#nav-registration" role="tab" aria-controls="nav-registration" aria-selected="false">Registration</a>
                         </div>
                         <div class="tab-content" id="nav-tabContent">
+                            <!-- Login Panel -->
                             <div class="tab-pane fade show active" id="nav-login" role="tabpanel" aria-labelledby="nav-login-tab">
-                                <form class="form-horizontal">
+                                <form class="form-horizontal" id="modal-login-form">
                                     <div class="form-group">
                                         <label for="email" class="col-sm-2 control-label">Email</label>
                                             <div class="col-sm-12">
@@ -366,52 +368,53 @@
                                             </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-2">
-                                        </div>
+                                        <div class="col-sm-2"></div>
                                         <div class="col-sm-10">
-                                            <div class="btn btn-primary btn-sm" id="login-user">Submit</div>
-                                            <a href="javascript:;">Forgot your password?</a>
+                                            <div class="btn btn-primary btn-sm" id="login-user-button">Submit</div>
+                                            <a href="javascript:;" id="forgot-password">Forgot your password?</a>
                                         </div>
                                     </div>
                                 </form>
                             </div>
+
+                            <!-- Registration Panel -->
                             <div class="tab-pane fade" id="nav-registration" role="tabpanel" aria-labelledby="nav-registration-tab">
-                                <form class="form-horizontal">
+                                <form class="form-horizontal" id="modal-login-form">
                                     <div class="form-group">
                                         <label for="name-input" class="col-sm-2 control-label">Name</label>
-                                        <div class="col-sm-12">
-                                            <input type="text" class="form-control" id="name-input" placeholder="Name" />
-                                        </div>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="name-input" placeholder="Name" />
+                                            </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="email" class="col-sm-2 control-label">Email</label>
-                                        <div class="col-sm-12">
-                                            <input type="email" class="form-control" id="email" placeholder="Email" />
-                                        </div>
+                                            <div class="col-sm-12">
+                                                <input type="email" class="form-control" id="email" placeholder="Email" />
+                                            </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="col-sm-2 control-label">Password</label>
-                                        <div class="col-sm-12">
-                                            <input type="password" class="form-control" id="password" placeholder="Password (6-character minimum)" />
-                                        </div>
+                                            <div class="col-sm-12">
+                                                <input type="password" class="form-control" id="password" placeholder="Password (6-character minimum)" />
+                                            </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password-confirm" class="col-sm-2 control-label">Confirm</label>
-                                        <div class="col-sm-12">
-                                            <input type="password" class="form-control" id="password-confirm" placeholder="Confirm Password" />
-                                        </div>
+                                            <div class="col-sm-12">
+                                                <input type="password" class="form-control" id="password-confirm" placeholder="Confirm Password" />
+                                            </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-2">
-                                        </div>
+                                        <div class="col-sm-2"></div>
                                         <div class="col-sm-10">
-                                            <div class="btn btn-primary btn-sm" id="register-user">Save & Continue</div>
+                                            <div class="btn btn-primary btn-sm" id="register-user-button">Save & Continue</div>
                                             <div class="btn btn-default btn-sm">Cancel</div>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
+                        <!-- Sign in with Google of Facebook -->
                         <div id="OR" class="hidden-xs">OR</div>
                     </div>
                     <div class="col-md-5">
