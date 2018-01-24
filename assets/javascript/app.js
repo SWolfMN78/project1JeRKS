@@ -1,7 +1,7 @@
 //Makes landing page clickable
 $(".landing-page").click(function() {
-  window.location = $(this).find("a").attr("href"); 
-  return false;
+    window.location = $(this).find("a").attr("href");
+    return false;
 });
 
 //Initialize Firebase - group databse.
@@ -220,9 +220,15 @@ $(document).ready(function() {
         var hzip = $("#postal-code").val().trim();
         var hTheme = $("#inputGroupSelect01").val().trim();
         var hEventAttire = $("#inputGroupSelect04").val().trim();
-        var hCourse = $("#inputGroupSelect02").val().trim();
+        var hCourse = [];
+        $("#inputGroupSelect02 option:selected").each(function() {
+            hCourse.push($(this).text());
+        });
         var hEventTime = $("#time").val().trim();
         var hEventDate = $("#date").val().trim();
+
+        //variable to build link between host and guest page
+        var eventItemInfo = hFullName + ", " + hEventDate + ", " + hEventTime;
 
         //Updates host name on guest page
         $("#guest-invite-header").text("You've been invited to a party at " + hFullName + "'s house.");
@@ -240,7 +246,8 @@ $(document).ready(function() {
             eventAttire: hEventAttire,
             course: hCourse,
             time: hEventTime,
-            date: hEventDate
+            date: hEventDate,
+            eventInfo: eventItemInfo,
         };
 
         // if user is logged in, add user id, user name
@@ -396,20 +403,26 @@ $(document).ready(function() {
                 console.log(error)
                     // An error happened.
             });
-
         }
     });
 
-    //get the information from the database and apply it back to the menu.
+    //get the information from the DBA and apply it to the different fields for use.
     database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
         //push the information into variables.
         var atdCourse = childSnapshot.val();
-        var atdDish = childSnapshot.val();
-        var atdGuestEml = childSnapshot.val();
-        var atdLogInfo = childSnapshot.val();
+        var atdGuestEml = childSnapshot.val().guestEmails;
+        var atdHostName = childSnapshot.val().name;
+        var atdEventTime = childSnapshot.val().time;
+        var atdEventDate = childSnapshot.val().date;
+        var atdDishInfo = childSnapshot.val()
+
+        //push the information into the guest drop down list.
+        $(".cHostInfomation > select").append("<option>" + atdHostName + "</option>");
 
         //push the information into the table.
 
     });
+
+
 })
