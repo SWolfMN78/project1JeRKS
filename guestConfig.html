@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -28,11 +29,11 @@
 </head>
 
 <body>
-<!-- Main Title Bar-->
+    <!-- Main Title Bar-->
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">MyShindig</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         <div class="collapse navbar-collapse" id="navbarColor03">
@@ -89,12 +90,28 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h3 id="guest-invite-header">
-                    You've been invited to a party at + "#hostName" + 's house.
-                </h3>
+                <h4 id="guest-invite-header">
+                    Please select your host below and select what you'll be bringing to the event.
+                </h4>
             </div>
         </div>
     </div>
+
+    <!-- Beginning of Host Input-->
+    <div class="container">
+        <h3 id="detail-header">Please select your host and event from the dropdown menu</h3>
+        <!-- Theme Selection -->
+        <div class="input-group mb-1 cHostInfomation">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="eventSelector">Host Name</label>
+            </div>
+            <select class="custom-select" id="eventSelector">
+                        <option selected>Choose...</option>
+                    </select>
+        </div>
+    </div>
+
+
     <div class="container">
         <h5 id="choose-course-header">
             Pick a Course to Share at + "#hostName"+ 's Party.
@@ -103,7 +120,7 @@
             <div class="input-group-prepend">
                 <label class="input-group-text" for="inputGroupSelect01">Courses</label>
             </div>
-                <select class="custom-select" id="inputGroupSelect01">
+            <select class="custom-select" id="inputGroupSelect01">
                     <option selected>Choose...</option>
                     <option value="1">Appetizer</option>
                     <option value="2">Main Course</option>
@@ -119,34 +136,34 @@
     </div>
 
     <!-- Form for guests to enter in their own recipe -->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
-                    <form id="user-recipe-form">
-                        Choose a recipe hand selected for the theme, or enter your own classic dish here:<br><br>
-                        <input type="text" id="user-search"><br><br>
-                        <button type="button" class="btn btn-secondary" id="search-button">Search</button>
-                    </form>
-                </div>
-                <!--Empty div for recipes from Yummly to populate into-->
-                <div class="col-sm-8" id="recipe-suggestions">
-                    <p>DIV for recipe suggestions</p>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <form id="user-recipe-form">
+                    Choose a recipe hand selected for the theme, or enter your own classic dish here:<br><br>
+                    <input type="text" id="user-search"><br><br>
+                    <button type="button" class="btn btn-secondary" id="search-button">Search</button>
+                </form>
             </div>
-        </div> 
- 
+            <!--Empty div for recipes from Yummly to populate into-->
+            <div class="col-sm-8" id="recipe-suggestions">
+                <p>DIV for recipe suggestions</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal for Email Invites -->
     <div id="alert-modal" class="iziModal-header iziModal-noSubtitle" style="background: rgb(0, 175, 102); padding-right: 40px; top: none">
         <i class="iziModal-header-icon icon-check"></i>
-            <div class="iziModal-progressbar">
-                <div style="background-color: rgba(255, 255, 255, 0.5); width: 0%;">
-                </div>
+        <div class="iziModal-progressbar">
+            <div style="background-color: rgba(255, 255, 255, 0.5); width: 0%;">
             </div>
-            <div class="iziModal-header-title" style="font-size: 1; line-height: 4; margin-left: 1em">Your messages have been sent successfully!</div>
-                <p class="iziModal-header-subtitle"></p>
-            <div class="iziModal-header-buttons">
-                <a href="javascript:void(0)" class="iziModal-button iziModal-button-close" data-izimodal-close=""></a>
-            </div>
+        </div>
+        <div class="iziModal-header-title" style="font-size: 1; line-height: 4; margin-left: 1em">Your messages have been sent successfully!</div>
+        <p class="iziModal-header-subtitle"></p>
+        <div class="iziModal-header-buttons">
+            <a href="javascript:void(0)" class="iziModal-button iziModal-button-close" data-izimodal-close=""></a>
+        </div>
     </div>
 
     <!-- Modal for Login -->
@@ -167,15 +184,15 @@
                                 <form class="form-horizontal" id="modal-login-form">
                                     <div class="form-group">
                                         <label for="email" class="col-sm-2 control-label">Email</label>
-                                            <div class="col-sm-12">
-                                                <input type="email" class="form-control" id="email1" placeholder="Email" />
-                                            </div>
+                                        <div class="col-sm-12">
+                                            <input type="email" class="form-control" id="email1" placeholder="Email" />
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password1" class="col-sm-2 control-label">Password</label>
-                                            <div class="col-sm-12">
-                                                <input type="password" class="form-control" id="password1" placeholder="Password" />
-                                            </div>
+                                        <div class="col-sm-12">
+                                            <input type="password" class="form-control" id="password1" placeholder="Password" />
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-2"></div>
@@ -192,27 +209,27 @@
                                 <form class="form-horizontal" id="modal-login-form">
                                     <div class="form-group">
                                         <label for="name-input" class="col-sm-2 control-label">Name</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="name-input" placeholder="Name" />
-                                            </div>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" id="name-input" placeholder="Name" />
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="email" class="col-sm-2 control-label">Email</label>
-                                            <div class="col-sm-12">
-                                                <input type="email" class="form-control" id="email" placeholder="Email" />
-                                            </div>
+                                        <div class="col-sm-12">
+                                            <input type="email" class="form-control" id="email" placeholder="Email" />
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="col-sm-2 control-label">Password</label>
-                                            <div class="col-sm-12">
-                                                <input type="password" class="form-control" id="password" placeholder="Password (6-character minimum)" />
-                                            </div>
+                                        <div class="col-sm-12">
+                                            <input type="password" class="form-control" id="password" placeholder="Password (6-character minimum)" />
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password-confirm" class="col-sm-2 control-label">Confirm</label>
-                                            <div class="col-sm-12">
-                                                <input type="password" class="form-control" id="password-confirm" placeholder="Confirm Password" />
-                                            </div>
+                                        <div class="col-sm-12">
+                                            <input type="password" class="form-control" id="password-confirm" placeholder="Confirm Password" />
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-2"></div>
@@ -247,8 +264,7 @@
 
     <!-- Footer -->
     <div class="card-body" id="footer">
-        <p>First project for University of Minnesota coding bootcamp.
-        © 2018 MyShindig. All rights reserved.</p>
+        <p>First project for University of Minnesota coding bootcamp. © 2018 MyShindig. All rights reserved.</p>
     </div>
 
     <!-- Link for Javascripting information -->
@@ -259,4 +275,5 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 
 </body>
+
 </html>
