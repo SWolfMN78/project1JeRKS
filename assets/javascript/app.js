@@ -1,4 +1,3 @@
-
 //Initialize Firebase - group databse.
 var config = {
     apiKey: "AIzaSyDzdxqnOhqs4axrlP42yaKilGnI4wNq_Zs",
@@ -220,6 +219,8 @@ $(document).ready(function() {
         var hCourse = $("#inputGroupSelect02").val().trim();
         var hCourseAmounts = Number.parseInt($("#inputGroupSelect03").val().trim());
         var hEventAttire = $("#inputGroupSelect04").val().trim();
+        var hEventTime = $("#time").val().trim();
+        var hEventDate = $("#date").val().trim();
 
         //information to be pressed into the database.
         var newEntry = {
@@ -232,7 +233,9 @@ $(document).ready(function() {
             theme: hTheme,
             course: hCourse,
             courseAmounts: hCourseAmounts,
-            eventAttire: hEventAttire
+            eventAttire: hEventAttire,
+            time: hEventTime,
+            date: hEventDate
         };
         // if user is logged in, add user id, user name
         var currentUser = firebase.auth().currentUser;
