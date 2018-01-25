@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <!--Bootswatch-->
-    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.3/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-XI0PIujkSZEzZ5m8WTEm+krRuIpfO+vHrEznaIrhTAkbrbIvfs11kzCqUarPR7yn" crossorigin="anonymous"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0-beta.3/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-XI0PIujkSZEzZ5m8WTEm+krRuIpfO+vHrEznaIrhTAkbrbIvfs11kzCqUarPR7yn" crossorigin="anonymous" />
     <!-- Link to my jQuery information -->
-    <script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Firebase database script below -->
     <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
     <!-- Popper.js -->
-    <script  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.min.js"></script>
     <!-- Bootstrap JS file -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- Moment link for time use **NOT IN USE YET **-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.js"></script>
     <!--google fonts -->
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nunito+Sans"/>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nunito+Sans" />
     <!-- our modal library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css" integrity="sha384-twsqDCMYZktKK4KMv8cXDnLhBCVchPMuxLKKh1azoa3vn5nKRF/8PK4GmIgD0JaW" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css" integrity="sha384-twsqDCMYZktKK4KMv8cXDnLhBCVchPMuxLKKh1azoa3vn5nKRF/8PK4GmIgD0JaW" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js" integrity="sha384-OCBM5wbr9X4XRMO0UcgNtJrfDZz4bo4c6PDZrxVN8zLSn6/B0CKZ/RUBRDDVqgt4" crossorigin="anonymous"></script>
     <!-- responsive meta tag-->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
 <body>
-<!-- Main Title Bar-->
+    <!-- Main Title Bar-->
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">MyShindig</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         <div class="collapse navbar-collapse" id="navbarColor03">
@@ -84,11 +85,11 @@
     <div class="container">
         <h3 id="detail-header">Choose your party details.</h3>
         <!-- Theme Selection -->
-            <div class="input-group mb-1">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Theme</label>   
-                </div>
-                    <select class="custom-select" id="inputGroupSelect01">
+        <div class="input-group mb-1">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Theme</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
                         <option selected>Choose...</option>
                         <option value="1">American</option>
                         <option value="2">Asian</option>
@@ -105,14 +106,14 @@
                         <option value="13">French</option>
                         <option value="14">Game Day!</option>
                     </select>
-            </div>
+        </div>
 
         <!--Attire Selection-->
-            <div class="input-group mb-1">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect04">Suggested Attire</label>
-                </div>
-                    <select class="custom-select" id="inputGroupSelect04">
+        <div class="input-group mb-1">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect02">Suggested Attire</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect02">
                         <option selected>Choose...</option>
                         <option value="1">Formal</option>
                         <option value="2">Semi-Formal</option>
@@ -121,15 +122,14 @@
                         <option value="5">Theme Costume</option>
                         <option value="6">Game Day Jersey</option>
                     </select>
-            </div>
+        </div>
 
         <!-- Choose Which courses you want at your party Option Select -->
-            <div class="input-group mb-1" id="courseSelect">
-                <div class="input-group-prepend" style="height: 150px;">
-                    <label class="input-group-text" for="inputGroupSelect02" style="height: 150px;">Courses</label>
-                </div>
-                <select multiple class="custom-select" id="inputGroupSelect02" style="height: 150px;">
-                    <option selected>Choose...</option>
+        <div class="input-group mb-1" id="courseSelect">
+            <div class="input-group-prepend" style="height: 150px;">
+                <label class="input-group-text" for="inputGroupSelect03" style="height: 150px;">Courses</label>
+            </div>
+            <select multiple class="custom-select" id="inputGroupSelect03" style="height: 150px;">
                     <option value="1">Appetizer</option>
                     <option value="2">Main Course</option>
                     <option value="3">Salad</option>
@@ -141,7 +141,7 @@
                     <option value="9">Apertifs</option>
                 </select>
         </div>
-        <p style="font-size: 10px; margin-bottom: 0px;" >Hold down the Ctrl (windows) / Command (Mac) button to select multiple options.</p>
+        <p style="font-size: 10px; margin-bottom: 0px;">Hold down the Ctrl (windows) / Command (Mac) button to select multiple options.</p>
     </div>
 
     <!-- When is the party?-->
@@ -160,20 +160,21 @@
                         <form method="post">
                             <div class="form-group">
                                 <label class="control-label" for="time">Time</label>
-                                <input class="form-control" id="time" name="time" placeholder="HH:mm" type="text"/>
+                                <input class="form-control" id="time" name="time" placeholder="HH:mm" type="text" />
                             </div>
                         </form>
                     </div>
                     <!-- Date input -->
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <form method="post">
-                            <div class="form-group"> <!-- Date input -->
+                            <div class="form-group">
+                                <!-- Date input -->
                                 <label class="control-label" for="date">Date</label>
-                                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+                                <input class="form-control" id="date" name="date" placeholder="MM/DD/YY" type="text" />
                             </div>
                         </form>
                     </div>
-                </div>    
+                </div>
             </div>
         </div>
     </div>
@@ -186,74 +187,75 @@
             </div>
         </div>
         <!--Address Form -->
-            <div class="container" id="address-form">
-                <div class="row">
-                    <div class="col-md-5">
-                        <form class="form-horizontal">
-                            <fieldset>
-                                <br/>
-                                <!-- full-name input-->
-                                <div class="form-group">
-                                    <label class="control-label">Full Name</label>
-                                        <div class="controls">
-                                            <input id="full-name" type="text" placeholder="full name" class="input-xlarge"/>
-                                        </div>
+        <div class="container" id="address-form">
+            <div class="row">
+                <div class="col-md-5">
+                    <form class="form-horizontal">
+                        <fieldset>
+                            <br/>
+                            <!-- full-name input-->
+                            <div class="form-group">
+                                <label class="control-label">Full Name</label>
+                                <div class="controls">
+                                    <input id="full-name" type="text" placeholder="full name" class="input-xlarge" />
                                 </div>
-                                <!-- address-line1 input-->
-                                <div class="form-group">
-                                    <label class="control-label">Address Line 1</label>
-                                        <div class="controls">
-                                            <input id="address-line1" name="address-line1" type="text" placeholder="address line 1" class="input-xlarge"/>
-                                            <p class="help-block">Street address, P.O. box, company name, c/o</p>
-                                        </div>
+                            </div>
+                            <!-- address-line1 input-->
+                            <div class="form-group">
+                                <label class="control-label">Address Line 1</label>
+                                <div class="controls">
+                                    <input id="address-line1" name="address-line1" type="text" placeholder="address line 1" class="input-xlarge" />
+                                    <p class="help-block">Street address, P.O. box, company name, c/o</p>
                                 </div>
-                                <!-- address-line2 input-->
-                                <div class="form-group">
-                                    <label class="control-label">Address Line 2</label>
-                                        <div class="controls">
-                                            <input id="address-line2" name="address-line2" type="text" placeholder="address line 2" class="input-xlarge"/>
-                                            <p class="help-block">Apartment, suite , unit, building, floor, etc.</p>
-                                        </div>
+                            </div>
+                            <!-- address-line2 input-->
+                            <div class="form-group">
+                                <label class="control-label">Address Line 2</label>
+                                <div class="controls">
+                                    <input id="address-line2" name="address-line2" type="text" placeholder="address line 2" class="input-xlarge" />
+                                    <p class="help-block">Apartment, suite , unit, building, floor, etc.</p>
                                 </div>
-                                <!-- city input-->
-                                <div class="form-group">
-                                    <label class="control-label">City / Town</label>
-                                        <div class="controls">
-                                            <input id="city" name="city" type="text" placeholder="city" class="input-xlarge"/>
-                                            <p class="help-block">
-                                            </p>
-                                        </div>
+                            </div>
+                            <!-- city input-->
+                            <div class="form-group">
+                                <label class="control-label">City / Town</label>
+                                <div class="controls">
+                                    <input id="city" name="city" type="text" placeholder="city" class="input-xlarge" />
+                                    <p class="help-block">
+                                    </p>
                                 </div>
-                                <!-- region input-->
-                                <div class="form-group">
-                                    <label class="control-label">State / Province / Region</label>
-                                        <div class="controls">
-                                            <input id="region" name="region" type="text" placeholder="state / province / region" class="input-xlarge"/>
-                                            <p class="help-block">
-                                            </p>
-                                        </div>
+                            </div>
+                            <!-- region input-->
+                            <div class="form-group">
+                                <label class="control-label">State / Province / Region</label>
+                                <div class="controls">
+                                    <input id="region" name="region" type="text" placeholder="state / province / region" class="input-xlarge" />
+                                    <p class="help-block">
+                                    </p>
                                 </div>
-                                <!-- postal-code input-->
-                                <div class="form-group">
-                                    <label class="control-label">Zip / Postal Code</label>
-                                        <div class="controls">
-                                            <input id="postal-code" name="postal-code" type="text" placeholder="zip or postal code" class="input-xlarge"/>
-                                            <p class="help-block">
-                                            </p>
-                                        </div>
+                            </div>
+                            <!-- postal-code input-->
+                            <div class="form-group">
+                                <label class="control-label">Zip / Postal Code</label>
+                                <div class="controls">
+                                    <input id="postal-code" name="postal-code" type="text" placeholder="zip or postal code" class="input-xlarge" />
+                                    <p class="help-block">
+                                    </p>
                                 </div>
-                            </fieldset>
-                        </form>
-                    </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
                 <!-- Map that will someday allow the host to send an image of the location as well -->
-                    <div class="col-md-7">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11275.275624271115!2d-92.83609165!3d45.04889665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1516574242134" width="600" height="450" style="border:0; frameborder: 0" allowfullscreen class="google-map"></iframe>
-                    </div>
+                <div class="col-md-7">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11275.275624271115!2d-92.83609165!3d45.04889665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1516574242134" width="600" height="450" style="border:0; frameborder: 0" allowfullscreen
+                        class="google-map"></iframe>
                 </div>
             </div>
         </div>
     </div>
-    
+    </div>
+
     <!--Button to submit invites-->
     <div class="container">
         <div class="row text-center">
@@ -286,10 +288,10 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">Guest</label>
-                                                <div class="controls">
-                                                    <input id="new-guest-email" type="email" placeholder="name@example.com" value="" class="input-xlarge" />
-                                                    <span class="btn btn-info btn-sm" id="add-guest">Add</span>
-                                                </div>
+                                            <div class="controls">
+                                                <input id="new-guest-email" type="email" placeholder="name@example.com" value="" class="input-xlarge" />
+                                                <span class="btn btn-info btn-sm" id="add-guest">Add</span>
+                                            </div>
                                         </div>
                                     </fieldset>
                                 </form>
@@ -312,15 +314,15 @@
     <!-- Modal for Email Invites -->
     <div id="alert-modal" class="iziModal-header iziModal-noSubtitle" style="background: rgb(0, 175, 102); padding-right: 40px; top: none">
         <i class="iziModal-header-icon icon-check"></i>
-            <div class="iziModal-progressbar">
-                <div style="background-color: rgba(255, 255, 255, 0.5); width: 0%;">
-                </div>
+        <div class="iziModal-progressbar">
+            <div style="background-color: rgba(255, 255, 255, 0.5); width: 0%;">
             </div>
-            <div class="iziModal-header-title" style="font-size: 1; line-height: 4; margin-left: 1em">Your messages have been sent successfully!</div>
-                <p class="iziModal-header-subtitle"></p>
-            <div class="iziModal-header-buttons">
-                <a href="javascript:void(0)" class="iziModal-button iziModal-button-close" data-izimodal-close=""></a>
-            </div>
+        </div>
+        <div class="iziModal-header-title" style="font-size: 1; line-height: 4; margin-left: 1em">Your messages have been sent successfully!</div>
+        <p class="iziModal-header-subtitle"></p>
+        <div class="iziModal-header-buttons">
+            <a href="javascript:void(0)" class="iziModal-button iziModal-button-close" data-izimodal-close=""></a>
+        </div>
     </div>
 
     <!-- Modal for Login -->
@@ -341,15 +343,15 @@
                                 <form class="form-horizontal" id="modal-login-form">
                                     <div class="form-group">
                                         <label for="email" class="col-sm-2 control-label">Email</label>
-                                            <div class="col-sm-12">
-                                                <input type="email" class="form-control" id="email1" placeholder="Email" />
-                                            </div>
+                                        <div class="col-sm-12">
+                                            <input type="email" class="form-control" id="email1" placeholder="Email" />
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password1" class="col-sm-2 control-label">Password</label>
-                                            <div class="col-sm-12">
-                                                <input type="password" class="form-control" id="password1" placeholder="Password" />
-                                            </div>
+                                        <div class="col-sm-12">
+                                            <input type="password" class="form-control" id="password1" placeholder="Password" />
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-2"></div>
@@ -366,27 +368,27 @@
                                 <form class="form-horizontal" id="modal-login-form">
                                     <div class="form-group">
                                         <label for="name-input" class="col-sm-2 control-label">Name</label>
-                                            <div class="col-sm-12">
-                                                <input type="text" class="form-control" id="name-input" placeholder="Name" />
-                                            </div>
+                                        <div class="col-sm-12">
+                                            <input type="text" class="form-control" id="name-input" placeholder="Name" />
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="email" class="col-sm-2 control-label">Email</label>
-                                            <div class="col-sm-12">
-                                                <input type="email" class="form-control" id="email" placeholder="Email" />
-                                            </div>
+                                        <div class="col-sm-12">
+                                            <input type="email" class="form-control" id="email" placeholder="Email" />
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="col-sm-2 control-label">Password</label>
-                                            <div class="col-sm-12">
-                                                <input type="password" class="form-control" id="password" placeholder="Password (6-character minimum)" />
-                                            </div>
+                                        <div class="col-sm-12">
+                                            <input type="password" class="form-control" id="password" placeholder="Password (6-character minimum)" />
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="password-confirm" class="col-sm-2 control-label">Confirm</label>
-                                            <div class="col-sm-12">
-                                                <input type="password" class="form-control" id="password-confirm" placeholder="Confirm Password" />
-                                            </div>
+                                        <div class="col-sm-12">
+                                            <input type="password" class="form-control" id="password-confirm" placeholder="Confirm Password" />
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-2"></div>
@@ -428,12 +430,12 @@
     <script rel="stylesheet" type="text/css" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"></script>
     <!-- Link access to the style.css file - if any would be applied. -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-  
+
     <!-- Footer -->
     <div class="card-body" id="footer">
-        <p>First project for University of Minnesota coding bootcamp.
-        © 2018 MyShindig. All rights reserved.</p>
+        <p>First project for University of Minnesota coding bootcamp. © 2018 MyShindig. All rights reserved.</p>
     </div>
 
 </body>
+
 </html>
