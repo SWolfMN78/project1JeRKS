@@ -463,7 +463,9 @@ $(document).ready(function() {
     $("#eventSelector").on("change", function() {
         $("#emailAttendeeSelector").removeAttr("disabled");
         $(".cAttendeeInfo > select").empty();
+        $("#emailAttendeeSelector").append("<option>" + "Choose..." + "</option>");
         $("#courseSelection01").empty();
+        $("#courseSelection01").append("<option>" + "Choose..." + "</option>");
         var key = $("option:selected", this).attr("key");
 
         var dataRef = firebase.database().ref('Events');
@@ -482,14 +484,39 @@ $(document).ready(function() {
                 return;
             }
         });
-
-
-        // var dataRef2 = firebase.database().ref('Events/' + key);
-        // dataRef2.on('child_added', function(childSnapshot2) {
-        //     var atdGuestEml = childSnapshot2.val().guestEmails;
-
-        //     $(".cAttendeeInfo > select").append("<option>" + atdGuestEml + "</option>");
-        // });
-
     });
+
+    $("#courseSelection01").on("change", function() {
+        $("#dishSelection01").empty();
+        $("#dishSelection01").append("<option>" + "Choose..." + "</option>");
+
+        if ($("#courseSelection01").val() === "Appetizer") {
+            $("#dishSelection01").append("<option>" + "Potato Skins" + "</option>");
+        }
+        if ($("#courseSelection01").val() === "Main Course") {
+            $("#dishSelection01").append("<option>" + "Sloppy Joes" + "</option>");
+        }
+        if ($("#courseSelection01").val() === "Salad") {
+            $("#dishSelection01").append("<option>" + "Ceaser Salad" + "</option>");
+        }
+        if ($("#courseSelection01").val() === "Breads") {
+            $("#dishSelection01").append("<option>" + "Sour Dough" + "</option>");
+        }
+        if ($("#courseSelection01").val() === "Soup") {
+            $("#dishSelection01").append("<option>" + "Tomato Basil" + "</option>");
+        }
+        if ($("#courseSelection01").val() === "Beverages") {
+            $("#dishSelection01").append("<option>" + "Soda" + "</option>");
+        }
+        if ($("#courseSelection01").val() === "Cocktails") {
+            $("#dishSelection01").append("<option>" + "Vodka Tonic" + "</option>");
+        }
+        if ($("#courseSelection01").val() === "Desert") {
+            $("#dishSelection01").append("<option>" + "Key Lime Pie" + "</option>");
+        }
+        if ($("#courseSelection01").val() === "Apertifs") {
+            $("#dishSelection01").append("<option>" + "Dubonnet???" + "</option>");
+        }
+    });
+
 });
