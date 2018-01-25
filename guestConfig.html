@@ -87,41 +87,30 @@
     </div>
 
     <!--  Guest Page Main Content -->
+    <!-- Host and event selection -->
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <h4 id="guest-invite-header">
-                    Please select your host below and select what you'll be bringing to the event.
-                </h4>
+        <h3 id="detail-header">Select your host and event from the dropdown menu</h3>
+            <div class="input-group mb-1 cHostInfomation">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="eventSelector">Host Name</label>
+                </div>
+                <select class="custom-select" id="eventSelector">
+                    <option selected>Choose...</option>
+                </select>
             </div>
-        </div>
-    </div>
-
-    <!-- -->
-    <div class="container">
-        <h3 id="detail-header">Please select your host and event from the dropdown menu</h3>
-        <!--  -->
-        <div class="input-group mb-1 cHostInfomation">
-            <div class="input-group-prepend">
-                <label class="input-group-text" for="eventSelector">Host Name</label>
-            </div>
-            <select class="custom-select" id="eventSelector">
-                        <option selected>Choose...</option>
-                    </select>
-        </div>
     </div>
 
     <!-- Email select after open up after the user picks their event -->
     <div class="container">
-        <h3 id="detail-header">Please select your email from the dropdown list</h3>
-        <div class="input-group mb-1 cAttendeeInfo">
-            <div class="input-group-prepend">
-                <label class="input-group-text" for="emailAttendeeSelector">Your Email</label>
-            </div>
-            <select disabled class="custom-select" id="emailAttendeeSelector">
+        <h3 id="detail-header">Select your email from the dropdown list</h3>
+            <div class="input-group mb-1 cAttendeeInfo">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="emailAttendeeSelector">Your Email</label>
+                </div>
+                <select disabled class="custom-select" id="emailAttendeeSelector">
                         <option selected>Choose...</option>
-                    </select>
-        </div>
+                </select>
+            </div>
     </div>
 
     <div class="container">
@@ -133,7 +122,6 @@
                 <label class="input-group-text" for="courseSelection01">Courses</label>
             </div>
             <select class="custom-select" id="courseSelection01">
-
             </select>
         </div>
         <div class="input-group mb-1">
@@ -141,15 +129,13 @@
                 <label class="input-group-text" for="dishSelection01">Dishes</label>
             </div>
             <select class="custom-select" id="dishSelection01">
-                </select>
+            </select>
         </div>
     </div>
 
-
-
     <div class="container">
         <div class="row text-center">
-            <div class="col-sm">
+            <div class="col-sm" id="guestpage-buttons">
                 <a class="btn btn-primary text-white" role="button" id="guest-response-accept">I Will Be There!</a>
                 <a class="btn btn-danger text-white" role="button" id="guest-response-decline">I Cannot Attend</a>
             </div>
@@ -168,7 +154,6 @@
             </div>
             <!--Empty div for recipes from Yummly to populate into-->
             <div class="col-sm-8" id="recipe-suggestions">
-                <p>DIV for recipe suggestions</p>
             </div>
         </div>
     </div>
