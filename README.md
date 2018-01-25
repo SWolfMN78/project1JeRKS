@@ -1,5 +1,5 @@
 # project1JeRKS
-This is a demo web applciation built as a group project created for a Full Stack JavaScript Coding Boot. The actual Application name is called MyShindig.
+This is a demo web application built as a group project created for a Full Stack JavaScript Coding Boot. The actual Application name is called MyShindig.
 
 MyShindig is a mult-user potluck/event organizing application, where the host sets up an event, invites guests, plans menus, and so forth.
 
@@ -14,7 +14,7 @@ The main technologies used are [Firebase](https://firebase.google.com/), [jQuery
 
 The goal of the app is to be able to plan any type of event. For the initial development, we have focused on potluck events to demonstrate the app.
 
-The application is lets an Event Host SignUp/Login, and create an event. The event could have a theme (different types of food, eventually would be expanded), a specific food-course, date/address, and guest email addresses associated with it.
+The application lets an event-host SignUp/Login, and then create an event. The event could have a theme (different types of food, eventually would be expanded), a specific food-course, date/address, and guest email addresses associated with it.
 
 It should also let users and guests view the menu's event and select what dishes they are bringing.
 
