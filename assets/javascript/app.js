@@ -161,9 +161,9 @@ var logoutCallback = function() {
 //     var hRegion = $("#region").val().trim();
 //     var hzip = $("#postal-code").val().trim();
 //     var hTheme = $("#inputGroupSelect01 option:selected").val().trim();
-//     var hCourse = $("#inputGroupSelect02 option:selected").val().trim();
+//     var hCourse = $("#inputGroupSelect03 option:selected").val().trim();
 //     var hCourseAmounts = $("#inputGroupSelect03 option:selected").val().trim();
-//     var hEventAttire = $("#inputGroupSelect04 option:selected").val().trim();
+//     var hEventAttire = $("#inputGroupSelect02 option:selected").val().trim();
 
 //     //return an element of false
 //     if (hFullName === "" || hAddLine1 === "" || hAddLine2 === "" ||
@@ -226,9 +226,9 @@ $(document).ready(function() {
         var hRegion = $("#region").val().trim();
         var hzip = $("#postal-code").val().trim();
         var hTheme = $("#inputGroupSelect01").val().trim();
-        var hEventAttire = $("#inputGroupSelect04").val().trim();
+        var hEventAttire = $("#inputGroupSelect02").val().trim();
         var hCourse = [];
-        $("#inputGroupSelect02 option:selected").each(function() {
+        $("#inputGroupSelect03 option:selected").each(function() {
             hCourse.push($(this).text());
         });
         var hEventTime = $("#time").val().trim();
@@ -279,6 +279,12 @@ $(document).ready(function() {
         $("#city").val("");
         $("#region").val("");
         $("#postal-code").val("");
+        $("#date").val("");
+        $("#time").val("");
+        //this needs to be checked into to be fixed.
+        $("#inputGroupSelect01 option:selected").prop("selected", false);
+        $("#inputGroupSelect02 option:selected").prop("selected", false);
+        $("#inputGroupSelect03 option:selected").prop("selected", false);
 
         // $("#initial-form").hide()
         // $("#guests-email-form").show();
@@ -424,22 +430,66 @@ $(document).ready(function() {
     });
 
     //get the information from the DBA and apply it to the different fields for use.
-    database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+    // database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+    //     debugger
+    //     //push the information into variables.
+    //     var atdCourse = childSnapshot.val();
+    //     var atdGuestEml = childSnapshot.val().guestEmails;
+    //     var atdHostName = childSnapshot.val().name;
+    //     var atdEventTime = childSnapshot.val().time;
+    //     var atdEventDate = childSnapshot.val().date;
+    //     var atdDishInfo = childSnapshot.val()
 
-        //push the information into variables.
-        var atdCourse = childSnapshot.val();
-        var atdGuestEml = childSnapshot.val().guestEmails;
+    //     //push the information into the guest drop down list.
+    //     $(".cHostInfomation > select").append("<option>" + atdHostName + "</option>");
+
+    //     //push the information into the table.
+
+    // });
+
+    var dataRef = firebase.database().ref('Events');
+    dataRef.on('child_added', function(childSnapshot) {
+        //alert(data.val().name);
+
         var atdHostName = childSnapshot.val().name;
-        var atdEventTime = childSnapshot.val().time;
         var atdEventDate = childSnapshot.val().date;
-        var atdDishInfo = childSnapshot.val()
-
-        //push the information into the guest drop down list.
-        $(".cHostInfomation > select").append("<option>" + atdHostName + "</option>");
-
-        //push the information into the table.
-
+        var atdEventTime = childSnapshot.val().time;
+        var atdGuestEml = childSnapshot.val().guestEmails;
+        var atKey = childSnapshot.key;
+        $(".cHostInfomation > select").append("<option key='" + atKey + "'>" + atdHostName + ", " + atdEventDate + " @ " + atdEventTime + "</option>");
+        //$(".cHostInfomation > select").append("<option key='" + atKey + "'>" + atKey + "</option>");
     });
 
+    $("#eventSelector").on("change", function() {
+        $("#emailAttendeeSelector").removeAttr("disabled");
+        $(".cAttendeeInfo > select").empty();
+        $("#courseSelection01").empty();
+        var key = $("option:selected", this).attr("key");
 
-})
+        var dataRef = firebase.database().ref('Events');
+        dataRef.on('child_added', function(childSnapshot) {
+            var atdGuestEml = childSnapshot.val().guestEmails;
+            var atKey = childSnapshot.key;
+            var sltCourse = childSnapshot.val().course;
+
+            if (atKey === key) {
+                $(atdGuestEml).each(function(index, data) {
+                    $(".cAttendeeInfo > select").append("<option>" + data + "</option>");
+                })
+                $(sltCourse).each(function(index, data) {
+                    $("#courseSelection01").append("<option>" + data + "</option>");
+                })
+                return;
+            }
+        });
+
+
+        // var dataRef2 = firebase.database().ref('Events/' + key);
+        // dataRef2.on('child_added', function(childSnapshot2) {
+        //     var atdGuestEml = childSnapshot2.val().guestEmails;
+
+        //     $(".cAttendeeInfo > select").append("<option>" + atdGuestEml + "</option>");
+        // });
+
+    });
+});
