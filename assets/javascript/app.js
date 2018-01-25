@@ -24,62 +24,68 @@ var database = firebase.database();
 
 // $("#menu-table tbody course-item").
 
+function getEventIDFromURL() {
+    var eventID ;
+    var regEx = /.*guestConfig\.html\?eventID=([a-zA-Z0-9\-]{5,})/
+    if (document.URL.match(regEx)) {
+        eventID = document.URL.replace(regEx, "$1");
+    }
+    return eventID;
+}
+
+
+// ****** Helper functions for menu page
+function appendDishToMenu(dish) {
+    for (var key in dish) {
+        console.log ("key" , key, ", item ", dish[key])
+    }
+    var rowhtml = [dish.course, dish.dish, dish.attendee].map(val => "<td>" + val + "</td>").join("");
+    $("#menu-table tbody").append($("<tr>").append(rowhtml));
+}
+
 
 //Fill in Menu
-function fillInMenuTable(user) {
+function fillInMenuTable(user, eventID) {
     // right now, we are just gettting all the events, and for each event, if it belongs to the user, or, the it is an event where the user guest, display data.
-    database.ref("Events").on("value", function(snapshot) {
-        $("#menu-table tbody").empty();
-        var events = snapshot.val();
-        console.log("events", events)
-        for (var eventID in events) {
-            var event = events[eventID];
-            console.log("user uid", user.uid, "event userID", event.userID, "email", user.email)
-            if (event.userID === user.uid || (event.guestEmails && event.guestEmails.indexOf(user.email) >= 0)) {
-                console.log("event", event);
-                // add data for each guest from this event
-                if (!event.guestEmails || event.guestEmails.length < 1) {
-                    var row = $("<tr>").html("<td>No guest data for event " + event.uid + "</td>")
-                    $("#menu-table tbody").append(row)
 
-                } else {
-                    event.guestEmails.forEach(function(guest) {
-                        // create row in table for each guest with what they're bringing.
-                        // We haven't clearly defined a data setup for this yet.
-                        var course = "sample course" // get course
-                        var dish = "sample dish" // get dish
-                        var guestName = ""
-                        var displayName = guestName || guest
-                        var courseTD = $("<td>").append($("<select>").addClass("custom-select course-item").attr('id', "couse-item-" + guest).html('<option selected>Choose...</option> <option value="1">Appetizer</option> <option value="2">Main Course</option> <option value="3">Salad</option> <option value="4">Breads</option> <option value="5">Soup</option> <option value="6">Beverages</option> <option value="7">Cocktails</option> <option value="8">Desert</option> <option value="9">Apertifs</option>'))
-                            // courseTD.val(4);
-                        var dishTD = $("<td>").html("no dish yet")
+    // if there  is an eventID stored in localStorage, show eventData for that event
+    console.log("user", user, "eventID", eventID)
+    if (eventID) {
+        database.ref("Events").child(localStorage.eventID + "/dishes").on("child_added", function(dishSnapshot) {
 
-                        var nameTD = $('<td>').text(displayName)
-                            // var row = $("<tr>").html("<td class='course-item'>" + course +" </td><td class='dish-item'>" + dish +" </td><td>" + displayName +" </td>")
-                        var row = $("<tr>").append(courseTD, dishTD, nameTD)
-                        $("#menu-table tbody").append(row)
-
-                    })
+            appendDishToMenu(dishSnapshot.val());
+        })
+    }
+    // if a user is signed in, show the events that the user is a host for or a guest at.
+    else if (user) {
+        console.log("hey0")
+        database.ref("Events").on("value", function(snapshot) {
+            var events = snapshot.val();
+            for (var eventID in events) {
+                var event = events[eventID];
+                if (event.userID === user.uid || (event.guestEmails && Array.isArray(event.guestEmails) && event.guestEmails.indexOf(user.email) > -1)) {
+                    for (var key in event.dishes) {
+                        appendDishToMenu(event.dishes[key]);
+                    }
                 }
             }
-        }
-    })
+
+        })
+    }
 }
 
-function getEventDataOfUser(user) {
 
-}
-
-//Authentication Functions
+//Authentication helper Functions
 function authChangeCallback(user) {
     if (user) {
         console.log("detected change in auth user state. User is signed in.")
             // User is signed in.
-        $("#user-login-logoff").text("Logoff")
+        $("#user-login-logoff").text("Logoff " + firebase.auth().currentUser.displayName)
+        if (localStorage.eventID ) localStorage.removeItem("eventID");
+        if (localStorage.guestEmail) localStorage.removeItem("guestEmail");
             // if on the menu page (menu-table exists),  populate table for user's event firebasse listener
         if ($("#menu-table").length > 0) {
             console.log("trying to fill menu-table")
-            var userID = user.uid;
             fillInMenuTable(user)
         }
 
@@ -90,6 +96,17 @@ function authChangeCallback(user) {
         if (("#modal-authenticate").length) {
             $("#modal-authenticate").iziModal("close");
         }
+        // try to fill menu in data with guest email address
+        // var userEmail = localStorage.guestEmail;
+        if (localStorage.eventID) {
+            var user = {
+                uid: undefined,
+                email: localStorage.guestEmail
+            }
+            console.log(user, localStorage.eventID)
+            fillInMenuTable(user, localStorage.eventID)
+        }
+
     }
 }
 
@@ -181,7 +198,11 @@ var logoutCallback = function() {
 
 $(document).ready(function() {
 
-    var eventData = {}
+    // if the page was loaded by a guest user with an eventID appended to the URL, we should get this.
+    var eventID = getEventIDFromURL();
+    if (!firebase.auth().currentUser && typeof eventID ===  "string") {
+        localStorage.eventID = eventID;
+    }
 
     //Initialize Modals
     if ($("#guests-email-form").length > 0) {
@@ -207,6 +228,9 @@ $(document).ready(function() {
     set the control to add the information when clicked
     then display the info back for verification.
     */
+
+    var eventData = {}
+
 
     $("#invite-guest-button").on("click", function(event) {
         event.preventDefault();
@@ -238,8 +262,8 @@ $(document).ready(function() {
         var eventItemInfo = hFullName + ", " + hEventDate + ", " + hEventTime;
 
         //Updates host name on guest page
-        $("#guest-invite-header").text("You've been invited to a party at " + hFullName + "'s house.");
-        $("#choose-course-header").text("Pick a course to share at " + hFullName + "'s party.");
+        // $("#guest-invite-header").text("You've been invited to a party at " + hFullName + "'s house.");
+        // $("#choose-course-header").text("Pick a course to share at " + hFullName + "'s party.");
 
         //information to be pressed into the database.
         var newEntry = {
@@ -447,18 +471,31 @@ $(document).ready(function() {
 
     // });
 
-    var dataRef = firebase.database().ref('Events');
-    dataRef.on('child_added', function(childSnapshot) {
-        //alert(data.val().name);
+    // check to see if we are on guestConfig.html  (basically, that page has #eventSelector and #emailAttendeeSelector)
+    if ($("#eventSelector").length > 0 && $("#emailAttendeeSelector").length > 0) {
+        var dataRef = firebase.database().ref('Events');
+        dataRef.on('child_added', function(childSnapshot) {
+            //alert(data.val().name);
 
-        var atdHostName = childSnapshot.val().name;
-        var atdEventDate = childSnapshot.val().date;
-        var atdEventTime = childSnapshot.val().time;
-        var atdGuestEml = childSnapshot.val().guestEmails;
-        var atKey = childSnapshot.key;
-        $(".cHostInfomation > select").append("<option key='" + atKey + "'>" + atdHostName + ", " + atdEventDate + " @ " + atdEventTime + "</option>");
-        //$(".cHostInfomation > select").append("<option key='" + atKey + "'>" + atKey + "</option>");
-    });
+            var atdHostName = childSnapshot.val().name;
+            var atdEventDate = childSnapshot.val().date;
+            var atdEventTime = childSnapshot.val().time;
+            var atdGuestEml = childSnapshot.val().guestEmails;
+            var atKey = childSnapshot.key;
+            var selectEvent = (localStorage.eventID === atKey)
+            console.log("select event " , atKey, selectEvent)
+            $(".cHostInfomation > select").append("<option key='" + atKey + "'" + (selectEvent ? "selected" : ""    ) + ">" + atdHostName + ", " + atdEventDate + " @ " + atdEventTime + "</option>");
+            //$(".cHostInfomation > select").append("<option key='" + atKey + "'>" + atKey + "</option>");
+            if (selectEvent) {
+                $("#eventSelector").trigger("change");
+                $("#guest-invite-header").text("You've been invited to a party at " + atdHostName + "'s house.");
+                $("#choose-course-header").text("Pick a course to share at " + atdHostName + "'s party.");
+            }
+        });
+
+    }
+
+
 
     $("#eventSelector").on("change", function() {
         $("#emailAttendeeSelector").removeAttr("disabled");
@@ -468,55 +505,111 @@ $(document).ready(function() {
         $("#courseSelection01").append("<option>" + "Choose..." + "</option>");
         var key = $("option:selected", this).attr("key");
 
+        if (key !== eventID) {
+            eventID = key;
+            localStorage.eventID = key;
+            var regEx = /(.*guestConfig\.html)\?eventID=[a-zA-Z0-9\-]{5,}/
+            if (document.URL.match(regEx) ) {
+                // window.history.pushState(null, "Guest Response", document.URL.replace(regEx, "$1"));
+
+            }
+        }
+
+
+
         var dataRef = firebase.database().ref('Events');
-        dataRef.on('child_added', function(childSnapshot) {
+        dataRef.child(key).on('value', function(childSnapshot) {
             var atdGuestEml = childSnapshot.val().guestEmails;
             var atKey = childSnapshot.key;
             var sltCourse = childSnapshot.val().course;
-
-            if (atKey === key) {
-                $(atdGuestEml).each(function(index, data) {
-                    $(".cAttendeeInfo > select").append("<option>" + data + "</option>");
-                })
-                $(sltCourse).each(function(index, data) {
-                    $("#courseSelection01").append("<option>" + data + "</option>");
-                })
-                return;
-            }
+            $(atdGuestEml).each(function(index, data) {
+                $(".cAttendeeInfo > select").append("<option>" + data + "</option>");
+            })
+            $(sltCourse).each(function(index, data) {
+                $("#courseSelection01").append("<option>" + data + "</option>");
+            })
         });
     });
+
+    dishOptions = {
+        "Appetizer" : ["Potato Skins", "Hummus", "Cut Vegetables", "Crackers"],
+        "Main Course" : ["Sloppy Joes", "Lasagna", "Pizza"],
+        "Salad" : ["Ceasar Salad", "A Big Salad", "Potato Salad"],
+        "Breads" : ["Sour Dough", "Whole Wheat", "Pumpernickel"],
+        "Soup" : ["Tomoto Basil", "Mulligatawny"],
+        "Beverages" : ["Soda", "Sparkling Water"],
+        "Cocktails": ["Vodka Tonic"],
+        "Dessert": ["Key  Lime Pie", "Brownies"],
+        "Apertifs": ["Dubonnet"]
+    }
+
 
     $("#courseSelection01").on("change", function() {
         $("#dishSelection01").empty();
         $("#dishSelection01").append("<option>" + "Choose..." + "</option>");
 
-        if ($("#courseSelection01").val() === "Appetizer") {
-            $("#dishSelection01").append("<option>" + "Potato Skins" + "</option>");
+        // the dish selection menu will populate programatically using the above 'dishOptions' object, which we could modify with data from firebase/elsewhere
+        if (dishOptions[$("#courseSelection01").val()]) {
+            dishOptions[$("#courseSelection01").val()].forEach(function(dish) {
+                $("#dishSelection01").append("<option>" + dish + "</option>");
+            })
         }
-        if ($("#courseSelection01").val() === "Main Course") {
-            $("#dishSelection01").append("<option>" + "Sloppy Joes" + "</option>");
+        else {
+            // This should't run anymore. The dish selector is populated programatically above
+            if ($("#courseSelection01").val() === "Appetizer") {
+                $("#dishSelection01").append("<option>" + "Potato Skins" + "</option>");
+            }
+            if ($("#courseSelection01").val() === "Main Course") {
+                $("#dishSelection01").append("<option>" + "Sloppy Joes" + "</option>");
+            }
+            if ($("#courseSelection01").val() === "Salad") {
+                $("#dishSelection01").append("<option>" + "Ceaser Salad" + "</option>");
+            }
+            if ($("#courseSelection01").val() === "Breads") {
+                $("#dishSelection01").append("<option>" + "Sour Dough" + "</option>");
+            }
+            if ($("#courseSelection01").val() === "Soup") {
+                $("#dishSelection01").append("<option>" + "Tomato Basil" + "</option>");
+            }
+            if ($("#courseSelection01").val() === "Beverages") {
+                $("#dishSelection01").append("<option>" + "Soda" + "</option>");
+            }
+            if ($("#courseSelection01").val() === "Cocktails") {
+                $("#dishSelection01").append("<option>" + "Vodka Tonic" + "</option>");
+            }
+            if ($("#courseSelection01").val() === "Desert") {
+                $("#dishSelection01").append("<option>" + "Key Lime Pie" + "</option>");
+            }
+            if ($("#courseSelection01").val() === "Apertifs") {
+                $("#dishSelection01").append("<option>" + "Dubonnet???" + "</option>");
+            }
+
         }
-        if ($("#courseSelection01").val() === "Salad") {
-            $("#dishSelection01").append("<option>" + "Ceaser Salad" + "</option>");
-        }
-        if ($("#courseSelection01").val() === "Breads") {
-            $("#dishSelection01").append("<option>" + "Sour Dough" + "</option>");
-        }
-        if ($("#courseSelection01").val() === "Soup") {
-            $("#dishSelection01").append("<option>" + "Tomato Basil" + "</option>");
-        }
-        if ($("#courseSelection01").val() === "Beverages") {
-            $("#dishSelection01").append("<option>" + "Soda" + "</option>");
-        }
-        if ($("#courseSelection01").val() === "Cocktails") {
-            $("#dishSelection01").append("<option>" + "Vodka Tonic" + "</option>");
-        }
-        if ($("#courseSelection01").val() === "Desert") {
-            $("#dishSelection01").append("<option>" + "Key Lime Pie" + "</option>");
-        }
-        if ($("#courseSelection01").val() === "Apertifs") {
-            $("#dishSelection01").append("<option>" + "Dubonnet???" + "</option>");
-        }
+
     });
 
+    $("#guest-response-accept").on("click", function(event) {
+        event.preventDefault();
+        var eventID = $("#eventSelector option:selected").attr("key");
+        var guestEmail = $("#emailAttendeeSelector").val()
+        var course = $("#courseSelection01").val()
+        var dish = $("#dishSelection01").val()
+        if ([eventID, course, guestEmail, dish].every(attr => typeof attr === "string")) {
+            // var eventRef = database.ref("Events").child(key + "/dishes")
+            database.ref("Events").child(eventID + "/dishes").push({
+                "attendee": guestEmail,
+                "course" :course,
+                "dish": dish
+            })
+        }
+        console.log(eventID, guestEmail, dish)
+
+    })
+
+    $("#emailAttendeeSelector").on("change", function(event) {
+        var guestEmail = $("#emailAttendeeSelector").val();
+        if (guestEmail) {
+            localStorage.guestEmail = guestEmail.trim();
+        }
+    })
 });
