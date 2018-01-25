@@ -87,7 +87,9 @@ function authChangeCallback(user) {
         console.log("detected change in auth user state. User is signed out.")
             // No user is signed in.
         $("#user-login-logoff").text("Login");
-        $("#modal-authenticate").iziModal("close");
+        if (("#modal-authenticate").length) {
+            $("#modal-authenticate").iziModal("close");
+        }
     }
 }
 
@@ -185,9 +187,14 @@ $(document).ready(function() {
     if ($("#guests-email-form").length > 0) {
         $("#guests-email-form").iziModal({ headerColor: "#1a1a1a", "overlay": false, "overlayClose": false });
     }
-    $("#alert-modal").iziModal({ top: null, bottom: 0, background: "#19647E" });
-    $("#alert-modal").iziModal({ background: "#19647E" });
-    $("#modal-authenticate").iziModal();
+    if ($("#alert-modal").length > 0) {
+        $("#alert-modal").iziModal({ top: null, bottom: 0, background: "#19647E" });
+        $("#alert-modal").iziModal({ background: "#19647E" });
+
+    }
+    if ($("#modal-authentication").length > 0) {
+        $("#modal-authenticate").iziModal();
+    }
     // $("#modal-authenticate").iziModal('close');
     // $('#user-login-logoff').on("click", function(event) {
     //     event.preventDefault();
@@ -392,7 +399,9 @@ $(document).ready(function() {
     $("#user-login-logoff").on("click", function(event) {
         if (!firebase.auth().currentUser) {
             // no user is logged in. Show login/registration modal
-            $("#modal-authenticate").iziModal("open");
+            if ($("#modal-authenticate").length > 0) {
+                $("#modal-authenticate").iziModal("open");
+            }
 
         } else {
             // there is a user logged in. Log them off.
@@ -400,7 +409,9 @@ $(document).ready(function() {
                 // app.removeFirebaseListeners()
                 // Sign-out successful.
                 logoutCallback();
-                $("#modal-authenticate").iziModal("close")
+                if ($("#modal-authenticate").length > 0) {
+                    $("#modal-authenticate").iziModal("close")
+                }
 
                 // $("#alert-modal").iziModal("open");
                 console.log("Sign-out successful")
