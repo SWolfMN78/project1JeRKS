@@ -22,6 +22,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.js"></script>
     <!--google fonts -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito+Sans" />
+    <!-- Izimodal modal library-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css" integrity="sha384-twsqDCMYZktKK4KMv8cXDnLhBCVchPMuxLKKh1azoa3vn5nKRF/8PK4GmIgD0JaW" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js" integrity="sha384-OCBM5wbr9X4XRMO0UcgNtJrfDZz4bo4c6PDZrxVN8zLSn6/B0CKZ/RUBRDDVqgt4" crossorigin="anonymous"></script>
     <!-- responsive meta tag-->
@@ -88,10 +89,10 @@
 
     <!--  Guest Page Main Content -->
 
-    <!--Giest chooses their event -->
+    <!--Guest chooses their event -->
     <div class="container">
         <h3 id="detail-header">Please select your host and event from the dropdown menu</h3>
-        <!--  -->
+        <!-- Choose who invited you -->
         <div class="input-group mb-1 cHostInfomation">
             <div class="input-group-prepend">
                 <label class="input-group-text" for="eventSelector">Host Name</label>
@@ -124,20 +125,21 @@
                 <label class="input-group-text" for="courseSelection01">Courses</label>
             </div>
             <select class="custom-select" id="courseSelection01">
-
             </select>
         </div>
+
+    <!-- Choose from recommended dishes-->
         <div class="input-group mb-1">
             <div class="input-group-prepend">
                 <label class="input-group-text" for="dishSelection01">Dishes</label>
             </div>
             <select class="custom-select" id="dishSelection01">
-                </select>
+            </select>
         </div>
     </div>
 
 
-
+    <!-- RSVP -->
     <div class="container">
         <div class="row text-center">
             <div class="col-sm">
@@ -190,8 +192,8 @@
                             <a class="nav-item nav-link active" id="nav-login-tab" data-toggle="tab" href="#nav-login" role="tab" aria-controls="nav-login" aria-selected="true">Login</a>
                             <a class="nav-item nav-link" id="nav-registration-tab" data-toggle="tab" href="#nav-registration" role="tab" aria-controls="nav-registration" aria-selected="false">Registration</a>
                         </div>
+                        <!-- Login Panel -->
                         <div class="tab-content" id="nav-tabContent">
-                            <!-- Login Panel -->
                             <div class="tab-pane fade show active" id="nav-login" role="tabpanel" aria-labelledby="nav-login-tab">
                                 <form class="form-horizontal" id="modal-login-form">
                                     <div class="form-group">
@@ -279,12 +281,14 @@
         <p>First project for University of Minnesota coding bootcamp. © 2018 MyShindig. All rights reserved.</p>
     </div>
 
-    <!-- Link for Javascripting information -->
+    <!-- Our Email class library for interacting with smtp2g.com api (email.js) and main app (app.js) -->
     <script src="assets/javascript/email.js"></script>
+    <!-- Main javascript file-->
     <script src="assets/javascript/app.js"></script>
+    <!-- API .js file-->
     <script src="assets/javascript/api.js"></script>
-    <!-- Link access to the style.css file - if any would be applied. -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <!-- local CSS stylesheet-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 </body>
 
