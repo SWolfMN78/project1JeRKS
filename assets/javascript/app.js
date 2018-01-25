@@ -25,7 +25,7 @@ var database = firebase.database();
 // $("#menu-table tbody course-item").
 
 
-//Fill in Menu 
+//Fill in Menu
 function fillInMenuTable(user) {
     // right now, we are just gettting all the events, and for each event, if it belongs to the user, or, the it is an event where the user guest, display data.
     database.ref("Events").on("value", function(snapshot) {
@@ -87,7 +87,9 @@ function authChangeCallback(user) {
         console.log("detected change in auth user state. User is signed out.")
             // No user is signed in.
         $("#user-login-logoff").text("Login");
-        $("#modal-authenticate").iziModal("close");
+        if (("#modal-authenticate").length) {
+            $("#modal-authenticate").iziModal("close");
+        }
     }
 }
 
@@ -163,7 +165,7 @@ var logoutCallback = function() {
 //     var hCourseAmounts = $("#inputGroupSelect03 option:selected").val().trim();
 //     var hEventAttire = $("#inputGroupSelect02 option:selected").val().trim();
 
-//     //return an element of false 
+//     //return an element of false
 //     if (hFullName === "" || hAddLine1 === "" || hAddLine2 === "" ||
 //         hCity === "" || hRegion === "" || hzip === "") {
 //         alert("Bad bad");
@@ -185,9 +187,14 @@ $(document).ready(function() {
     if ($("#guests-email-form").length > 0) {
         $("#guests-email-form").iziModal({ headerColor: "#1a1a1a", "overlay": false, "overlayClose": false });
     }
-    $("#alert-modal").iziModal({ top: null, bottom: 0, background: "#19647E" });
-    $("#alert-modal").iziModal({ background: "#19647E" });
-    $("#modal-authenticate").iziModal();
+    if ($("#alert-modal").length > 0) {
+        $("#alert-modal").iziModal({ top: null, bottom: 0, background: "#19647E" });
+        $("#alert-modal").iziModal({ background: "#19647E" });
+
+    }
+    if ($("#modal-authenticate").length > 0) {
+        $("#modal-authenticate").iziModal();
+    }
     // $("#modal-authenticate").iziModal('close');
     // $('#user-login-logoff').on("click", function(event) {
     //     event.preventDefault();
@@ -257,7 +264,8 @@ $(document).ready(function() {
             newEntry.userID = currentUser.uid;
         }
 
-        console.log("newEntry", newEntry);
+
+        // console.log("newEntry", newEntry);
         //push the information up to the database.
         var eventSnapshot = database.ref("Events").push(newEntry);
 
@@ -309,12 +317,15 @@ $(document).ready(function() {
         database.ref("Events").child(eventData.eventID).update({
             guestEmails: eventData.guestEmails
         });
+        var senderInfo = "semlak0021@umn.edu"
 
-        var emailInfo = {
-            sender: "seml0021@umn.edu",
-            to: emails,
-            messageType: "invite"
-        }
+        var emailInfo = Object.assign({}, eventData);
+        emailInfo.sender = senderInfo;
+        emailInfo.messageType = "invite";
+        emailInfo.link = (document.URL.replace(/[a-zA-Z]{1,}\.html.*/, "") + "guestConfig.html?eventID="+ eventData.eventID)
+        emailInfo.to = emails;
+
+        console.log("emailInfo: ", emailInfo)
 
         var successCallback = function(data) {
             console.log("success sending emails!");
@@ -336,6 +347,8 @@ $(document).ready(function() {
             var email = new Email(emailInfo);
             email.send(successCallback, errorCallback)
         } catch (error) {
+            console.log("error")
+            console.log(error)
             errorCallback(error);
         }
     })
@@ -392,7 +405,9 @@ $(document).ready(function() {
     $("#user-login-logoff").on("click", function(event) {
         if (!firebase.auth().currentUser) {
             // no user is logged in. Show login/registration modal
-            $("#modal-authenticate").iziModal("open");
+            if ($("#modal-authenticate").length > 0) {
+                $("#modal-authenticate").iziModal("open");
+            }
 
         } else {
             // there is a user logged in. Log them off.
@@ -400,7 +415,9 @@ $(document).ready(function() {
                 // app.removeFirebaseListeners()
                 // Sign-out successful.
                 logoutCallback();
-                $("#modal-authenticate").iziModal("close")
+                if ($("#modal-authenticate").length > 0) {
+                    $("#modal-authenticate").iziModal("close")
+                }
 
                 // $("#alert-modal").iziModal("open");
                 console.log("Sign-out successful")

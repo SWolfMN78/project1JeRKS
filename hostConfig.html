@@ -15,7 +15,8 @@
     <!-- Moment link for time use **NOT IN USE YET **-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.js"></script>
     <!--google fonts -->
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nunito+Sans" />
+    <<<<<<< HEAD <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito+Sans" /> =======
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nunito+Sans" /> >>>>>>> 9e38107d977029bea498937bfbe4f46d182a0d41
     <!-- our modal library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css" integrity="sha384-twsqDCMYZktKK4KMv8cXDnLhBCVchPMuxLKKh1azoa3vn5nKRF/8PK4GmIgD0JaW" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js" integrity="sha384-OCBM5wbr9X4XRMO0UcgNtJrfDZz4bo4c6PDZrxVN8zLSn6/B0CKZ/RUBRDDVqgt4" crossorigin="anonymous"></script>
@@ -85,11 +86,18 @@
     <div class="container">
         <h3 id="detail-header">Choose your party details.</h3>
         <!-- Theme Selection -->
+        <<<<<<< HEAD <div class="input-group mb-1">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Theme</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+
         <div class="input-group mb-1">
             <div class="input-group-prepend">
                 <label class="input-group-text" for="inputGroupSelect01">Theme</label>
             </div>
             <select class="custom-select" id="inputGroupSelect01">
+
                         <option selected>Choose...</option>
                         <option value="1">American</option>
                         <option value="2">Asian</option>
@@ -106,14 +114,14 @@
                         <option value="13">French</option>
                         <option value="14">Game Day!</option>
                     </select>
-        </div>
+    </div>
 
-        <!--Attire Selection-->
-        <div class="input-group mb-1">
-            <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect02">Suggested Attire</label>
-            </div>
-            <select class="custom-select" id="inputGroupSelect02">
+    <!--Attire Selection-->
+    <div class="input-group mb-1">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect02">Suggested Attire</label>
+        </div>
+        <select class="custom-select" id="inputGroupSelect02">
                         <option selected>Choose...</option>
                         <option value="1">Formal</option>
                         <option value="2">Semi-Formal</option>
@@ -122,7 +130,8 @@
                         <option value="5">Theme Costume</option>
                         <option value="6">Game Day Jersey</option>
                     </select>
-        </div>
+    </div>
+
 
         <!-- Choose Which courses you want at your party Option Select -->
         <div class="input-group mb-1" id="courseSelect">
@@ -130,6 +139,7 @@
                 <label class="input-group-text" for="inputGroupSelect03" style="height: 190px;">Courses</label>
             </div>
             <select multiple class="custom-select" id="inputGroupSelect03" style="height: 190px;">
+
                     <option value="1">Appetizer</option>
                     <option value="2">Main Course</option>
                     <option value="3">Salad</option>
@@ -140,8 +150,8 @@
                     <option value="8">Desert</option>
                     <option value="9">Apertifs</option>
                 </select>
-        </div>
-        <p style="font-size: 10px; margin-bottom: 0px;">Hold down the Ctrl (windows) / Command (Mac) button to select multiple options.</p>
+    </div>
+    <p style="font-size: 10px; margin-bottom: 0px;">Hold down the Ctrl (windows) / Command (Mac) button to select multiple options.</p>
     </div>
 
     <!-- When is the party?-->
@@ -170,7 +180,7 @@
                             <div class="form-group">
                                 <!-- Date input -->
                                 <label class="control-label" for="date">Date</label>
-                                <input class="form-control" id="date" name="date" placeholder="MM/DD/YY" type="text" />
+                                <input class="form-control" id="date" name="date" placeholder="MM/DD/YY" type="date" />
                             </div>
                         </form>
                     </div>
@@ -254,7 +264,7 @@
             </div>
         </div>
     </div>
-    </div>
+
 
     <!--Button to submit invites-->
     <div class="container">
@@ -365,7 +375,7 @@
 
                             <!-- Registration Panel -->
                             <div class="tab-pane fade" id="nav-registration" role="tabpanel" aria-labelledby="nav-registration-tab">
-                                <form class="form-horizontal" id="modal-login-form">
+                                <form class="form-horizontal" id="modal-registration-form">
                                     <div class="form-group">
                                         <label for="name-input" class="col-sm-2 control-label">Name</label>
                                         <div class="col-sm-12">
