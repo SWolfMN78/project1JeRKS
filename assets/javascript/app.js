@@ -192,7 +192,7 @@ $(document).ready(function() {
         $("#alert-modal").iziModal({ background: "#19647E" });
 
     }
-    if ($("#modal-authentication").length > 0) {
+    if ($("#modal-authenticate").length > 0) {
         $("#modal-authenticate").iziModal();
     }
     // $("#modal-authenticate").iziModal('close');
